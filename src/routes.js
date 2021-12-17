@@ -24,9 +24,11 @@ import Cookies from 'js-cookie'
 import DashboardPage from "views/Dashboard/admin";
 import Dosen from "views/Dosen/admin/index";
 import Mahasiswa from "views/Mahasiswa/admin/admin";
-import MataKuliah from "views/MataKuliah/admin";
+import MataKuliah from "views/MataKuliah/admin/index";
 import Ujian from "views/Ujian/admin";
-import AdminProfile from "views/UserProfile/admin";
+import AdminProfile from "views/UserProfile/index";
+import SeksiAdmin from "views/KodeSeksi/admin";
+import AdminUserGuide from "views/Petunjuk/admin";
 
 const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
 
@@ -56,7 +58,15 @@ const adminRoutes = [
     layout: "/"+role,
   },
   {
-    path: "/matakuliah",
+    path: "/seksi-data",
+    name: "Manajemen Seksi Kuliah",
+    rtlName: "الرموز",
+    icon: "book_open_variant",
+    component: SeksiAdmin,
+    layout: "/"+role,
+  },
+  {
+    path: "/matakuliah-data",
     name: "Manajemen Mata Kuliah",
     rtlName: "الرموز",
     icon: "book_open_variant",
@@ -72,11 +82,11 @@ const adminRoutes = [
     layout: "/"+role,
   },
   {
-    path: "/user",
+    path: "/user-guide",
     name: "Petunjuk",
     rtlName: "ملف تعريفي للمستخدم",
     icon: "lan",
-    component: AdminProfile,
+    component: AdminUserGuide,
     layout: "/admin",
   },
 ];

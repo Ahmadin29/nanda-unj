@@ -17,12 +17,15 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/faces/avatar.png";
 import Cookies from "js-cookie";
-import AdminProfile from "views/UserProfile/admin";
+import AdminProfile from "views/UserProfile/index";
 import EditCalendarAdmin from "views/Calendar/admin/edit";
 import AddDosenAdmin from "views/Dosen/admin/add";
 import EditDosenAdmin from "views/Dosen/admin/edit";
 import AddMahasiswaAdmin from "views/Mahasiswa/admin/add";
 import EditMahasiswaAdmin from "views/Mahasiswa/admin/edit";
+import AddMataKuliahAdmin from "views/MataKuliah/admin/add";
+import DetailMatkulAdmin from "views/MataKuliah/admin/detail";
+import EditMataKuliahAdmin from "views/MataKuliah/admin/edit";
 
 let ps;
 
@@ -46,6 +49,9 @@ const switchRoutes = (
     <Route path="/admin/dosen/edit" component={EditDosenAdmin} />
     <Route path="/admin/mahasiswa/add" component={AddMahasiswaAdmin} />
     <Route path="/admin/mahasiswa/edit" component={EditMahasiswaAdmin} />
+    <Route path="/admin/matkul/add" component={AddMataKuliahAdmin} />
+    <Route path="/admin/matkul/detail" component={DetailMatkulAdmin} />
+    <Route path="/admin/matkul/edit" component={EditMataKuliahAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
   </Switch>
 );
