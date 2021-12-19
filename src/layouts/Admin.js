@@ -26,6 +26,9 @@ import EditMahasiswaAdmin from "views/Mahasiswa/admin/edit";
 import AddMataKuliahAdmin from "views/MataKuliah/admin/add";
 import DetailMatkulAdmin from "views/MataKuliah/admin/detail";
 import EditMataKuliahAdmin from "views/MataKuliah/admin/edit";
+import DetailSeksiAdmin from "views/KodeSeksi/admin/detail";
+import AddSeksiAdmin from "views/KodeSeksi/admin/add";
+import EditSeksiAdmin from "views/KodeSeksi/admin/edit";
 
 let ps;
 
@@ -52,6 +55,9 @@ const switchRoutes = (
     <Route path="/admin/matkul/add" component={AddMataKuliahAdmin} />
     <Route path="/admin/matkul/detail" component={DetailMatkulAdmin} />
     <Route path="/admin/matkul/edit" component={EditMataKuliahAdmin} />
+    <Route path="/admin/seksi/detail" component={DetailSeksiAdmin} />
+    <Route path="/admin/seksi/add" component={AddSeksiAdmin} />
+    <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
   </Switch>
 );

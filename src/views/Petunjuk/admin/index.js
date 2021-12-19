@@ -68,9 +68,6 @@ export default function AdminUserGuide() {
                 </GridItem>
               </GridContainer>
             </CardBody>
-            <CardFooter>
-              <Button color="primary">Update Profile</Button>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>

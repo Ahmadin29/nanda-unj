@@ -53,6 +53,7 @@ export default function SeksiAdmin() {
       <IconButton
         color="inherit"
         aria-label="open drawer"
+        onClick={()=>location.href='/admin/seksi/detail/'+id}
       >
         <Icon color="green">book</Icon>
       </IconButton>
@@ -63,6 +64,7 @@ export default function SeksiAdmin() {
     return (
       <IconButton
         color="inherit"
+        onClick={()=>location.href='/admin/seksi/edit/'+id}
         aria-label="open drawer"
       >
         <Icon color="green">edit</Icon>
@@ -190,7 +192,7 @@ export default function SeksiAdmin() {
                 fontWeight:700,
               }} >Daftar Mata Kuliah</span>
               <div>
-                <Button onClick={()=>location.href='/admin/mahasiswa/add'} color="primary">Tambahkan Seksi Kuliah</Button>
+                <Button onClick={()=>location.href='/admin/seksi/add'} color="primary">Tambahkan Seksi Kuliah</Button>
                 <Button onClick={()=>location.href='/admin/calendar/edit'} color="success">Import Data Seksi Kuliah</Button>
               </div>
             </div>
