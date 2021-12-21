@@ -17,7 +17,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/faces/avatar.png";
 import Cookies from "js-cookie";
-import AdminProfile from "views/UserProfile/index";
+import AdminProfile from "views/UserProfile/admin";
 import EditCalendarAdmin from "views/Calendar/admin/edit";
 import AddDosenAdmin from "views/Dosen/admin/add";
 import EditDosenAdmin from "views/Dosen/admin/edit";
@@ -29,6 +29,7 @@ import EditMataKuliahAdmin from "views/MataKuliah/admin/edit";
 import DetailSeksiAdmin from "views/KodeSeksi/admin/detail";
 import AddSeksiAdmin from "views/KodeSeksi/admin/add";
 import EditSeksiAdmin from "views/KodeSeksi/admin/edit";
+import DetailUjianAdmin from "views/Ujian/admin/detail";
 
 let ps;
 
@@ -58,6 +59,7 @@ const switchRoutes = (
     <Route path="/admin/seksi/detail" component={DetailSeksiAdmin} />
     <Route path="/admin/seksi/add" component={AddSeksiAdmin} />
     <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
+    <Route path="/admin/ujian-detail" component={DetailUjianAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
   </Switch>
 );

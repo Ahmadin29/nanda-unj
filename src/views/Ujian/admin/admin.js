@@ -44,47 +44,57 @@ const useStyles = makeStyles(styles);
 
 export default function UjianAdmin() {
   const classes = useStyles();
+  const [tokenData,setTokenData] = useState([Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000)])
 
-  const edit = (id)=>{
+  const detail = (id)=>{
     return (
       <IconButton
         color="inherit"
         aria-label="open drawer"
+        onClick={()=>location.href='/admin/ujian-detail/'+id}
       >
-        <Icon color="green">edit</Icon>
+        <Icon color="green">book</Icon>
       </IconButton>
     )
   }
-
-  const remove = (id)=>{
-    return (
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-      >
-        <Icon color="green">delete</Icon>
-      </IconButton>
+  
+  const token = (id,tokendata)=>{
+    return(
+      <div>
+        {tokendata}
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={()=>generateRandom(id)}
+        >
+          <Icon color="green">refresh</Icon>
+        </IconButton>
+      </div>
     )
   }
 
   const [dosen,setDosen] = useState(
     [
-      ["1910012345678901","Bayley Cooke","richard@gmail.com","081256789012",edit(),remove()],
-      ["1910012345678902","Orson Alvarez","twoflower@mac.com","081256789014",edit(),remove()],
-      ["1910012345678903","Neriah Merrill","burniske@aol.com","081256789016",edit(),remove()],
-      ["1910012345678904","Ebony Wooten","garland@yahoo.ca","081256789018",edit(),remove()],
-      ["1910012345678905","Michalina Fraser","wkrebs@att.net","081256789020",edit(),remove()],
-      ["1910012345678906","Aila Parrish","tromey@att.net","081256789022",edit(),remove()],
-      ["1910012345678907","Elana Charles","citadel@aol.com","081256789024",edit(),remove()],
-      ["1910012345678908","Alannah Herbert","policies@verizon.net","081256789026",edit(),remove()],
-      ["1910012345678909","Fardeen Pate","muzzy@verizon.net","081256789028",edit(),remove()],
-      ["1910012345678910","Loretta Porter","mschwartz@sbcglobal.net","081256789030",edit(),remove()],
-      ["1910012345678911","Reyansh Barclay","luebke@optonline.net","081256789032",edit(),remove()],
-      ["1910012345678912","Jack Serrano","zavadsky@me.com","081256789034",edit(),remove()],
-      ["1910012345678913","Naomi Lara","pappp@optonline.net","081256789036",edit(),remove()],
-      ["1910012345678914","Beatriz Portillo","drjlaw@yahoo.com","081256789038",edit(),remove()],
+      ["Struktur Data","123456","Soal Final",token(1,tokenData[0]),detail(123456)],
+      ["Basis Data","234567","Sedang Dikerjakan",token(2,tokenData[1]),detail(234567)],
+      ["Aljabar Linier","345678","Sedang Dikerjakan",token(3,tokenData[2]),detail(345678)],
+      ["Statistika","456789","Sedang Dikerjakan",token(4,tokenData[3]),detail(456789)],
     ]
   )
+  
+  const generateRandom = (id)=>{
+    const newToken = Math.floor(100000000 + Math.random() * 900000000);
+    tokenData[id- 1] = newToken;
+
+    console.log(tokenData);
+    setTokenData(tokenData);
+    setDosen([
+      ["Struktur Data","123456","Soal Final",token(1,tokenData[0]),detail()],
+      ["Basis Data","234567","Sedang Dikerjakan",token(2,tokenData[1]),detail()],
+      ["Aljabar Linier","345678","Sedang Dikerjakan",token(3,tokenData[2]),detail()],
+      ["Statistika","456789","Sedang Dikerjakan",token(4,tokenData[3]),detail()],
+    ])
+  }
 
   return (
     <GridContainer>
@@ -99,7 +109,7 @@ export default function UjianAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Kode Matkul","Kelompok Matkul","Peminatan","Nama Matkul","Semester","SKS","Deskripsi"]}
+              tableHead={["Mata Kuliah","Kode Seksi","Status","Token","Detail"]}
               tableData={dosen}
             />
           </CardBody>

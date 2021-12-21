@@ -44,21 +44,6 @@ export default function Login(params) {
 
   const classes = useStyles();
 
-  const [user,setUser] = useState([
-    {
-      name:"Admin",
-      username:"admin",
-      password:"admin",
-      role:'admin'
-    },
-    {
-      name:"Dosen",
-      username:"dosen",
-      password:"dosen",
-      role:'dosen'
-    },
-  ]);
-
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
   const [captcha,setCaptcha] = useState('');
@@ -75,41 +60,108 @@ export default function Login(params) {
 
   useEffect(() => {
     checkSession();
+    generateDatabase();
   }, []);
+
+  const generateDatabase  = () =>{
+    const admin = {
+      username:'admin',
+      name:'Admin',
+      email:'admin',
+      password:'admin'
+    };
+
+    const dosen = {
+      username:'dosen',
+      name:'Nanda Lutfiana',
+      email:'dosen@dosen.com',
+      password:'dosen',
+      ttl:'Jakarta, 12 agustus 2013',
+      nip:'123456',
+      alamat:'jalan jalan',
+      phone:'123123',
+      education:[
+        'S1 Pendidikan Teknik Informatika & Komputer UNJ',
+        'S2 Pendidikan Teknik Informatika & Komputer UNJ'
+      ]
+    };
+
+    const mahasiswa = {
+      username:'mahasiswa1',
+      name:'Mahasiswa 1',
+      email:'mahasiswa@mahasiswa.com',
+      password:'mahasiswa1',
+      noreg:'Jakarta, 12 agustus 2013',
+      angkatan:'123456',
+      alamat:'jalan jalan',
+      phone:'123123',
+    };
+
+    const userAdmin = Cookies.get('userAdmin');
+    
+    if (!userAdmin) {
+      Cookies.set('userAdmin',JSON.stringify(admin));
+    }
+
+    const userDosen = Cookies.get('userDosen');
+
+    if (!userDosen) {
+      Cookies.set('userDosen',JSON.stringify(dosen));
+    }
+
+    const userMahasiswa = Cookies.get('userMahasiswa');
+
+    if (!userMahasiswa) {
+      Cookies.set('userMahasiswa',JSON.stringify(mahasiswa));
+    }
+  }
 
   const processLogin = ()=>{
 
-    
-
     let checked = 0;
+    
+    if (username.includes('admin')) {
+      const userAdmin = JSON.parse(Cookies.get('userAdmin'));
 
-    user.map(v=>{
-      if (v.username == username && v.password == password) {
+      console.log(username, userAdmin.username);
 
-        if (captcha != 2) {
-          Swal.fire({
-            title: 'Terjadi kesalahan!',
-            text: 'Jawaban pertanyaan anda salah, harap periksa kembali jawaban untuk pertanyaan anda',
-            icon: 'error',
-            confirmButtonText: 'Tutup'
-          })
-          return
+      if (username == userAdmin.username && password == userAdmin.password) {
+
+        const data = {
+          ...userAdmin,
+          role:'admin',
         }
-
-        setSession(v)
+        
+        setSession(data)
       }else{
-        checked++;
+        Swal.fire({
+          title: 'Terjadi kesalahan!',
+          text: 'Akun tidak ditemukan, pastikan username atau password benar',
+          icon: 'error',
+          confirmButtonText: 'Tutup'
+        })
       }
-    })
+    }
 
-    if (checked == user.length) {
-      Swal.fire({
-        title: 'Terjadi kesalahan!',
-        text: 'Akun tidak ditemukan, pastikan username atau password benar',
-        icon: 'error',
-        confirmButtonText: 'Tutup'
-      })
-      return
+    if (username.includes('dosen')){
+      const userDosen = JSON.parse(Cookies.get('userDosen'));
+
+      if (username == userDosen.username && password == userDosen.password) {
+
+        const data = {
+          ...userDosen,
+          role:'dosen',
+        }
+        
+        setSession(data)
+      }else{
+        Swal.fire({
+          title: 'Terjadi kesalahan!',
+          text: 'Akun tidak ditemukan, pastikan username atau password benar',
+          icon: 'error',
+          confirmButtonText: 'Tutup'
+        })
+      }
     }
   }
 

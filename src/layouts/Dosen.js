@@ -16,6 +16,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/faces/avatar.png";
+import DosenProfile from "views/UserProfile/dosen";
 
 let ps;
 
@@ -33,6 +34,7 @@ const switchRoutes = (
       }
       return null;
     })}
+    <Route path="/dosen/profile" component={DosenProfile} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );
