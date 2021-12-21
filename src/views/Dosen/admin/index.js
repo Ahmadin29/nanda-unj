@@ -202,7 +202,7 @@ export default function DosenAdmin() {
               }} >Daftar Akun Dosen</span>
               <div>
                 <Button onClick={()=>location.href='/admin/dosen/add'} color="primary">Tambahkan Dosen</Button>
-                <Button onClick={()=>location.href='/admin/calendar/edit'} color="success">Import Data Dosen</Button>
+                <Button onClick={()=>location.href='/admin/dosen/import'} color="success">Import Data Dosen</Button>
               </div>
             </div>
           </CardBody>

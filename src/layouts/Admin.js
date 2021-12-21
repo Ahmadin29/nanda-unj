@@ -30,6 +30,10 @@ import DetailSeksiAdmin from "views/KodeSeksi/admin/detail";
 import AddSeksiAdmin from "views/KodeSeksi/admin/add";
 import EditSeksiAdmin from "views/KodeSeksi/admin/edit";
 import DetailUjianAdmin from "views/Ujian/admin/detail";
+import ImportDosenAdmin from "views/Dosen/admin/import";
+import ImportMahasiswaAdmin from "views/Mahasiswa/admin/import";
+import ImportSeksiAdmin from "views/KodeSeksi/admin/import";
+import ImportMatkulAdmin from "views/MataKuliah/admin/import";
 
 let ps;
 
@@ -51,13 +55,17 @@ const switchRoutes = (
     <Route path="/admin/calendar/edit" component={EditCalendarAdmin} />
     <Route path="/admin/dosen/add" component={AddDosenAdmin} />
     <Route path="/admin/dosen/edit" component={EditDosenAdmin} />
+    <Route path="/admin/dosen/import" component={ImportDosenAdmin} />
     <Route path="/admin/mahasiswa/add" component={AddMahasiswaAdmin} />
     <Route path="/admin/mahasiswa/edit" component={EditMahasiswaAdmin} />
+    <Route path="/admin/mahasiswa/import" component={ImportMahasiswaAdmin} />
     <Route path="/admin/matkul/add" component={AddMataKuliahAdmin} />
     <Route path="/admin/matkul/detail" component={DetailMatkulAdmin} />
     <Route path="/admin/matkul/edit" component={EditMataKuliahAdmin} />
+    <Route path="/admin/matkul/import" component={ImportMatkulAdmin} />
     <Route path="/admin/seksi/detail" component={DetailSeksiAdmin} />
     <Route path="/admin/seksi/add" component={AddSeksiAdmin} />
+    <Route path="/admin/seksi/import" component={ImportSeksiAdmin} />
     <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
     <Route path="/admin/ujian-detail" component={DetailUjianAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />

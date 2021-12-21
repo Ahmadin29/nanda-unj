@@ -221,7 +221,7 @@ export default function MataKuliahAdmin() {
               }} >Daftar Mata Kuliah</span>
               <div>
                 <Button onClick={()=>location.href='/admin/matkul/add'} color="primary">Tambahkan Mataa Kuliah</Button>
-                <Button onClick={()=>location.href='/admin/calendar/edit'} color="success">Import Data Mata Kuliah</Button>
+                <Button onClick={()=>location.href='/admin/matkul/import'} color="success">Import Data Mata Kuliah</Button>
               </div>
             </div>
           </CardBody>

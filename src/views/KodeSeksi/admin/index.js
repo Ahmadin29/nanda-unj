@@ -193,7 +193,7 @@ export default function SeksiAdmin() {
               }} >Daftar Mata Kuliah</span>
               <div>
                 <Button onClick={()=>location.href='/admin/seksi/add'} color="primary">Tambahkan Seksi Kuliah</Button>
-                <Button onClick={()=>location.href='/admin/calendar/edit'} color="success">Import Data Seksi Kuliah</Button>
+                <Button onClick={()=>location.href='/admin/seksi/import'} color="success">Import Data Seksi Kuliah</Button>
               </div>
             </div>
           </CardBody>

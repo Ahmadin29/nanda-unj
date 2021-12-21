@@ -196,7 +196,7 @@ export default function MahasiswaAdmin() {
               }} >Daftar Akun Mahasiswa</span>
               <div>
                 <Button onClick={()=>location.href='/admin/mahasiswa/add'} color="primary">Tambahkan Mahasiswa</Button>
-                <Button onClick={()=>location.href='/admin/calendar/edit'} color="success">Import Data Dosen</Button>
+                <Button onClick={()=>location.href='/admin/mahasiswa/import'} color="success">Import Data Dosen</Button>
               </div>
             </div>
           </CardBody>
