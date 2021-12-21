@@ -20,6 +20,7 @@ import DosenProfile from "views/UserProfile/dosen";
 import AddMataKuliahDosen from "views/MataKuliah/dosen/add";
 import MataKuliahKosekDosen from "views/MataKuliah/dosen/kosek";
 import DetailSeksiDosen from "views/KodeSeksi/dosen/detail";
+import AddSeksiDosen from "views/KodeSeksi/dosen/add";
 
 let ps;
 
@@ -40,6 +41,7 @@ const switchRoutes = (
     <Route path="/dosen/profile" component={DosenProfile} />
     <Route path="/dosen/matkul/add" component={AddMataKuliahDosen} />
     <Route path="/dosen/matkul/:id/kosek/" component={MataKuliahKosekDosen} />
+    <Route path="/dosen/matkul/:id/add/" component={AddSeksiDosen} />
     <Route path="/dosen/matkul/kosek-detail" component={DetailSeksiDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
