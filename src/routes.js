@@ -29,6 +29,7 @@ import Ujian from "views/Ujian/admin/admin";
 import SeksiAdmin from "views/KodeSeksi/admin";
 import AdminUserGuide from "views/Petunjuk/admin";
 import DashboardDosen from "views/Dashboard/dosen";
+import MataKuliahDosen from "views/MataKuliah/dosen";
 
 const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
 
@@ -99,6 +100,14 @@ const dosenRoutes = [
     icon: Dashboard,
     component: DashboardDosen,
     layout: "/"+role,
+  },
+  {
+    path: "/matkul-data",
+    name: "Data Mata Kuliah",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: "book_open_variant",
+    component: MataKuliahDosen,
+    layout: "/dosen",
   },
   {
     path: "/user-guide",

@@ -42,8 +42,12 @@ export default function DosenProfile() {
   const classes = useStyles();
 
   const [username,setUsername] = useState('');
+  const [nip,setNip] = useState('');
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
+  const [address,setAddress] = useState('');
+  const [ttl,setTtl] = useState('');
+  const [phone,setPhone] = useState('');
 
   const [oldPassword,setOldPassword] = useState('');
   const [password,setPassword] = useState('');
@@ -54,7 +58,11 @@ export default function DosenProfile() {
 
     setUsername(admin.username);
     setName(admin.name);
+    setNip(admin.nip);
     setEmail(admin.email);
+    setPhone(admin.phone);
+    setAddress(admin.alamat);
+    setTtl(admin.ttl);
   }
 
   useEffect(()=>{
@@ -63,12 +71,16 @@ export default function DosenProfile() {
 
   const updateProfile = ()=>{
 
-    const admin = JSON.parse(Cookies.get('userAdmin'));
+    const admin = JSON.parse(Cookies.get('userDosen'));
 
     const data ={
       username:username,
       name:name,
       email:email,
+      phone:email,
+      alamat:email,
+      ttl:ttl,
+      nip:nip,
     }
 
     if (oldPassword != '') {
@@ -95,7 +107,7 @@ export default function DosenProfile() {
       data.password = admin.password
     }
 
-    Cookies.set('userAdmin',JSON.stringify(data))
+    Cookies.set('userDosen',JSON.stringify(data))
 
     Swal.fire({
       title: 'Berhasil!',
@@ -134,6 +146,23 @@ export default function DosenProfile() {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={12}>
                   <CustomInput
+                    labelText="NIP"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                    style={{
+                      marginBottom:"0px",
+                    }}
+                    inputProps={{
+                      onChange:(event)=>{
+                        setNip(event.target.value)
+                      },
+                      value:nip
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CustomInput
                     labelText="Nama Lengkap"
                     formControlProps={{
                       fullWidth: true,
@@ -163,6 +192,57 @@ export default function DosenProfile() {
                         setEmail(event.target.value)
                       },
                       value:email
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CustomInput
+                    labelText="TTL"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                    style={{
+                      marginBottom:"0px",
+                    }}
+                    inputProps={{
+                      onChange:(event)=>{
+                        setTtl(event.target.value)
+                      },
+                      value:ttl
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CustomInput
+                    labelText="Alamat"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                    style={{
+                      marginBottom:"0px",
+                    }}
+                    inputProps={{
+                      onChange:(event)=>{
+                        setAddress(event.target.value)
+                      },
+                      value:address
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CustomInput
+                    labelText="Nomor Telepon"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                    style={{
+                      marginBottom:"0px",
+                    }}
+                    inputProps={{
+                      onChange:(event)=>{
+                        setPhone(event.target.value)
+                      },
+                      value:phone
                     }}
                   />
                 </GridItem>

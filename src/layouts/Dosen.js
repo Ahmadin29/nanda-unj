@@ -17,6 +17,9 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/faces/avatar.png";
 import DosenProfile from "views/UserProfile/dosen";
+import AddMataKuliahDosen from "views/MataKuliah/dosen/add";
+import MataKuliahKosekDosen from "views/MataKuliah/dosen/kosek";
+import DetailSeksiDosen from "views/KodeSeksi/dosen/detail";
 
 let ps;
 
@@ -35,6 +38,9 @@ const switchRoutes = (
       return null;
     })}
     <Route path="/dosen/profile" component={DosenProfile} />
+    <Route path="/dosen/matkul/add" component={AddMataKuliahDosen} />
+    <Route path="/dosen/matkul/:id/kosek/" component={MataKuliahKosekDosen} />
+    <Route path="/dosen/matkul/kosek-detail" component={DetailSeksiDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );
