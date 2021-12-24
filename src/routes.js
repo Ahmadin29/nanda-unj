@@ -30,6 +30,8 @@ import SeksiAdmin from "views/KodeSeksi/admin";
 import AdminUserGuide from "views/Petunjuk/admin";
 import DashboardDosen from "views/Dashboard/dosen";
 import MataKuliahDosen from "views/MataKuliah/dosen";
+import BankSoalDosen from "views/BankSoal/dosen";
+import UjianDosen from "views/Ujian/dosen";
 
 const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
 
@@ -107,6 +109,22 @@ const dosenRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: "book_open_variant",
     component: MataKuliahDosen,
+    layout: "/dosen",
+  },
+  {
+    path: "/banksoal-data",
+    name: "Data Bank Soal",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: "book_open_variant",
+    component: BankSoalDosen,
+    layout: "/dosen",
+  },
+  {
+    path: "/ujian-data",
+    name: "Data Ujian",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: AssignmentIcon,
+    component: UjianDosen,
     layout: "/dosen",
   },
   {

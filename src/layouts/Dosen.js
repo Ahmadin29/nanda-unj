@@ -21,6 +21,13 @@ import AddMataKuliahDosen from "views/MataKuliah/dosen/add";
 import MataKuliahKosekDosen from "views/MataKuliah/dosen/kosek";
 import DetailSeksiDosen from "views/KodeSeksi/dosen/detail";
 import AddSeksiDosen from "views/KodeSeksi/dosen/add";
+import AddBankSoalDosen from "views/BankSoal/dosen/add";
+import SoalDosen from "views/BankSoal/dosen/soal";
+import AddSoalDosen from "views/BankSoal/dosen/soal/add";
+import EditSoalDosen from "views/BankSoal/dosen/soal/edit";
+import EditBankSoalDosen from "views/BankSoal/dosen/edit";
+import DetailUjianDosen from "views/Ujian/dosen/detail";
+import AddUjianDosen from "views/Ujian/dosen/add";
 
 let ps;
 
@@ -43,6 +50,13 @@ const switchRoutes = (
     <Route path="/dosen/matkul/:id/kosek/" component={MataKuliahKosekDosen} />
     <Route path="/dosen/matkul/:id/add/" component={AddSeksiDosen} />
     <Route path="/dosen/matkul/kosek-detail" component={DetailSeksiDosen} />
+    <Route path="/dosen/bank-soal/add" component={AddBankSoalDosen} />
+    <Route path="/dosen/bank-soal/:id/detail/" component={SoalDosen} />
+    <Route path="/dosen/bank-soal/edit/" component={EditBankSoalDosen} />
+    <Route path="/dosen/bank-soal/:id/add/" component={AddSoalDosen} />
+    <Route path="/dosen/bank-soal/:id/edit/" component={EditSoalDosen} />
+    <Route path="/dosen/ujian/detail/" component={DetailUjianDosen} />
+    <Route path="/dosen/ujian/add/" component={AddUjianDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );
