@@ -48,14 +48,34 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function DetailUjianDosen() {
+export default function DetailUjianDosenMahasiswa() {
     const classes = useStyles();
 
+    const [paketUjian,setPaketUjian] = useState([]);
     const [ujian,setUjian] = useState([]);
+    const [mahasiswa,setMahasiswa] = useState([]);
+
+    const detail = (id)=>{
+        return (
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={()=>location.href='/dosen/ujian/'+getIdPaket()+'/detail/'+getId()+'/result/'+id}
+            >
+                <Icon color="green">book</Icon>
+            </IconButton>
+        )
+    }
+
+    const getIdPaket = () => {
+        return location.pathname.split("/")[
+            location.pathname.split("/").length - 3
+        ];
+    };
 
     const getId = () => {
         return location.pathname.split("/")[
-            location.pathname.split("/").length - 1
+            location.pathname.split("/").length - 3
         ];
     };
 
@@ -63,33 +83,30 @@ export default function DetailUjianDosen() {
         const existingUjian = JSON.parse(Cookies.get('dataUjian'));
 
         const selected = existingUjian.filter(v=>{
+            return v.id == getIdPaket()
+        })
+
+        const selectedUjian = selected[0].ujian.filter(v=>{
             return v.id == getId()
         })
 
-        setUjian(selected[0])
+        const data = [];
+
+        selected[0].mahasiswa.map(v=>{
+            data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,detail(v.id)])
+        })
+
+        console.log(data);
+
+        // console.log(getId());
+        setPaketUjian(selected[0]);
+        setUjian(selectedUjian[0]);
+        setMahasiswa(data)
     }
 
     useEffect(()=>{
         getData()
     },[])
-
-    const renderUjian = (v) =>{
-        return(
-            <Card>
-                <CardHeader color="success" stats icon style={{
-                    marginBottom:15,
-                }}>
-                    <CardIcon color="success">
-                        <Icon>person</Icon>
-                    </CardIcon>
-                    <h3 className={classes.cardTitle} style={{color:"black",marginBottom:0,}}>{v.namaUjian}</h3>
-                    <p className={classes.cardCategory} style={{color:"black",marginTop:0,marginBottom:0}}>{v.tanggal}</p>
-                    <p className={classes.cardCategory} style={{color:"black",marginTop:0,}}>{v.lamaUjian}</p>
-                    <Button onClick={()=>location.href=v.id == 2 ? '/dosen/ujian/'+getId()+'/detail/'+v.id : '/dosen/ujian/'+getId()+'/detail/'+v.id+'/onprocess/'}>Detail</Button>
-                </CardHeader>
-            </Card>
-        )
-    }
 
     return (
         <GridContainer>
@@ -105,31 +122,29 @@ export default function DetailUjianDosen() {
                         <span style={{
                             fontSize:20,
                             fontWeight:700,
-                        }} >Daftar Ujian Mata Kuliah {ujian?.matkul?.namaMatkul}</span>
-                        <Button onClick={()=>location.href='/dosen/ujian/'+ujian.id+'/add'} color="success">Tambahkan Data Ujian</Button>
+                        }} >{ujian?.namaUjian} - {paketUjian?.matkul?.namaMatkul}</span>
                         </div>
+                        <p>Kode Mata Kuliah : {paketUjian?.matkul?.kodeMatKul}</p>
+                        <p>Tanggal : {ujian?.tanggal}</p>
+                        <p>Waktu : {ujian?.waktu}</p>
                     </CardBody>
                 </Card>
             </GridItem>
             <GridItem xs={12} sm={12} md={12}>
                 <Card>
                     <CardHeader color="info">
-                        <h4 className={classes.cardTitleWhite}>Daftar Ujian Mata Kuliah {ujian?.matkul?.namaMatkul}</h4>
+                        <h4 className={classes.cardTitleWhite}>Data Ujian Mata Kuliah</h4>
                         <p className={classes.cardCategoryWhite}>
-                            Daftar Ujian Mata Kuliah
+                            Data List Ujian Mata Kuliah
                         </p>
                     </CardHeader>
                     <CardBody>
                         <GridContainer>
-                            {
-                                ujian && ujian?.ujian?.map(v=>{
-                                    return (
-                                        <GridItem xs={12} sm={12} md={4}>
-                                            {renderUjian(v)}
-                                        </GridItem>
-                                    )
-                                })
-                            }
+                            <Table
+                                tableHeaderColor="primary"
+                                tableHead={["NIM","Nama Lengkap","Email",'Nomor Telepon','Detail']}
+                                tableData={mahasiswa}
+                            />
                         </GridContainer>
                     </CardBody>
                 </Card>

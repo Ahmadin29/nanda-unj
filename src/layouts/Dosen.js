@@ -28,6 +28,9 @@ import EditSoalDosen from "views/BankSoal/dosen/soal/edit";
 import EditBankSoalDosen from "views/BankSoal/dosen/edit";
 import DetailUjianDosen from "views/Ujian/dosen/detail";
 import AddUjianDosen from "views/Ujian/dosen/add";
+import DetailUjianDosenMahasiswa from "views/Ujian/dosen/ujian";
+import ResultUjianDosenMahasiswa from "views/Ujian/dosen/ujian/detail";
+import UjianOnProcessDosen from "views/Ujian/dosen/ujian/onprocess";
 
 let ps;
 
@@ -56,7 +59,10 @@ const switchRoutes = (
     <Route path="/dosen/bank-soal/:id/add/" component={AddSoalDosen} />
     <Route path="/dosen/bank-soal/:id/edit/" component={EditSoalDosen} />
     <Route path="/dosen/ujian/detail/" component={DetailUjianDosen} />
-    <Route path="/dosen/ujian/add/" component={AddUjianDosen} />
+    <Route path="/dosen/ujian/:id/add/" component={AddUjianDosen} />
+    <Route path="/dosen/ujian/:id/detail/:id/result/" component={ResultUjianDosenMahasiswa} />
+    <Route path="/dosen/ujian/:id/detail/:id/onprocess/" component={UjianOnProcessDosen} />
+    <Route path="/dosen/ujian/:id/detail/:id/" component={DetailUjianDosenMahasiswa} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );

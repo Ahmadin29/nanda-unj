@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -9,6 +9,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
+import Cookies from "js-cookie";
 
 const styles = {
   cardCategoryWhite: {
@@ -44,7 +45,7 @@ const useStyles = makeStyles(styles);
 
 export default function UjianAdmin() {
   const classes = useStyles();
-  const [tokenData,setTokenData] = useState([Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000),Math.floor(100000000 + Math.random() * 900000000)])
+  const [tokenData,setTokenData] = useState()
 
   const detail = (id)=>{
     return (
@@ -61,11 +62,10 @@ export default function UjianAdmin() {
   const token = (id,tokendata)=>{
     return(
       <div>
-        {tokendata}
+        {Math.floor(100000000 + Math.random() * 900000000)}
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={()=>generateRandom(id)}
         >
           <Icon color="green">refresh</Icon>
         </IconButton>
@@ -73,27 +73,222 @@ export default function UjianAdmin() {
     )
   }
 
-  const [dosen,setDosen] = useState(
-    [
-      ["Struktur Data","123456","Soal Final",token(1,tokenData[0]),detail(123456)],
-      ["Basis Data","234567","Sedang Dikerjakan",token(2,tokenData[1]),detail(234567)],
-      ["Aljabar Linier","345678","Sedang Dikerjakan",token(3,tokenData[2]),detail(345678)],
-      ["Statistika","456789","Sedang Dikerjakan",token(4,tokenData[3]),detail(456789)],
-    ]
-  )
-  
-  const generateRandom = (id)=>{
-    const newToken = Math.floor(100000000 + Math.random() * 900000000);
-    tokenData[id- 1] = newToken;
+  const [ujian,setUjian] = useState([]);
 
-    console.log(tokenData);
-    setTokenData(tokenData);
-    setDosen([
-      ["Struktur Data","123456","Soal Final",token(1,tokenData[0]),detail()],
-      ["Basis Data","234567","Sedang Dikerjakan",token(2,tokenData[1]),detail()],
-      ["Aljabar Linier","345678","Sedang Dikerjakan",token(3,tokenData[2]),detail()],
-      ["Statistika","456789","Sedang Dikerjakan",token(4,tokenData[3]),detail()],
-    ])
+  const generateDatabase = ()=>{
+    const db_ujian = [
+        {
+            id:1,
+            matkul:{
+                id:1,
+                namaMatkul:'Aljabar Linear',
+                kodeMatKul:'1231231',
+            },
+            ujian:[
+                {
+                    id:1,
+                    namaUjian:"UTS",
+                    tanggal:"24 Oktober 2021",
+                    waktu:"10.00 - 11.00",
+                    lamaUjian:"60 Menit",
+                    banksoal:{
+                        id:1,
+                    }
+                },
+                {
+                    id:2,
+                    namaUjian:"UAS",
+                    tanggal:"24 Oktober 2021",
+                    waktu:"10.00 - 11.00",
+                    lamaUjian:"60 Menit",
+                    banksoal:{
+                        id:1,
+                    }
+                }
+            ],
+            mahasiswa:[
+                {
+                    id:1,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:2,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:3,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:4,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:5,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+            ]
+        },
+        {
+            id:2,
+            matkul:{
+                id:1,
+                namaMatkul:'Aljabar Linear',
+                kodeMatKul:'1231231',
+            },
+            ujian:[
+                {
+                    id:1,
+                    namaUjian:"UTS",
+                    tanggal:"24 Oktober 2021",
+                    waktu:"10.00 - 11.00",
+                    lamaUjian:"60 Menit",
+                    banksoal:{
+                        id:1,
+                    }
+                },
+                {
+                    id:2,
+                    namaUjian:"UAS",
+                    tanggal:"24 Oktober 2021",
+                    waktu:"10.00 - 11.00",
+                    lamaUjian:"60 Menit",
+                    banksoal:{
+                        id:1,
+                    }
+                }
+            ],
+            mahasiswa:[
+                {
+                    id:1,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:2,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:3,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:4,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+                {
+                    id:5,
+                    nim:"1910012345678901",
+                    namaLengkap:"Bayley Cooke",
+                    email:"richard@gmail.com",
+                    nomorTelepon:"081256789012",
+                    password:'12345',
+                    angkatan:'1'
+                },
+            ]
+        },
+    ];
+
+    const existingUjian = Cookies.get('dataUjian');
+    
+    if (existingUjian) {
+      setUjian(JSON.parse(existingUjian))
+    }else{
+      Cookies.set('dataUjian',JSON.stringify(db_ujian));
+
+      const data = [];
+
+      db_ujian.map(v=>data.push(v));
+
+      setUjian(data)
+    }
+  }
+
+  useEffect(()=>{
+      generateDatabase()
+  },[])
+
+  const renderUjian = (v)=>{
+    return(
+      <div style={{
+        paddingTop:10,
+        paddingBottom:10,
+        borderBottom:"1px solid #eee",
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center"
+      }} >
+        <div style={{
+          minWidth:200,
+        }} >
+          {v.matkul.namaMatkul}
+        </div>
+        <div style={{
+          minWidth:200,
+        }} >
+          {v.matkul.kodeMatKul}
+        </div>
+        <div style={{
+          minWidth:200,
+        }} >
+          {v.id == 2 ? 'Sedang Dikerjakan' : 'Belum Dimulai'}
+        </div> 
+        <div style={{
+          minWidth:200,
+        }} >
+          {token()}
+        </div>
+        <div style={{
+          minWidth:200,
+        }} >
+          {detail(v.id)}
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -107,11 +302,43 @@ export default function UjianAdmin() {
             </p>
           </CardHeader>
           <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["Mata Kuliah","Kode Seksi","Status","Token","Detail"]}
-              tableData={dosen}
-            />
+            <div style={{
+              paddingTop:10,
+              paddingBottom:10,
+              borderBottom:"1px solid #eee",
+              display:"flex",
+              flexDirection:"row",
+              alignItems:"center"
+            }} >
+                <div style={{
+                minWidth:200,
+                }} >
+                  Nama Mata Kuliah
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  Kode Matkul
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  Status
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  Token
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  Detail
+                </div>
+            </div>
+            {
+              ujian.map(v=>renderUjian(v))
+            }
           </CardBody>
         </Card>
       </GridItem>

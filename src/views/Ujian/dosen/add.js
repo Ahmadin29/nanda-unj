@@ -4,13 +4,22 @@ import CardHeader from "components/Card/CardHeader";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import React, { useEffect, useState } from "react";
+import Table from "components/Table/Table.js";
 import Button from "components/CustomButtons/Button.js";
 import { makeStyles } from "@material-ui/core/styles";
 import CustomInput from "components/CustomInput/CustomInput";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
+import Radio from "@material-ui/core/Radio";
+// @material-ui/icons
+import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
+//core components
+import radioStyles from "assets/jss/material-dashboard-react/checkboxAdnRadioStyle.js";
+
+
 const styles = {
+  ...radioStyles,
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -49,27 +58,108 @@ export default function AddUjianDosen(params) {
   const [tanggal,setTanggal] = useState();
   const [waktu,setWaktu] = useState();
   const [lamaUjian,setLamaUjian] = useState();
-  const [bankSoal,setBankSoal] = useState();
+  const [bankSoal,setBankSoal] = useState([]);
+  const [selectedBankSoal,setSelectedBankSoal] = useState();
+
+  const getId = () => {
+    return location.pathname.split("/")[
+        location.pathname.split("/").length - 2
+    ];
+};
+
+  useEffect(()=>{
+    getData()
+  },[])
 
   const saveDosen = ()=>{
-    const setedDosen = JSON.parse(Cookies.get('dosen'));
+    const setedUjian = JSON.parse(Cookies.get('dataUjian'));
 
-    if (nip == '' && nidn == ''&& nidk == ''&& name == ''&& email == ''&& phone == ''&& password == '') {
+    if (namaUjian == '' && tanggal == ''&& waktu == ''&& lamaUjian == ''&& !selectedBankSoal) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
         return;
     }
 
-    setedDosen.push({
-        id:setedDosen[setedDosen.length - 1].id + 1,nip,nidn,nidk,namaLengkap:name,email,nomorTelepon:phone
+    setedUjian.map(v=>{
+      if (v.id == getId()) {
+        v.ujian.push({
+          id:v.ujian[v.ujian.length - 1].id + 1,
+          lamaUjian: lamaUjian,
+          namaUjian: namaUjian,
+          tanggal: tanggal,
+          waktu: waktu,
+          banksoal:selectedBankSoal,
+        })
+      }
     })
     
-    Cookies.set('dosen',JSON.stringify(setedDosen))
+    Cookies.set('dataUjian',JSON.stringify(setedUjian))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil menambahkan data dosen',
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
+
+    setTimeout(() => {
+      location.reload();
+    }, 500);
+  }
+
+  const getData = ()=>{
+    const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+    setBankSoal(setedBankSoal)
+  }
+
+  const renderBankSoal = ()=>{
+    return(
+      bankSoal?.map(v=>{
+        return(
+          <div style={{
+            paddingTop:10,
+            paddingBottom:10,
+            borderBottom:"1px solid #eee",
+            display:"flex",
+            flexDirection:"row",
+            alignItems:"center"
+          }} >
+            <div style={{
+              minWidth:200,
+            }} >
+              <Radio
+                checked={selectedBankSoal?.id === v.id}
+                onChange={() => setSelectedBankSoal(v)}
+                value={v.id}
+                icon={<FiberManualRecord className={classes.radioUnchecked} />}
+                checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
+                classes={{
+                  checked: classes.radio
+                }}
+              />
+            </div>
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.matakuliah}
+            </div>
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.kodeMatKul}
+            </div>
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.jumlah}
+            </div>
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.status}
+            </div>
+          </div>
+        )
+      })
+    )
   }
 
   return (
@@ -141,11 +231,42 @@ export default function AddUjianDosen(params) {
                     value:lamaUjian,
                 }}
             />
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Jumlah Soal", "Status","Detail",'Edit','Hapus']}
-              tableData={bankSoal}
-            />
+            <h4>Pilih Bank Soal</h4>
+            <div style={{
+                paddingTop:10,
+                paddingBottom:10,
+                borderBottom:"1px solid #eee",
+                display:"flex",
+                flexDirection:"row",
+                alignItems:"center"
+            }} >
+                <div style={{
+                    minWidth:200,
+                }} >
+                Pilih
+                </div>
+                <div style={{
+                minWidth:200,
+                }} >
+                Nama Mata Kuliah
+                </div>
+                <div style={{
+                minWidth:200,
+                }} >
+                  Kode Matkul
+                </div>
+                <div style={{
+                minWidth:200,
+                }} >
+                  Jumlah Soal
+                </div>
+                <div style={{
+                minWidth:200,
+                }} >
+                  Status
+                </div>
+            </div>
+            {renderBankSoal()}
             <Button block onClick={()=>{saveDosen()}} color="primary">Simpan Perubahan</Button>
           </CardBody>
         </Card>
