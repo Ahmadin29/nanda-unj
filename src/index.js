@@ -27,6 +27,7 @@ import RTL from "layouts/RTL.js";
 import "assets/css/material-dashboard-react.css?v=1.10.0";
 import Login from "login";
 import Cookies from "js-cookie";
+import Mahasiswa from "layouts/Mahasiswa";
 
 const checkSession = ()=>{
   const session = Cookies.get('session');
@@ -47,6 +48,7 @@ ReactDOM.render(
       <Route path="/admin" component={Admin} />
       <Route path="/login" component={Login} />
       <Route path="/dosen" component={Dosen} />
+      <Route path="/mahasiswa" component={Mahasiswa} />
       <Route path="/rtl" component={RTL} />
       <Redirect from="/" to={checkSession()} />
     </Switch>

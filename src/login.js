@@ -163,6 +163,27 @@ export default function Login(params) {
         })
       }
     }
+
+    if (username.includes('mahasiswa')){
+      const userMahasiswa = JSON.parse(Cookies.get('userMahasiswa'));
+
+      if (username == userMahasiswa.username && password == userMahasiswa.password) {
+
+        const data = {
+          ...userMahasiswa,
+          role:'mahasiswa',
+        }
+        
+        setSession(data)
+      }else{
+        Swal.fire({
+          title: 'Terjadi kesalahan!',
+          text: 'Akun tidak ditemukan, pastikan username atau password benar',
+          icon: 'error',
+          confirmButtonText: 'Tutup'
+        })
+      }
+    }
   }
 
   const setSession = (v)=>{

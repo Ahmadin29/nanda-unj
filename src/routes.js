@@ -32,6 +32,8 @@ import DashboardDosen from "views/Dashboard/dosen";
 import MataKuliahDosen from "views/MataKuliah/dosen";
 import BankSoalDosen from "views/BankSoal/dosen";
 import UjianDosen from "views/Ujian/dosen";
+import DashboardMahasiswa from "views/Dashboard/mahasiswa";
+import ResultsUjianMahasiswa from "views/Ujian/mahasiswa/results";
 
 const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
 
@@ -137,6 +139,24 @@ const dosenRoutes = [
   },
 ]
 
+const MahasiswaRoutes = [
+  {
+    path: "/beranda",
+    name: "Beranda",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: DashboardMahasiswa,
+    layout: "/"+role,
+  },
+  {
+    path: "/result-ujian",
+    name: "Hasil Ujian",
+    rtlName: "لوحة القيادة",
+    icon: AssignmentIcon,
+    component: ResultsUjianMahasiswa,
+    layout: "/"+role,
+  },
+]
 
 
-export default role == 'admin' ? adminRoutes : role == 'dosen' ? dosenRoutes : [];
+export default role == 'admin' ? adminRoutes : role == 'dosen' ? dosenRoutes : MahasiswaRoutes;
