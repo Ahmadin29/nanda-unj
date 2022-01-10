@@ -94,7 +94,7 @@ export default function MataKuliahAdmin() {
               const data = [];
 
               deletedMatkul.map((v)=>{
-                data.push([v.namaMatKul,v.kodematkul,v.semester,detail(v.id),edit(v.id),remove(v.id)]);
+                data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
               });
               
               Cookies.set('mataKuliah',JSON.stringify(deletedMatkul));
@@ -121,7 +121,7 @@ export default function MataKuliahAdmin() {
         kodematkul:"00051132",
         namaMatKul:"Bahasa Inggris",
         deskripsi:"Mata kuliah ini memberikan bekal kecakapan membaca dengan cara mengasah keterampilan membaca dan menarik intisari dari bacaan. Dalam perkuliahan ini, bacaan yang dibahas adalah berbagai karya sastra Indonesia. Dengan mengapresiasi sastra, mahasiswa menggunakan Bahasa Indonesia dengan baik agar dapat mengartikulasikan gagasan secara efektif. Selain itu, mahasiswa juga berlatih mengekspresikan diri dan menyusun argumentasi terkait isi bacaan sampai mengomposisi pikiran dalam tulisan singkat tentang karya sastra sampai drama yang mereka apresiasi dan kreasikan. ",
-        semester: "115",
+        sks: "2",
         seksi:[
           {
             id:1,
@@ -146,7 +146,7 @@ export default function MataKuliahAdmin() {
         kodematkul:"00052002",
         namaMatKul:"Filsafat Ilmu",
         deskripsi:"Mata kuliah ini dimaksudkan untuk memberikan pengetahuan tentang hakekat, proses, dan sarana berpikir ilmiah. Perkuliahan mencakup karakteristik ilmu secara ontologis, epistimologis dan aksiologis, perbedaan ilmu dengan pengetahuan lainnya, kelebihan dan kekurangan ilmu, sejarah perkembangan ilmu, hakikat metode penelitian statistik, hakikat bahasa, hakikat logika, hakikat matematika, etika dan ilmu, dan peranan ilmu dalam perkembangan peradaban manusia.",
-        semester: "115",
+        sks: "2",
         seksi:[
           {
             id:4,
@@ -171,7 +171,7 @@ export default function MataKuliahAdmin() {
         kodematkul:"00052122",
         namaMatKul:"Profesi Pendidik & Tenaga Kependidikan",
         deskripsi:"richard@gmail.com",
-        semester: "115",
+        sks: "2",
         seksi:[
           {
             id:5,
@@ -196,7 +196,7 @@ export default function MataKuliahAdmin() {
         kodematkul:"152350213",
         namaMatKul:"Jaringan Komputer",
         deskripsi:"Pendahuluan;Transmisi data; Media Transmisi; Data Enconding; Antar muka Komunikasi Data; DataLinkcontrol; Multiplexing;circuit Switching; Packet Switching; Frame Relay; ATM; Protocol dan Arsitektur; ISDN; Teknologi Local Area Network; Sistem dari LAN; Bridges; Internetworking; client Server, EDI & Networking Security, Perangkat Lunak Jaringan.",
-        semester: "115",
+        sks: "2",
         seksi:[
           {
             id:7,
@@ -218,24 +218,25 @@ export default function MataKuliahAdmin() {
       },
     ];
 
-    const existingMatkul = Cookies.get('mataKuliah');
+    
+    const existingMatkul = localStorage.getItem('mataKuliah')
     
     if (existingMatkul) {
 
       const data = [];
 
       JSON.parse(existingMatkul).map((v)=>{
-        data.push([v.namaMatKul,v.kodematkul,v.semester,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
       });
   
       setMatkul(data)
     }else{
 
-      Cookies.set('mataKuliah',JSON.stringify(db_matkul));
+      localStorage.setItem('mataKuliah',JSON.stringify(db_matkul));
       const data = [];
 
       db_matkul.map((v)=>{
-        data.push([v.namaMatKul,v.kodematkul,v.semester,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
       });
   
       setMatkul(data)
@@ -280,7 +281,7 @@ export default function MataKuliahAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Matkul","Kode Matkul","Semester","Detail","Edit","Remove"]}
+              tableHead={["Nama Matkul","Kode Matkul","Detail","Edit","Remove"]}
               tableData={matkul}
             />
           </CardBody>

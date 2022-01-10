@@ -10,7 +10,6 @@ import Button from "components/CustomButtons/Button.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
-import Cookies from 'js-cookie'
 import Swal from "sweetalert2";
 
 const styles = {
@@ -87,7 +86,7 @@ export default function SeksiAdmin() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-              const deletedSeksi = JSON.parse(Cookies.get('kodeSeksi')).filter((val)=>{
+              const deletedSeksi = JSON.parse(localStorage.getItem('kodeSeksi')).filter((val)=>{
                 return val.id != id
               })
 
@@ -97,7 +96,7 @@ export default function SeksiAdmin() {
                 data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
               });
               
-              Cookies.set('kodeSeksi',JSON.stringify(deletedSeksi));
+              localStorage.setItem('kodeSeksi',JSON.stringify(deletedSeksi));
               setKodeSeksi(data)
 
               Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')
@@ -173,24 +172,24 @@ export default function SeksiAdmin() {
       },
     ];
 
-    const existingKodeSeksi = Cookies.get('kodeSeksi');
+    const existingKodeSeksi = localStorage.getItem('kodeSeksi');
     
     if (existingKodeSeksi) {
 
       const data = [];
 
       JSON.parse(existingKodeSeksi).map((v)=>{
-        data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
+        data.push([v.mataKuliah.name,v.dosen,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
     }else{
 
-      Cookies.set('kodeSeksi',JSON.stringify(db_kodeSeksi));
+      localStorage.setItem('kodeSeksi',JSON.stringify(db_kodeSeksi));
       const data = [];
 
       db_kodeSeksi.map((v)=>{
-        data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
+        data.push([v.mataKuliah.name,v.dosen,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
@@ -235,7 +234,7 @@ export default function SeksiAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Matkul","Kode Seksi","Semester","Kelas","Edit"]}
+              tableHead={["Nama Matkul","Dosen","Kode Seksi","Semester","Kelas","Edit"]}
               tableData={kodeSeksi}
             />
           </CardBody>

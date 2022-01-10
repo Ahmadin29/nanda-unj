@@ -7,16 +7,11 @@ import React, { useEffect, useState } from "react";
 import Button from "components/CustomButtons/Button.js";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Checkbox from "@material-ui/core/Checkbox";
-import Check from "@material-ui/icons/Check";
-import CheckboxStyles from "assets/jss/material-dashboard-react/checkboxAdnRadioStyle.js";
-
 import CustomInput from "components/CustomInput/CustomInput";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 const styles = {
-  ...CheckboxStyles,
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -54,7 +49,7 @@ export default function AddMataKuliahAdmin(params) {
   const [namaMatKul,setNamaMatKul] = useState('');
   const [kodeMatKul,setKodeMatKul] = useState('');
   const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
-  const [semesterMatkul,setsemesterMatkul] = useState('');
+  const [sks,setSks] = useState('');
   const [seksiKuliah,setSeksiKuliah] = useState([]);
 
   const saveMatkul = ()=>{
@@ -71,7 +66,7 @@ export default function AddMataKuliahAdmin(params) {
           kodematkul:kodeMatKul,
           namaMatKul:namaMatKul,
           deskripsi:deskripsiMatkul,
-          semester:semesterMatkul, 
+          sks:sks, 
           seksi:seksiKuliah
         },
     )
@@ -84,87 +79,6 @@ export default function AddMataKuliahAdmin(params) {
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
-  }
-
-  const renderSeksi = () =>{
-    const seksi = JSON.parse(Cookies.get('kodeSeksi'));
-
-    return (
-      seksi.map(v=>{
-        return(
-          <div style={{
-            paddingTop:10,
-            paddingBottom:10,
-            borderBottom:"1px solid #eee",
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center"
-          }} >
-            <div style={{
-              minWidth:200,
-            }} >
-              <Checkbox
-                onClick={() => CheckSeksi(v)}
-                checkedIcon={<Check className={classes.checkedIcon} />}
-                icon={<Check className={classes.uncheckedIcon} />}
-                classes={{
-                  checked: classes.checked
-                }}
-              />
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.kodeSeksi}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.dosen}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.sks}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.semester}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.jenisMatkul}
-            </div>
-          </div>
-        )
-      })
-    )
-  }
-
-  const CheckSeksi = (v)=>{
-    const check = seksiKuliah.filter((val)=>{
-      return val.id == v.id
-    })
-
-    if (check.length > 0) {
-      const newData = seksiKuliah.filter((val)=>{
-        return val.id != v.id
-      })
-
-      setSeksiKuliah(newData)
-    }else{
-      const newData = []
-
-      seksiKuliah.map(val=>{
-        newData.push(val)
-      })
-
-      newData.push(v);
-
-      setSeksiKuliah(newData)
-    }
   }
 
   return (
@@ -218,7 +132,7 @@ export default function AddMataKuliahAdmin(params) {
               }}
             />
             <CustomInput
-              labelText="Semester Mata Kuliah"
+              labelText="SKS"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -227,7 +141,7 @@ export default function AddMataKuliahAdmin(params) {
               }}
               inputProps={{
                 onChange:(event)=>{
-                  setSemesterMatkul(event.target.value)
+                  setSks(event.target.value)
                 },
               }}
             />

@@ -10,7 +10,6 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
-import Cookies from "js-cookie";
 
 const styles = {
   cardCategoryWhite: {
@@ -125,7 +124,7 @@ export default function UjianAdmin() {
     })
 
     setUjian(newData);
-    Cookies.set('dataUjian',JSON.stringify(newData));
+    localStorage.setItem('dataUjian',JSON.stringify(newData));
   }
 
   const refreshToken = (i,id)=>{
@@ -325,7 +324,7 @@ export default function UjianAdmin() {
         },
     ];
 
-    const existingUjian = Cookies.get('dataUjian');
+    const existingUjian = localStorage.getItem('dataUjian');
     
     if (existingUjian) {
       setUjian(JSON.parse(existingUjian));
@@ -350,7 +349,7 @@ export default function UjianAdmin() {
       setTokenData(newData)
 
     }else{
-      Cookies.set('dataUjian',JSON.stringify(db_ujian));
+      localStorage.setItem('dataUjian',JSON.stringify(db_ujian));
 
       const data = [];
       const newData = [];
@@ -394,32 +393,38 @@ export default function UjianAdmin() {
             alignItems:"center"
           }} >
             <div style={{
-              minWidth:200,
+              minWidth:100/7+"%",
+              maxWidth:100/7+"%"
             }} >
               {v.matkul.namaMatkul} - {val.namaUjian}
             </div>
             <div style={{
               minWidth:100/6+"%",
+              maxWidth:100/7+"%"
             }} >
               {v.matkul.kodeMatKul}
             </div>
             <div style={{
               minWidth:100/6+"%",
+              maxWidth:100/7+"%"
             }} >
               {v.matkul.kodeSeksi}
             </div>
             <div style={{
               minWidth:100/6+"%",
+              maxWidth:100/7+"%"
             }} >
               {val.status}
             </div> 
             <div style={{
               minWidth:100/6+"%",
+              maxWidth:100/7+"%"
             }} >
               {token(i,id,val)}
             </div>
             <div style={{
               minWidth:100/6+"%",
+              maxWidth:100/7+"%"
             }} >
               {detail(val.status,val.banksoal.id)}
             </div>
@@ -449,32 +454,38 @@ export default function UjianAdmin() {
               alignItems:"center"
             }} >
                 <div style={{
-                minWidth:200,
+                  minWidth:100/7+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Nama Mata Kuliah
                 </div>
                 <div style={{
                   minWidth:100/6+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Kode Matkul
                 </div>
                 <div style={{
                   minWidth:100/6+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Kode Seksi
                 </div>
                 <div style={{
                   minWidth:100/6+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Status
                 </div>
                 <div style={{
                   minWidth:100/6+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Token
                 </div>
                 <div style={{
                   minWidth:100/6+"%",
+                  maxWidth:100/7+"%"
                 }} >
                   Detail
                 </div>

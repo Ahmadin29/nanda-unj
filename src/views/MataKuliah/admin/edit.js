@@ -12,7 +12,6 @@ import Check from "@material-ui/icons/Check";
 import CheckboxStyles from "assets/jss/material-dashboard-react/checkboxAdnRadioStyle.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 const styles = {
@@ -54,11 +53,8 @@ export default function EditMataKuliahAdmin(params) {
   const [namaMatKul,setNamaMatKul] = useState('');
   const [kodeMatKul,setKodeMatKul] = useState('');
   const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
-  const [semesterMatkul,setSemesterMatkul] = useState('');
+  const [sks,setSks] = useState('');
   const [seksiKuliah,setSeksiKuliah] = useState([]);
-
-  const [matKul,setMatKul] = useState();
-  const [seksi,setSeksi] = useState([]);
 
   const getId = () => {
     return location.pathname.split("/")[
@@ -71,7 +67,7 @@ export default function EditMataKuliahAdmin(params) {
   }, []);
 
   const getData = ()=>{
-    const setedMataKuliah = Cookies.get('mataKuliah');
+    const setedMataKuliah = localStorage.getItem('mataKuliah');
 
     const selected = JSON.parse(setedMataKuliah).filter(v=>{
       return v.id == getId();
@@ -88,13 +84,13 @@ export default function EditMataKuliahAdmin(params) {
     setNamaMatKul(selected[0].namaMatKul);
     setKodeMatKul(selected[0].kodematkul);
     setDeskripsiMatkul(selected[0].deskripsi);
-    setSemesterMatkul(selected[0].semester);
+    setSks(selected[0].sks);
   }
 
   const saveMatkul = ()=>{
-    const setedMatkul = JSON.parse(Cookies.get('mataKuliah'));
+    const setedMatkul = JSON.parse(localStorage.getItem('mataKuliah'));
 
-    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul == '' && semesterMatkul == ''&& !seksiKuliah) {
+    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul == '' && sks == ''&& !seksiKuliah) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
         return;
     }
@@ -104,99 +100,18 @@ export default function EditMataKuliahAdmin(params) {
         val.kodematkul  = kodeMatKul;
         val.namaMatKul  = namaMatKul;
         val.deskripsi   = deskripsiMatkul;
-        val.semester   = semesterMatkul;
+        val.semester   = sks;
         val.seksi       = seksiKuliah.length ?  seksiKuliah :val.seksi ;
       }
     })
     
-    Cookies.set('mataKuliah',JSON.stringify(setedMatkul))
+    localStorage.setItem('mataKuliah',JSON.stringify(setedMatkul))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil mengubah data mata kuliah',
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
-  }
-
-  const renderSeksi = () =>{
-    const setedseksi = JSON.parse(Cookies.get('kodeSeksi'));
-
-    return (
-      setedseksi.map(v=>{
-        return(
-          <div style={{
-            paddingTop:10,
-            paddingBottom:10,
-            borderBottom:"1px solid #eee",
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center"
-          }} >
-            <div style={{
-              minWidth:200,
-            }} >
-              <Checkbox
-                onClick={() => CheckSeksi(v)}
-                checkedIcon={<Check className={classes.checkedIcon} />}
-                icon={<Check className={classes.uncheckedIcon} />}
-                classes={{
-                  checked: classes.checked
-                }}
-              />
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.kodeSeksi}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.dosen}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.sks}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.semester}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.jenisMatkul}
-            </div>
-          </div>
-        )
-      })
-    )
-  }
-
-  const CheckSeksi = (v)=>{
-    const check = seksiKuliah.filter((val)=>{
-      return val.id == v.id
-    })
-
-    if (check.length > 0) {
-      const newData = seksiKuliah.filter((val)=>{
-        return val.id != v.id
-      })
-
-      setSeksiKuliah(newData)
-    }else{
-      const newData = []
-
-      seksiKuliah.map(val=>{
-        newData.push(val)
-      })
-
-      newData.push(v);
-
-      setSeksiKuliah(newData)
-    }
   }
 
   return (
@@ -253,7 +168,7 @@ export default function EditMataKuliahAdmin(params) {
               }}
             />
             <CustomInput
-              labelText="Semester Mata Kuliah"
+              labelText="SKS"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -262,9 +177,9 @@ export default function EditMataKuliahAdmin(params) {
               }}
               inputProps={{
                 onChange:(event)=>{
-                  setSemesterMatkul(event.target.value)
+                  setSks(event.target.value)
                 },
-                value:semesterMatkul,
+                value:sks,
               }}
             />
             <Button block onClick={()=>{saveMatkul()}} color="primary">Simpan Perubahan</Button>
