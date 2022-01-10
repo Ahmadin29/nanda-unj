@@ -89,19 +89,10 @@ export default function UjianOnProcessDosen() {
         const selectedUjian = selected[0].ujian.filter(v=>{
             return v.id == getId()
         })
-
-        const data = [];
-
-        selected[0].mahasiswa.map(v=>{
-            data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,detail(v.id)])
-        })
-
-        console.log(data);
-
+        
         // console.log(getId());
         setPaketUjian(selected[0]);
         setUjian(selectedUjian[0]);
-        setMahasiswa(data)
     }
 
     useEffect(()=>{

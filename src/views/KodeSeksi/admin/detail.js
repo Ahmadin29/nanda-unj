@@ -75,7 +75,7 @@ export default function DetailSeksiAdmin(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Detail Data Seksi</h4>
+            <h4 className={classes.cardTitleWhite}>Kelas</h4>
           </CardHeader>
           {
             seksi &&

@@ -95,7 +95,7 @@ export default function AddUjianDosen(params) {
     Cookies.set('dataUjian',JSON.stringify(setedUjian))
     Swal.fire({
       title: 'Berhasil!',
-      text: 'Berhasil menambahkan data dosen',
+      text: 'Berhasil Ujian',
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
@@ -167,7 +167,7 @@ export default function AddUjianDosen(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Ubah Data Dosen</h4>
+            <h4 className={classes.cardTitleWhite}>Tambahkan Ujian</h4>
           </CardHeader>
           <CardBody>
             <CustomInput

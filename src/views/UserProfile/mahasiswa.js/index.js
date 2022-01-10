@@ -56,13 +56,13 @@ export default function MahasiswaProfile() {
   const getData = ()=>{
     const admin = JSON.parse(Cookies.get('userMahasiswa'));
 
-    // username:'mahasiswa1',
-    // name:'Mahasiswa 1',
-    // email:'mahasiswa@mahasiswa.com',
-    // password:'mahasiswa1',
-    // angkatan:'123456',
-    // alamat:'jalan jalan',
-    // phone:'123123',
+    // username:'Janabelia',
+    // name:'Janabelia',
+    // email:'mahasiswa@gmail.com',
+    // password:'mahasiswa',
+    // angkatan:'2020',
+    // alamat:'Jalan jalan',
+    // phone:'081298589827',
 
     setUsername(admin.username);
     setName(admin.name);

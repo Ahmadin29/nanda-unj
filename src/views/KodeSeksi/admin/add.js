@@ -54,6 +54,7 @@ export default function AddSeksiAdmin(params) {
   const [kodeSeksi,setKodeSeksi] = useState('');
   const [dosen,setDosen] = useState('');
   const [sks,setSks] = useState('');
+  const [semester,setSemester] = useState('');
   const [jenisMatkul,setjenisMatkul] = useState('');
   const [matkul,setMatkul] = useState();
 
@@ -185,6 +186,20 @@ export default function AddSeksiAdmin(params) {
               }}
             />
             <CustomInput
+              labelText="Semester"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setSemester(event.target.value)
+                },
+              }}
+            />
+            <CustomInput
               labelText="Jenis Mata Kuliah"
               formControlProps={{
                 fullWidth: true,
@@ -198,32 +213,6 @@ export default function AddSeksiAdmin(params) {
                 },
               }}
             />
-            <h4>Pilih Mata Kuliah</h4>
-            <div style={{
-                paddingTop:10,
-                paddingBottom:10,
-                borderBottom:"1px solid #eee",
-                display:"flex",
-                flexDirection:"row",
-                alignItems:"center"
-            }} >
-                <div style={{
-                    minWidth:200,
-                }} >
-                Pilih
-                </div>
-                <div style={{
-                minWidth:200,
-                }} >
-                Nama Mata Kuliah
-                </div>
-                <div style={{
-                minWidth:200,
-                }} >
-                Kode Matkul
-                </div>
-            </div>
-            {renderSeksi()}
             <Button block onClick={()=>{saveMatkul()}} color="primary">Simpan Perubahan</Button>
           </CardBody>
         </Card>

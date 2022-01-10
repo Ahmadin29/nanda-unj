@@ -121,7 +121,7 @@ export default function AddSeksiDosen(params) {
 
     Swal.fire({
       title: 'Berhasil!',
-      text: 'Berhasil menambahkan data Seksi',
+      text: 'Berhasil menambahkan Kode Seksi',
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
@@ -132,11 +132,11 @@ export default function AddSeksiDosen(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Tambahkan Data Seksi Kuliah</h4>
+            <h4 className={classes.cardTitleWhite}>Tambahkan Kode Seksi Mata Kuliah</h4>
           </CardHeader>
           <CardBody>
             <CustomInput
-              labelText="Kode Seksi Kuliah"
+              labelText="Kode Seksi Mata Kuliah"
               formControlProps={{
                 fullWidth: true,
               }}

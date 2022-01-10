@@ -52,17 +52,11 @@ export default function AdminUserGuide() {
                 <GridItem xs={12} sm={12} md={12}>
                   <p>Untuk bisa menjalankan kegiatan ujian online, silahkan ikuti langkah-langkah berikut:</p>
                   <ol>
-                    <li>Data Akun Dosen, bisa dengan input manual, import file,</li>
-                    <li>Data Akun Mahasiswa, bisa dengan input manual, import file,</li>
-                    <li>Data Mata Kuliah, input mata kuliah sesuai dengan kode mata kuliah,</li>
-                    <li>Daftar Kode Seksi, input kode seksi sesuai mata kuliah yang sudah diinput di mata kuliah,</li>
-                    <li>Tambah Bank Soal, bank soal ini berupa nama paket soal ujian (hanya bisa diinput oleh dosen),</li>
-                    <li>Setelah dosen membuat bank soal / paket soal, lalu buat daftar pertanyaan, bisa diinput manual bisa juga diimport dari excel untuk soal text nya,</li>
-                    <li>Setelah membuat kode seksi, dosen dapat membuat kelas ujian, bisa dijadwalkan sehingga lebih mudah,</li>
-                    <li>Siswa otomatis masuk kedalam kelas ujian sesuai mata kuliah yang diambil,</li>
-                    <li>Siswa login ke sistem lalu mengikuti kegiatan ujian</li>
-                    <li>Siswa mengikuti kegiatan ujian dengan hasilnya bisa dipantau langsung oleh admin dan juga Guru,</li>
-                    <li>Cetak atau eksport laporan nilai dari kegiatan ujian,</li>
+                  <li>Data Akun Dosen menampilkan tabel daftar dosen-dosen, menambahkan akun dosen, mengimport data dosen dan mengubah data dosen yang sudah ada.</li>
+                    <li>Data Akun Mahasiswa menampilakn tabel daftar mahasiswa, menambahkan akun mahasiswa, mengimport data mahasiswa dan mengubah data mahasiswa yang sudah ada.</li>
+                    <li>Data Mata Kuliah menampilkan tabel daftar mata kuliah, menambahkan akun dosen, mengimport data dosen dan mengubah data dosen yang sudah ada.</li>
+                    <li>Data Kode Seksi menampilkan tabel daftar kode seksi, menambahkan akun dosen, mengimport data dosen dan mengubah data dosen yang sudah ada.</li>
+                    <li>Petunjuk menampilkan petunjuk alur aplikasi.</li> 
                     <li>Selesai.</li>
                   </ol>
                 </GridItem>

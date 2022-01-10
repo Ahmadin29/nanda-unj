@@ -59,15 +59,15 @@ export default function MataKuliahDosen() {
                 id:1,
                 matkul:{
                     id:1,
-                    namaMatkul:'Aljabar Linear',
-                    kodeMatKul:'1231231',
+                    namaMatkul:'Filsafat Ilmu',
+                    kodeMatKul:'00052002',
                 },
                 ujian:[
                     {
                         id:1,
                         namaUjian:"UTS",
-                        tanggal:"24 Oktober 2021",
-                        waktu:"10.00 - 11.00",
+                        tanggal:"12 Oktober 2021",
+                        waktu:"08:00 - 09:50",
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
@@ -76,8 +76,8 @@ export default function MataKuliahDosen() {
                     {
                         id:2,
                         namaUjian:"UAS",
-                        tanggal:"24 Oktober 2021",
-                        waktu:"10.00 - 11.00",
+                        tanggal:"23 Desember 2021",
+                        waktu:"08:00 - 09:50",
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
@@ -87,48 +87,48 @@ export default function MataKuliahDosen() {
                 mahasiswa:[
                     {
                         id:1,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619003",
+                        namaLengkap:"Taufik Ihsan",
+                        email:"Taufik@gmail.com",
+                        nomorTelepon:"081532198478",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:2,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619011",
+                        namaLengkap:"Fatih Abhipraya",
+                        email:"Fatihabhi@gmail.com",
+                        nomorTelepon:"082117247250",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:3,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619015",
+                        namaLengkap:"Amelia Arifah",
+                        email:"Ameliar@gmail.com",
+                        nomorTelepon:"085254244522",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:4,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619042",
+                        namaLengkap:"Rizka Rahmawati Dewi",
+                        email:"rizkarah@gmail.com",
+                        nomorTelepon:"08219671465",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:5,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619046",
+                        namaLengkap:"Janabelia Ayu Tafarannisa",
+                        email:"Mahasiswa@gmail.com",
+                        nomorTelepon:"081298589827",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                 ]
             },
@@ -136,15 +136,15 @@ export default function MataKuliahDosen() {
                 id:2,
                 matkul:{
                     id:1,
-                    namaMatkul:'Aljabar Linear',
-                    kodeMatKul:'1231231',
+                    namaMatkul:'Jaringan Komputer',
+                    kodeMatKul:'1152350213',
                 },
                 ujian:[
                     {
                         id:1,
                         namaUjian:"UTS",
-                        tanggal:"24 Oktober 2021",
-                        waktu:"10.00 - 11.00",
+                        tanggal:"13 Oktober 2021",
+                        waktu:"13:00 - 15:50",
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
@@ -153,8 +153,8 @@ export default function MataKuliahDosen() {
                     {
                         id:2,
                         namaUjian:"UAS",
-                        tanggal:"24 Oktober 2021",
-                        waktu:"10.00 - 11.00",
+                        tanggal:"24 Desember 2021",
+                        waktu:"13:00 - 15:50",
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
@@ -164,48 +164,48 @@ export default function MataKuliahDosen() {
                 mahasiswa:[
                     {
                         id:1,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619003",
+                        namaLengkap:"Taufik Ihsan",
+                        email:"Taufik@gmail.com",
+                        nomorTelepon:"081532198478",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:2,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619011",
+                        namaLengkap:"Fatih Abhipraya",
+                        email:"Fatihabhi@gmail.com",
+                        nomorTelepon:"082117247250",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:3,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619015",
+                        namaLengkap:"Amelia Arifah",
+                        email:"Ameliar@gmail.com",
+                        nomorTelepon:"085254244522",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:4,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619042",
+                        namaLengkap:"Rizka Rahmawati Dewi",
+                        email:"rizkarah@gmail.com",
+                        nomorTelepon:"08219671465",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                     {
                         id:5,
-                        nim:"1910012345678901",
-                        namaLengkap:"Bayley Cooke",
-                        email:"richard@gmail.com",
-                        nomorTelepon:"081256789012",
+                        nim:"1512619046",
+                        namaLengkap:"Janabelia Ayu Tafarannisa",
+                        email:"Mahasiswa@gmail.com",
+                        nomorTelepon:"081298589827",
                         password:'12345',
-                        angkatan:'1'
+                        angkatan:'2020'
                     },
                 ]
             },

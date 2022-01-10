@@ -82,7 +82,7 @@ export default function MahasiswaAdmin() {
               const data = [];
 
               deletedMahasiswa.map((v)=>{
-                data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+                data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
               });
               
               Cookies.set('mahasiswa',JSON.stringify(deletedMahasiswa));
@@ -106,46 +106,46 @@ export default function MahasiswaAdmin() {
     const db_mahasiswa = [
       {
         id:1,
-        nim:"1910012345678901",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
-        nomorTelepon:"081256789012",
+        nim:"1512620003",
+        namaLengkap:"Taufik Ihsan",
+        email:"Taufik@gmail.com",
+        nomorTelepon:"081532198478",
         password:'12345',
-        angkatan:'1'
+        angkatan:'2020'
       },
       {
         id:2,
-        nim:"1910012345678901",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
-        nomorTelepon:"081256789012",
+        nim:"1512620011",
+        namaLengkap:"Fatih Abhipraya",
+        email:"Fatihabhi@gmail.com",
+        nomorTelepon:"082117247250",
         password:'12345',
         angkatan:'1'
       },
       {
         id:3,
-        nim:"1910012345678901",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
-        nomorTelepon:"081256789012",
+        nim:"1512620015",
+        namaLengkap:"Amelia Arifah",
+        email:"Ameliar@gmail.com",
+        nomorTelepon:"085254244522",
         password:'12345',
         angkatan:'1'
       },
       {
         id:4,
-        nim:"1910012345678901",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
-        nomorTelepon:"081256789012",
+        nim:"1512620042",
+        namaLengkap:"Rizka Rahmawati Dewi",
+        email:"rizkarah@gmail.com",
+        nomorTelepon:"08219671465",
         password:'12345',
         angkatan:'1'
       },
       {
         id:5,
-        nim:"1910012345678901",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
-        nomorTelepon:"081256789012",
+        nim:"1512620046",
+        namaLengkap:"Janabella Ayu Tafarannisa",
+        email:"Janabella@gmail.com",
+        nomorTelepon:"081298589827",
         password:'12345',
         angkatan:'1'
       },
@@ -158,7 +158,7 @@ export default function MahasiswaAdmin() {
       const data = [];
 
       JSON.parse(existingMahasiswa).map((v)=>{
-        data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+        data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
       });
   
       setMahasiswa(data)
@@ -168,7 +168,7 @@ export default function MahasiswaAdmin() {
       const data = [];
 
       db_mahasiswa.map((v)=>{
-        data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+        data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
       });
   
       setMahasiswa(data)
@@ -196,7 +196,7 @@ export default function MahasiswaAdmin() {
               }} >Daftar Akun Mahasiswa</span>
               <div>
                 <Button onClick={()=>location.href='/admin/mahasiswa/add'} color="primary">Tambahkan Mahasiswa</Button>
-                <Button onClick={()=>location.href='/admin/mahasiswa/import'} color="success">Import Data Dosen</Button>
+                <Button onClick={()=>location.href='/admin/mahasiswa/import'} color="success">Import Data Mahasiswa</Button>
               </div>
             </div>
           </CardBody>
@@ -213,7 +213,7 @@ export default function MahasiswaAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["NIM","Nama Lengkap","Email",'Nomor Telepon','Edit','Hapus']}
+              tableHead={["NIM","Nama Lengkap","Email",'Nomor Telepon','Edit']}
               tableData={mahasiswa}
             />
           </CardBody>

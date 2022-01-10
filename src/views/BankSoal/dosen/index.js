@@ -118,63 +118,69 @@ export default function BankSoalDosen() {
     const db_banksoal = [
         {
             id:1,
-            matakuliah:"Aljabar Linear",
-            kodeMatKul:1231231231,
+            matakuliah:"Jaringan Komputer",
+            kodeMatKul:52350113,
             jumlah:40,
             status:'Valid',
             soal:[
                 {
                     id:1,
-                    question:"Sebutkan cabang filsafat ilmu!",
+                    question:"Sebutkan 5 perangkat keras jaringan!",
                     status:'Valid',
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    kisi:'Hub, Switch, Bridge, Router, Modem',
                 },
                 {
                     id:2,
-                    question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                    question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
                     status:'Valid',
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
                 },
+                {
+                  id:3,
+                  question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                  status:'Valid',
+                  kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+              },
             ]
         },
         {
             id:2,
             matakuliah:"Filsafat Ilmu",
-            kodeMatKul:123123111,
+            kodeMatKul:50054102,
             jumlah:40,
             status:'Draft',
             soal:[
                 {
                     id:1,
                     question:"Sebutkan cabang filsafat ilmu!",
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    kisi:'Mtafisika, Epistemologi, Aksiologi',
                     status:'Valid',
                 },
                 {
                     id:2,
                     question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    kisi:'Hibungan manusia dengan keberadaan Tuhan, Hubungan manusia dengan alam semesta dan Hubungan manusia baik secara individu maupun kelompok',
                     status:'Valid',
                 },
             ]
         },
         {
             id:3,
-            matakuliah:"Struktur Data",
-            kodeMatKul:1231231231,
+            matakuliah:"Perencanaan Pengajaran",
+            kodeMatKul:50050182,
             jumlah:40,
             status:'Valid',
             soal:[
                 {
                     id:1,
-                    question:"Sebutkan cabang filsafat ilmu!",
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    question:"Sebutkan 10 komponen proses yang terdapat dalam menyusun perencanaan pembelajaran!!",
+                    kisi:'Pengembangan bahan ajar, Analisis Karakteristik Siswa, Analisis pekerjaan, Perumusan tujuan pembelajaran, pengembangan butir tes, pengorganisasian satuan pembelajaran, pengembangan strategi pembelajaran, penilaian pembelajaran, pengembangan strategi pembelajaran ranah motorik, pengembangan sumber belajar ',
                     status:'Valid',
                 },
                 {
                     id:2,
-                    question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
-                    kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    question:"Sebutkan 6 komponen silabus!",
+                    kisi:'Kompetensi Dasar, Materi pokok, Pembelajaran, Penilaian, Alokasi waktu, Sumber belajar',
                     status:'Valid',
                 },
             ]
@@ -188,7 +194,7 @@ export default function BankSoalDosen() {
       const data = [];
 
       JSON.parse(existingBankSoal).map((v)=>{
-        data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status,detail(v.id),edit(v.id)]);
       });
   
       setBankSoal(data)
@@ -198,7 +204,7 @@ export default function BankSoalDosen() {
       const data = [];
 
       db_banksoal.map((v)=>{
-        data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status,detail(v.id),edit(v.id)]);
       });
   
       setBankSoal(data)
@@ -242,7 +248,7 @@ export default function BankSoalDosen() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Jumlah Soal", "Status","Detail",'Edit','Hapus']}
+              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Jumlah Soal", "Status","Detail",'Edit']}
               tableData={bankSoal}
             />
           </CardBody>

@@ -73,13 +73,13 @@ export default function UjianScheduledMahasiswa() {
                                 <span style={{
                                     fontSize:20,
                                     fontWeight:700,
-                                }} >Organisasi & Arsitektur Komputer</span>
+                                }} >Bahasa Inggris</span>
                                 <span style={{
                                     fontSize:20,
                                 }} >Belum Berjalan</span>
                                 <span style={{
                                     fontSize:15,
-                                }} >4 November 2021 10:00 - 11:00</span>
+                                }} >23 Desember 2021 10:00 - 11:50</span>
                             </div>
                             </GridContainer>
                     </CardBody>

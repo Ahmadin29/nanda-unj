@@ -54,12 +54,13 @@ export default function AddMataKuliahAdmin(params) {
   const [namaMatKul,setNamaMatKul] = useState('');
   const [kodeMatKul,setKodeMatKul] = useState('');
   const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
+  const [semesterMatkul,setsemesterMatkul] = useState('');
   const [seksiKuliah,setSeksiKuliah] = useState([]);
 
   const saveMatkul = ()=>{
     const setedMatkul = JSON.parse(Cookies.get('mataKuliah'));
 
-    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul == ''&& !seksiKuliah) {
+    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul ==  '' && semesterMatkul == ''&& !seksiKuliah) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
         return;
     }
@@ -70,6 +71,7 @@ export default function AddMataKuliahAdmin(params) {
           kodematkul:kodeMatKul,
           namaMatKul:namaMatKul,
           deskripsi:deskripsiMatkul,
+          semester:semesterMatkul, 
           seksi:seksiKuliah
         },
     )
@@ -124,6 +126,11 @@ export default function AddMataKuliahAdmin(params) {
               minWidth:200,
             }} >
               {v.sks}
+            </div>
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.semester}
             </div>
             <div style={{
               minWidth:200,
@@ -210,42 +217,20 @@ export default function AddMataKuliahAdmin(params) {
                 },
               }}
             />
-            <h4>Pilih Seksi Kuliah</h4>
-            <div style={{
-            paddingTop:10,
-            paddingBottom:10,
-            borderBottom:"1px solid #eee",
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center"
-          }} >
-            <div style={{
-              minWidth:200,
-            }} >
-              Pilih
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Kode Seksi
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Dosen
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Jumlah SKS
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Jenis Mata Kuliah
-            </div>
-          </div>
-            {renderSeksi()}
+            <CustomInput
+              labelText="Semester Mata Kuliah"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setSemesterMatkul(event.target.value)
+                },
+              }}
+            />
             <Button block onClick={()=>{saveMatkul()}} color="primary">Simpan Perubahan</Button>
           </CardBody>
         </Card>

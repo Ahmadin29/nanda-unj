@@ -90,17 +90,21 @@ export default function DetailUjianDosenMahasiswa() {
             return v.id == getId()
         })
 
-        const data = [];
-
-        selected[0].mahasiswa.map(v=>{
-            data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,detail(v.id)])
-        })
-
-        console.log(data);
-
         // console.log(getId());
         setPaketUjian(selected[0]);
         setUjian(selectedUjian[0]);
+        getMahasiswa();
+    }
+
+    const getMahasiswa = ()=>{
+        const existingMahasiswa = JSON.parse(Cookies.get('mahasiswa'));
+
+        const data = [];
+
+        existingMahasiswa.map((v)=>{
+            data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,detail(v.id)]);
+        });
+
         setMahasiswa(data)
     }
 

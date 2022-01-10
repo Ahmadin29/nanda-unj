@@ -55,41 +55,73 @@ export default function DashboardMahasiswa() {
   }
 
   const [scheduledTable,setScheduledTable] = useState([
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','Selesai',detail(true,'finished')],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','Selesai',detail(false,'finished')],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','Sedang Berjalan',detail(false,'running')],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','Belum Dimulai',detail(false,'hold')],
+      ['22 Desember 2021','10:40 - 12:40','Struktur Data','Selesai',detail(true,'finished')],
+      ['22 Desember 2021','13:00 - 15:50','Metode Numerik','Selesai',detail(false,'finished')],
+      ['23 Desember 2021','08:00 - 09:50','Filsafat Ilmu','Sedang Berjalan',detail(false,'running')],
+      ['23 Desember 2021','10:00 - 11:50','Bahasa Inggris','Belum Dimulai',detail(false,'hold')],
+      ['23 Desember 2021','13:00 - 15:50','Jaringan Komputer','Belum Dimulai',detail(false,'hold')],
+      ['24 Desember 2021','08:00 - 09:50','Profesi Pendidik & Tenaga Kependidikan','Belum Dimulai',detail(false,'hold')],
+      ['25 Desember 2021','09:00 - 11:50','Desain Web','Belum Dimulai',detail(false,'hold')],
+      ['25 Desember 2021','13:00 - 14:50','Perencanaan Pengajaran','Belum Dimulai',detail(false,'hold')],
   ]);
 
   const setData = ()=>{
 
     const data = [
         {
-            date:'1 November 2021',
-            time:'12:40 - 14:20',
-            name:'Pendidikan Pancasila',
+            date:'22 Desember 2021',
+            time:'10:40 - 12:40',
+            name:'Struktur Data',
+            status:'Selesai',
+            is_scored:true,
+        },
+        {
+            date:'22 Desember 2021',
+            time:'13:00 - 15:50',
+            name:'Metode Numerik',
             status:'Selesai',
             is_scored:false,
         },
         {
-            date:'1 November 2021',
-            time:'12:40 - 14:20',
-            name:'Pendidikan Pancasila',
-            status:'Selesai',
+            date:'23 Desember 2021',
+            time:'08:00 - 09:50',
+            name:'Filsafat Ilmu',
+            status:'Sedang Berjalan',
             is_scored:false,
         },
         {
-            date:'1 November 2021',
-            time:'12:40 - 14:20',
-            name:'Pendidikan Pancasila',
-            status:'Selesai',
+            date:'23 Desember 2021',
+            time:'10:00 - 11:50',
+            name:'Bahasa Inggris',
+            status:'Belum Dimulai',
             is_scored:false,
         },
         {
-            date:'1 November 2021',
-            time:'12:40 - 14:20',
-            name:'Pendidikan Pancasila',
-            status:'Selesai',
+            date:'23 Desember 2021',
+            time:'13:00 - 15:50',
+            name:'Jaringan Komputer',
+            status:'Belum Dimulai',
+            is_scored:false,
+        },
+        {
+            date:'24 Desember 2021',
+            time:'08:00 - 09:50',
+            name:'Profesi Pendidik & Tanaga Kependidikan',
+            status:'Belum Dimulai',
+            is_scored:false,
+        },
+        {
+            date:'25 Desember 2021',
+            time:'09:00 - 11:50',
+            name:'Desain Web',
+            status:'Belum Dimulai',
+            is_scored:false,
+        },
+        {
+            date:'25 Desember 2021',
+            time:'13:00 - 14:50',
+            name:'PPerencanaan Pengajaran',
+            status:'Belum Dimulai',
             is_scored:false,
         },
     ]

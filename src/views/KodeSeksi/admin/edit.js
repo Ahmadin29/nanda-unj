@@ -112,7 +112,7 @@ export default function EditSeksiAdmin(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Tambahkan Data Seksi Kuliah</h4>
+            <h4 className={classes.cardTitleWhite}>Edit Kode Seksi Mata Kuliah</h4>
           </CardHeader>
           <CardBody>
             <CustomInput

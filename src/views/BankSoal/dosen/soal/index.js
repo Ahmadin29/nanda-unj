@@ -173,6 +173,7 @@ export default function SoalDosen() {
               }} >Daftar Bank Soal</span>
               <div>
                 <Button onClick={()=>location.href='/dosen/bank-soal/'+getId()+'/add'} color="primary">Tambahkan Soal</Button>
+                <Button onClick={()=>location.href='/dosen/bank-soal/'+getId()+'/import'} color="success">Import Soal</Button>
               </div>
             </div>
           </CardBody>

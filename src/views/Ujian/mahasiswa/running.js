@@ -48,33 +48,28 @@ export default function UjianRunningMahasiswa() {
         const data = [
             {
                 no:1,
-                question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
+                question:'Sebutkan 3 cici-ciri filsafat ilmu!',
+                answer:'Berpikir secara sitematik, Kritik atau analitik, Deskriptif',
             },
             {
                 no:2,
                 question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
+                answer:'Metafisika, Epistemologi, Aksiologi',
             },
             {
                 no:3,
-                question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
+                question:'Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:',
+                answer:'Hubungan manusia dengan keberadaan Tuhan, Hubungan manusia dengan alam semesta, Hubungan manusia dengan baik secara individu maupun kelompok',
             },
             {
                 no:4,
-                question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
+                question:'Sebutkan nama tokoh-tokoh logika modern beserta tahunnya!',
+                answer:'Petrus Hispanus 1210-1278, Roger Bacon 1214-1292, Raymundus Lullus 1232-1315, William Ocham 1295-1349',
             },
             {
                 no:5,
-                question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
-            },
-            {
-                no:6,
-                question:'Sebutkan cabang-cabang Filsafat Ilmu!',
-                answer:'',
+                question:'Sebutkan teori kebenaran yang berkaitan dengan pengembangan ilmu!',
+                answer:'Empiris, Rasional, Ilmiah, Intuitif',
             },
         ];
 
@@ -215,7 +210,7 @@ export default function UjianRunningMahasiswa() {
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-              Swal.fire('Dihapus!', 'Data ujian berhasil disimpan', 'success');
+              Swal.fire('Berhasil!', 'Data ujian berhasil disimpan', 'success');
 
               setTimeout(() => {
                   location.href = '/mahasiswa/beranda'

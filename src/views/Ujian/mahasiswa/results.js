@@ -27,10 +27,15 @@ export default function ResultsUjianMahasiswa() {
   const now = new Date();
 
   const [scheduled,setScheduled] = useState([
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','A+'],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','A+'],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','A+'],
-      ['1 November 2021','12:40 - 14:20','Pendidikan Pancasila','A+'],
+      ['11 Oktober 2021','10:40 - 12:40','Struktur Data','A'],
+      ['11 Oktober 2021','13:00 - 15:50','Metode Numerik','A'],
+      ['12 Oktober 2021','08:00 - 09:50','Filsafat Ilmu','A'],
+      ['12 Oktober 2021','10:00 - 11:50','Bahasa Inggris','A'],
+      ['12 Oktober 2021','13:00 - 15:50','Jaringan Komputer','A'],
+      ['13 Oktober 2021','08:00 - 09:50','Profesi Pendidik & Tenaga Kependidikan','A'],
+      ['14 Oktober 2021','09:00 - 11:50','Desain Web','A'],
+      ['14 Oktober 2021','13:00 - 14:50','Perencanaan Pengajaran','A'],
+      ['22 Desember 2021','10:40 - 12:40','Struktur Data','A'],
   ]);
 
   const classes = useStyles();

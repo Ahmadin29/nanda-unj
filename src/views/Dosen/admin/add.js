@@ -79,7 +79,7 @@ export default function AddDosenAdmin(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Ubah Data Dosen</h4>
+            <h4 className={classes.cardTitleWhite}>Tambah Data Dosen</h4>
           </CardHeader>
           <CardBody>
             <CustomInput

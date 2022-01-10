@@ -31,6 +31,11 @@ import AddUjianDosen from "views/Ujian/dosen/add";
 import DetailUjianDosenMahasiswa from "views/Ujian/dosen/ujian";
 import ResultUjianDosenMahasiswa from "views/Ujian/dosen/ujian/detail";
 import UjianOnProcessDosen from "views/Ujian/dosen/ujian/onprocess";
+import DetailUjianFinishedDosen from "views/Ujian/dosen/ujian/detail/finished";
+import DetailUjianReadyDosen from "views/Ujian/dosen/ujian/detail/ready";
+import DetailUjianHoldDosen from "views/Ujian/dosen/ujian/detail/hold";
+import DetailUjianRunningDosen from "views/Ujian/dosen/ujian/detail/running";
+import ImportSoalDosen from "views/BankSoal/dosen/soal/import";
 
 let ps;
 
@@ -54,11 +59,16 @@ const switchRoutes = (
     <Route path="/dosen/matkul/:id/add/" component={AddSeksiDosen} />
     <Route path="/dosen/matkul/kosek-detail" component={DetailSeksiDosen} />
     <Route path="/dosen/bank-soal/add" component={AddBankSoalDosen} />
+    <Route path="/dosen/bank-soal/:id/import" component={ImportSoalDosen} />
     <Route path="/dosen/bank-soal/:id/detail/" component={SoalDosen} />
     <Route path="/dosen/bank-soal/edit/" component={EditBankSoalDosen} />
     <Route path="/dosen/bank-soal/:id/add/" component={AddSoalDosen} />
     <Route path="/dosen/bank-soal/:id/edit/" component={EditSoalDosen} />
-    <Route path="/dosen/ujian/detail/" component={DetailUjianDosen} />
+    <Route path="/dosen/ujian/detail/finished/" component={DetailUjianFinishedDosen} />
+    <Route path="/dosen/ujian/detail/ready/" component={DetailUjianReadyDosen} />
+    <Route path="/dosen/ujian/detail/hold/" component={DetailUjianHoldDosen} />
+    <Route path="/dosen/ujian/detail/running/" component={DetailUjianRunningDosen} />
+    <Route path="/dosen/ujian/detail/:id/" component={DetailUjianDosen} />
     <Route path="/dosen/ujian/:id/add/" component={AddUjianDosen} />
     <Route path="/dosen/ujian/:id/detail/:id/result/" component={ResultUjianDosenMahasiswa} />
     <Route path="/dosen/ujian/:id/detail/:id/onprocess/" component={UjianOnProcessDosen} />

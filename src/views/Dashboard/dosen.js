@@ -42,37 +42,37 @@ export default function DashboardDosen() {
       },
       {
         name:"Ujian Tengah Semester",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"11 - 16 Oktober 2021",
         id:2
       },
       {
         name:"Ujian Akhir Semester",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"22 - 26 Desember 2021",
         id:3
       },
       {
         name:"Pemasukan nilai mata kuliah tatap muka",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"22 Desember - 7 Januari 2022",
         id:4
       },
       {
         name:"Evaluasi dosen oleh mahasiswa (EDOM)",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"23 Desember - 10 Januari 2022",
         id:5
       },
       {
         name:"Pengumuman nilai mata kuliah selain tugas akhir/ skripsi/ tes is kepada mahasiswa",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"10 Januari 2022",
         id:6
       },
       {
         name:"Perbaikan nilai semester berialan",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"10 - 13 Januari 2022",
         id:7
       },
       {
         name:"Batas  akhir  pengisian   nilai   tugas akhir / skripsi / tes is di Siakad Tahap I",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"21 Februari 2022",
         id:8
       },
     ];
@@ -156,9 +156,9 @@ export default function DashboardDosen() {
                   marginRight:15,
                 }}/>
                 <div>
-                  <h4 className={classes.cardTitleWhite}>Kalender Akademik</h4>
+                  <h4 className={classes.cardTitleWhite}>Kalender Akademik Semester 115</h4>
                   <p className={classes.cardCategoryWhite}>
-                    Kalender Akademik Bulan {new Date().getMonth()}
+                    Kalender Akademik Bulan Agustus-Februari
                   </p>
                 </div>
               </div>

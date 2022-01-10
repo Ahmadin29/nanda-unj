@@ -42,37 +42,37 @@ export default function DashboardAdmin() {
       },
       {
         name:"Ujian Tengah Semester",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"11 - 16 Oktober 2021",
         id:2
       },
       {
         name:"Ujian Akhir Semester",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"22 - 26 Desember 2021",
         id:3
       },
       {
         name:"Pemasukan nilai mata kuliah tatap muka",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"22 Desember - 7 Januari 2022",
         id:4
       },
       {
         name:"Evaluasi dosen oleh mahasiswa (EDOM)",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"23 Desember - 10 Januari 2022",
         id:5
       },
       {
         name:"Pengumuman nilai mata kuliah selain tugas akhir/ skripsi/ tes is kepada mahasiswa",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"10 Januari 2022",
         id:6
       },
       {
         name:"Perbaikan nilai semester berialan",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"10 - 13 Januari 2022",
         id:7
       },
       {
         name:"Batas  akhir  pengisian   nilai   tugas akhir / skripsi / tes is di Siakad Tahap I",
-        date:"23 Agustus - 10 Desember 2021",
+        date:"21 Februari 2022",
         id:8
       },
     ];
@@ -101,6 +101,101 @@ export default function DashboardAdmin() {
     }
 
   };
+
+  const [bankSoal,setBankSoal] = useState([])
+
+  const generateDatabase2 = ()=>{
+    const db_banksoal = [
+        {
+            id:1,
+            matakuliah:"Jaringan Komputer",
+            kodeMatKul:52350113,
+            jumlah:40,
+            status:'Valid',
+            soal:[
+                {
+                    id:1,
+                    question:"Sebutkan 5 perangkat keras jaringan!",
+                    status:'Valid',
+                    kisi:'Hub, Switch, Bridge, Router, Modem',
+                },
+                {
+                    id:2,
+                    question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                    status:'Valid',
+                    kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                },
+                {
+                  id:3,
+                  question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                  status:'Valid',
+                  kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+              },
+            ]
+        },
+        {
+            id:2,
+            matakuliah:"Filsafat Ilmu",
+            kodeMatKul:50054102,
+            jumlah:40,
+            status:'Draft',
+            soal:[
+                {
+                    id:1,
+                    question:"Sebutkan cabang filsafat ilmu!",
+                    kisi:'Mtafisika, Epistemologi, Aksiologi',
+                    status:'Valid',
+                },
+                {
+                    id:2,
+                    question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                    kisi:'Hibungan manusia dengan keberadaan Tuhan, Hubungan manusia dengan alam semesta dan Hubungan manusia baik secara individu maupun kelompok',
+                    status:'Valid',
+                },
+            ]
+        },
+        {
+            id:3,
+            matakuliah:"Perencanaan Pengajaran",
+            kodeMatKul:50050182,
+            jumlah:40,
+            status:'Valid',
+            soal:[
+                {
+                    id:1,
+                    question:"Sebutkan 10 komponen proses yang terdapat dalam menyusun perencanaan pembelajaran!!",
+                    kisi:'Pengembangan bahan ajar, Analisis Karakteristik Siswa, Analisis pekerjaan, Perumusan tujuan pembelajaran, pengembangan butir tes, pengorganisasian satuan pembelajaran, pengembangan strategi pembelajaran, penilaian pembelajaran, pengembangan strategi pembelajaran ranah motorik, pengembangan sumber belajar ',
+                    status:'Valid',
+                },
+                {
+                    id:2,
+                    question:"Sebutkan 6 komponen silabus!",
+                    kisi:'Kompetensi Dasar, Materi pokok, Pembelajaran, Penilaian, Alokasi waktu, Sumber belajar',
+                    status:'Valid',
+                },
+            ]
+        },
+    ];
+
+    const existingBankSoal = Cookies.get('bankSoal');
+    
+    if (existingBankSoal) {
+
+      const data = [];
+
+      JSON.parse(existingBankSoal).map((v)=>{
+        data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status]);
+      });
+  
+      setBankSoal(data)
+    }else{
+      Cookies.set('bankSoal',JSON.stringify(db_banksoal));
+    }
+  }
+
+  useEffect(()=>{
+    generateDatabase2();
+  },[])
 
   const classes = useStyles();
   return (
@@ -190,9 +285,9 @@ export default function DashboardAdmin() {
                   marginRight:15,
                 }}/>
                 <div>
-                  <h4 className={classes.cardTitleWhite}>Kalender Akademik</h4>
+                  <h4 className={classes.cardTitleWhite}>Kalender Akademik Semester 115</h4>
                   <p className={classes.cardCategoryWhite}>
-                    Kalender Akademik Bulan {new Date().getMonth()}
+                    Kalender Akademik Bulan Agustus-Februari
                   </p>
                 </div>
               </div>

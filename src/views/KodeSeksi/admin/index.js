@@ -79,7 +79,7 @@ export default function SeksiAdmin() {
         aria-label="open drawer"
         onClick={()=>{
           Swal.fire({
-            title: 'Yakin kamu ingin menghapus data Seksi kuliah ini?',
+            title: 'Yakin kamu ingin menghapus data Kode Seksi kuliah ini?',
             showCancelButton: true,
             confirmButtonText: 'Ya, Lanjutkan',
             icon:'question'
@@ -94,7 +94,7 @@ export default function SeksiAdmin() {
               const data = [];
 
               deletedSeksi.map((v)=>{
-                data.push([v.mataKuliah.name,v.kodeSeksi,detail(v.id),edit(v.id),remove(v.id)]);
+                data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
               });
               
               Cookies.set('kodeSeksi',JSON.stringify(deletedSeksi));
@@ -118,32 +118,57 @@ export default function SeksiAdmin() {
     const db_kodeSeksi = [
       {
         id:1,
-        kodeSeksi:123123,
-        dosen:"Ted1s",
+        kodeSeksi:1512600068,
+        dosen:"Ivan Hanafi",
         sks:2,
-        jenisMatkul:'wajib',
+        semester : 115,
+        jenisMatkul:'Umum',
         mataKuliah:{
-          name:'Design Web'
+          name:'Bahasa Inggris'
         }
       },
       {
         id:2,
-        kodeSeksi:123123,
-        dosen:"Teds",
+        kodeSeksi:1512600059,
+        dosen:"Fandy Septia Anggriawan",
         sks:2,
-        jenisMatkul:'wajib',
+        semester : 115,
+        jenisMatkul:'Bidang Keahlian',
         mataKuliah:{
-          name:'Jaringan Dasar'
+          name:'Filsafat Ilmu'
         }
       },
       {
         id:3,
-        kodeSeksi:123123,
-        dosen:"Te1ds",
+        kodeSeksi:1000000147,
+        dosen:"Rosinar",
         sks:2,
-        jenisMatkul:'wajib',
+        semester : 115,
+        jenisMatkul:'Dasar Kependidikan',
         mataKuliah:{
-          name:'Pemrograman Dasar'
+          name:'Profesi Pendidik & Tanaga Kependidikan'
+        }
+      },
+      {
+        id:4,
+        kodeSeksi:1512600077,
+        dosen:"Muhammad Ficky Duskarnaen",
+        sks:3,
+        semester : 115,
+        jenisMatkul:'Bidang Keahlian',
+        mataKuliah:{
+          name:'Jaringan Komputer'
+        }
+      },
+      {
+        id:5,
+        kodeSeksi:1512600079,
+        dosen:"Ze. Ferdi Fauzan Putra",
+        sks:3,
+        semester : 115,
+        jenisMatkul:'Bidang Keahlian',
+        mataKuliah:{
+          name:'Desain Web'
         }
       },
     ];
@@ -155,7 +180,7 @@ export default function SeksiAdmin() {
       const data = [];
 
       JSON.parse(existingKodeSeksi).map((v)=>{
-        data.push([v.mataKuliah.name,v.kodeSeksi,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
@@ -165,7 +190,7 @@ export default function SeksiAdmin() {
       const data = [];
 
       db_kodeSeksi.map((v)=>{
-        data.push([v.mataKuliah.name,v.kodeSeksi,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
@@ -190,10 +215,10 @@ export default function SeksiAdmin() {
               <span style={{
                 fontSize:20,
                 fontWeight:700,
-              }} >Daftar Mata Kuliah</span>
+              }} >Daftar Kode Seksi</span>
               <div>
-                <Button onClick={()=>location.href='/admin/seksi/add'} color="primary">Tambahkan Seksi Kuliah</Button>
-                <Button onClick={()=>location.href='/admin/seksi/import'} color="success">Import Data Seksi Kuliah</Button>
+                <Button onClick={()=>location.href='/admin/seksi/add'} color="primary">Tambahkan Kode Seksi</Button>
+                <Button onClick={()=>location.href='/admin/seksi/import'} color="success">Import Data Kode Seksi</Button>
               </div>
             </div>
           </CardBody>
@@ -202,15 +227,15 @@ export default function SeksiAdmin() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="info">
-            <h4 className={classes.cardTitleWhite}>Data Mata Kuliah</h4>
+            <h4 className={classes.cardTitleWhite}>Data Kode Seksi</h4>
             <p className={classes.cardCategoryWhite}>
-              Data List Mata Kuliah
+              Data Kode Seksi
             </p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Matkul","Kode Matkul","Detail","Edit","Remove"]}
+              tableHead={["Nama Matkul","Kode Seksi","Semester","Kelas","Edit"]}
               tableData={kodeSeksi}
             />
           </CardBody>

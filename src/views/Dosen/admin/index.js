@@ -83,7 +83,7 @@ export default function DosenAdmin() {
               const data = [];
 
               deletedDosen.map((v)=>{
-                data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+                data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
               });
               
               Cookies.set('dosen',JSON.stringify(deletedDosen));
@@ -107,51 +107,51 @@ export default function DosenAdmin() {
     const db_dosen = [
       {
         id:1,
-        nip:"1910012345678901",
-        nidn:"1111111111",
-        nidk:"1111111111",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
+        nip:"197203252005011002",
+        nidn:"0025037206",
+        nidk:"-",
+        namaLengkap:"Widodo, M.Kom.",
+        email:" widodo@unj.ac.id",
         nomorTelepon:"081256789012",
         password:'12345'
       },
       {
         id:2,
-        nip:"1910012345678901",
-        nidn:"1111111111",
-        nidk:"1111111111",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
+        nip:"197309242006041001",
+        nidn:"0024097304",
+        nidk:"-",
+        namaLengkap:"Muhammad Ficky Duskarnaen, M.Sc.",
+        email:"duskarnaen@unj.ac.id",
         nomorTelepon:"081256789012",
         password:'12345'
       },
       {
         id:3,
-        nip:"1910012345678901",
-        nidn:"1111111111",
-        nidk:"1111111111",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
+        nip:"197408242005011001",
+        nidn:"0024087402",
+        nidk:"-",
+        namaLengkap:"Hamidillah Ajie, S.Si., M.T.",
+        email:"hamidillah@unj.ac.id",
         nomorTelepon:"081256789012",
         password:'12345'
       },
       {
         id:4,
-        nip:"1910012345678901",
-        nidn:"1111111111",
-        nidk:"1111111111",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
+        nip:"197612292003121002",
+        nidn:"0029127601",
+        nidk:"-",
+        namaLengkap:"Lipur Sugiyanta, S.T., M.Kom., Ph.D.",
+        email:"lipurs@unj.ac.id",
         nomorTelepon:"081256789012",
         password:'12345'
       },
       {
         id:5,
-        nip:"1910012345678901",
-        nidn:"1111111111",
-        nidk:"1111111111",
-        namaLengkap:"Bayley Cooke",
-        email:"richard@gmail.com",
+        nip:"198710112019032012",
+        nidn:"0511108701",
+        nidk:"-",
+        namaLengkap:"Murien Nugraheni, S.T., m.Cs.",
+        email:"murien@unj.ac.id",
         nomorTelepon:"081256789012",
         password:'12345'
       },
@@ -164,7 +164,7 @@ export default function DosenAdmin() {
       const data = [];
 
       JSON.parse(existingDosen).map((v)=>{
-        data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+        data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
       });
   
       setDosen(data)
@@ -174,7 +174,7 @@ export default function DosenAdmin() {
       const data = [];
 
       db_dosen.map((v)=>{
-        data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id),remove(v.id)]);
+        data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
       });
   
       setDosen(data)
@@ -219,7 +219,7 @@ export default function DosenAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["NIP", "NIDN", "NIDK", "Nama Lengkap","Email",'Nomor Telepon','Ubah',"Hapus","Reset Password"]}
+              tableHead={["NIP", "NIDN", "NIDK", "Nama Lengkap","Email",'Nomor Telepon','Ubah']}
               tableData={dosen}
             />
           </CardBody>

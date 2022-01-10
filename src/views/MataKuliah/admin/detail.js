@@ -69,7 +69,7 @@ export default function DetailMatkulAdmin(params) {
     const dataSeksi = [];
 
     selected[0].seksi.map(v=>{
-      const data = [v.kodeSeksi,v.dosen,v.sks,v.jenisMatkul];
+      const data = [v.kodeSeksi,v.dosen,v.sks,v.semester,v.jenisMatkul];
 
       dataSeksi.push(data);
     })
@@ -93,7 +93,7 @@ export default function DetailMatkulAdmin(params) {
               <p>{matKul.deskripsi}</p>
               <Table
                 tableHeaderColor="primary"
-                tableHead={["Kode Seksi","Dosen","Jumlah SKS","Jenis Mata Kuliah"]}
+                tableHead={["Kode Seksi","Dosen","Jumlah SKS","Semester","Jenis Mata Kuliah"]}
                 tableData={seksi}
               />
             </CardBody>

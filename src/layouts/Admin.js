@@ -34,6 +34,10 @@ import ImportDosenAdmin from "views/Dosen/admin/import";
 import ImportMahasiswaAdmin from "views/Mahasiswa/admin/import";
 import ImportSeksiAdmin from "views/KodeSeksi/admin/import";
 import ImportMatkulAdmin from "views/MataKuliah/admin/import";
+import DetailUjianFinishedAdmin from "views/Ujian/admin/detail/finished";
+import DetailUjianHoldAdmin from "views/Ujian/admin/detail/hold";
+import DetailUjianRunningAdmin from "views/Ujian/admin/detail/running";
+import DetailUjianReadyAdmin from "views/Ujian/admin/detail/ready";
 
 let ps;
 
@@ -67,7 +71,10 @@ const switchRoutes = (
     <Route path="/admin/seksi/add" component={AddSeksiAdmin} />
     <Route path="/admin/seksi/import" component={ImportSeksiAdmin} />
     <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
-    <Route path="/admin/ujian-detail" component={DetailUjianAdmin} />
+    <Route path="/admin/ujian-detail/finished" component={DetailUjianFinishedAdmin} />
+    <Route path="/admin/ujian-detail/hold" component={DetailUjianHoldAdmin} />
+    <Route path="/admin/ujian-detail/ready/:id" component={DetailUjianReadyAdmin} />
+    <Route path="/admin/ujian-detail/running" component={DetailUjianRunningAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
   </Switch>
 );

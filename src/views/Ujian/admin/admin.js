@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Table from "components/Table/Table.js";
+import Play from "@material-ui/icons/PlayArrow";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -45,32 +46,102 @@ const useStyles = makeStyles(styles);
 
 export default function UjianAdmin() {
   const classes = useStyles();
-  const [tokenData,setTokenData] = useState()
 
-  const detail = (id)=>{
+  const detail = (status,id)=>{
+
+    let link = '/admin/ujian-detail/';
+
+    if (status == 'Selesai') {
+      link = link+'finished';
+    }else if (status == 'Soal Siap') {
+      link = link+'ready/'+id;
+    }else if (status == 'Sedang Dikerjakan'){
+      link = link+'running'
+    }else{
+      link = link+'hold'
+    }
+
     return (
       <IconButton
         color="inherit"
         aria-label="open drawer"
-        onClick={()=>location.href='/admin/ujian-detail/'+id}
+        onClick={()=>location.href=link}
       >
         <Icon color="green">book</Icon>
       </IconButton>
     )
   }
+
+  const [tokenData,setTokenData] = useState([]);
   
-  const token = (id,tokendata)=>{
-    return(
-      <div>
-        {Math.floor(100000000 + Math.random() * 900000000)}
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-        >
-          <Icon color="green">refresh</Icon>
-        </IconButton>
-      </div>
-    )
+  const token = (i,id,val)=>{
+    if (val.is_active) {
+      if(val.status == 'Selesai'){
+        return(
+          <div>
+            {tokenData[i][id]}
+          </div>
+        )
+      }else{
+        return(
+          <div>
+            {tokenData[i][id]}
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={()=>refreshToken(i,id)}
+            >
+              <Icon color="green">refresh</Icon>
+            </IconButton>
+          </div>
+        )
+      }
+    }else{
+      return(
+        <div>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={()=>activate_ujian(i,id)}
+          >
+            <Play/>
+          </IconButton>
+        </div>
+      )
+    }
+  }
+
+  const activate_ujian = (id_paket,id_ujian)=>{
+    
+    const newData = [];
+
+    ujian.map((v,i)=>{
+      if (i == id_paket) {
+        v.ujian[id_ujian].is_active = true;
+        v.ujian[id_ujian].status = 'Akan Dimulai';
+      }
+
+      newData.push(v);
+    })
+
+    setUjian(newData);
+    Cookies.set('dataUjian',JSON.stringify(newData));
+  }
+
+  const refreshToken = (i,id)=>{
+
+    const data = []
+
+    tokenData.map((v,index)=>{ 
+      if(index == i){
+        v[id] = Math.floor(100000000 + Math.random() * 900000000)
+        data.push(v);
+      }else{
+        data.push(v)
+      }
+    })
+
+    setTokenData(data)
   }
 
   const [ujian,setUjian] = useState([]);
@@ -81,16 +152,19 @@ export default function UjianAdmin() {
             id:1,
             matkul:{
                 id:1,
-                namaMatkul:'Aljabar Linear',
-                kodeMatKul:'1231231',
+                namaMatkul:'Filsafat Ilmu',
+                kodeMatKul:'00052002',
+                kodeSeksi : '1512600059',
             },
             ujian:[
                 {
                     id:1,
                     namaUjian:"UTS",
-                    tanggal:"24 Oktober 2021",
-                    waktu:"10.00 - 11.00",
+                    tanggal:"12 Oktober 2021",
+                    waktu:"08:00 - 09:50",
                     lamaUjian:"60 Menit",
+                    is_active:true,
+                    status:'Selesai',
                     banksoal:{
                         id:1,
                     }
@@ -98,76 +172,34 @@ export default function UjianAdmin() {
                 {
                     id:2,
                     namaUjian:"UAS",
-                    tanggal:"24 Oktober 2021",
-                    waktu:"10.00 - 11.00",
+                    tanggal:"23 Desember 2021",
+                    waktu:"08:00 - 09:50",
+                    status:'Selesai',
+                    is_active:true,
                     lamaUjian:"60 Menit",
                     banksoal:{
                         id:1,
                     }
                 }
             ],
-            mahasiswa:[
-                {
-                    id:1,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:2,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:3,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:4,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:5,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-            ]
         },
         {
             id:2,
             matkul:{
                 id:1,
-                namaMatkul:'Aljabar Linear',
-                kodeMatKul:'1231231',
+                namaMatkul:'Bahasa Inggris',
+                kodeMatKul:'00051132',
+                kodeSeksi : '1512600068',
             },
             ujian:[
                 {
                     id:1,
                     namaUjian:"UTS",
-                    tanggal:"24 Oktober 2021",
-                    waktu:"10.00 - 11.00",
+                    tanggal:"12 Oktober 2021",
+                    is_active:true,
+                    waktu:"10:00 - 11:50",
                     lamaUjian:"60 Menit",
+                    status:'Selesai',
                     banksoal:{
                         id:1,
                     }
@@ -175,74 +207,171 @@ export default function UjianAdmin() {
                 {
                     id:2,
                     namaUjian:"UAS",
-                    tanggal:"24 Oktober 2021",
-                    waktu:"10.00 - 11.00",
+                    tanggal:"23 Desember 2021",
+                    waktu:"10:00 - 11:50",
+                    status:'Selesai',
+                    is_active:true,
                     lamaUjian:"60 Menit",
                     banksoal:{
                         id:1,
                     }
                 }
             ],
-            mahasiswa:[
-                {
-                    id:1,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:2,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:3,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:4,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-                {
-                    id:5,
-                    nim:"1910012345678901",
-                    namaLengkap:"Bayley Cooke",
-                    email:"richard@gmail.com",
-                    nomorTelepon:"081256789012",
-                    password:'12345',
-                    angkatan:'1'
-                },
-            ]
+        },
+        {
+          id:3,
+          matkul:{
+              id:1,
+              namaMatkul:'Jaringan Komputer', 
+              kodeMatKul:'152350213',
+              kodeSeksi : '1512600077',
+          },
+          ujian:[
+              {
+                  id:1,
+                  namaUjian:"UTS",
+                  tanggal:"12 Oktober 2021",
+                  is_active:true,
+                  waktu:"13:00 - 15:50",
+                  lamaUjian:"60 Menit",
+                  status:'Selesai',
+                  banksoal:{
+                      id:1,
+                  }
+              },
+              {
+                  id:2,
+                  namaUjian:"UAS",
+                  tanggal:"23 Desember 2021",
+                  waktu:"13:00 - 15:50",
+                  is_active:false,
+                  status:'Akan Dimulai',
+                  lamaUjian:"60 Menit",
+                  banksoal:{
+                      id:1,
+                  }
+              }
+          ],
+        },
+        {
+          id:4,
+          matkul:{
+              id:1,
+              namaMatkul:'Profesi Pendidik & Tenaga Kependidikan', 
+              kodeMatKul:'00052122',
+              kodeSeksi : '1000000147',
+          },
+          ujian:[
+              {
+                  id:1,
+                  namaUjian:"UTS",
+                  tanggal:"13 Oktober 2021",
+                  waktu:"13:00 - 15:50",
+                  lamaUjian:"60 Menit",
+                  is_active:true, 
+                  status:'Selesai',
+                  banksoal:{
+                      id:1,
+                  }
+              },
+              {
+                  id:2,
+                  namaUjian:"UAS",
+                  tanggal:"24 Desember 2021",
+                  waktu:"13:00 - 15:50",
+                  is_active:false, 
+                  status:'Soal Siap',
+                  lamaUjian:"60 Menit",
+                  banksoal:{
+                      id:1,
+                  }
+              }
+          ],
+        },
+        {
+          id:5,
+          matkul:{
+              id:1,
+              namaMatkul:'Desain Web', 
+              kodeMatKul:'52350133',
+              kodeSeksi : '1512600079',
+          },
+          ujian:[
+              {
+                  id:1,
+                  namaUjian:"UTS",
+                  tanggal:"14 Oktober 2021",
+                  waktu:"09:00 - 11:50",
+                  lamaUjian:"60 Menit",
+                  is_active:true, 
+                  status:'Selesai',
+                  banksoal:{
+                      id:1,
+                  }
+              },
+              {
+                  id:2,
+                  namaUjian:"UAS",
+                  tanggal:"25 Desember 2021",
+                  waktu:"09:00 - 11:50",
+                  is_active:false, 
+                  status:'Soal Sedang Dikerjakan',
+                  lamaUjian:"60 Menit",
+                  banksoal:{
+                      id:1,
+                  }
+              }
+          ],
         },
     ];
 
     const existingUjian = Cookies.get('dataUjian');
     
     if (existingUjian) {
-      setUjian(JSON.parse(existingUjian))
+      setUjian(JSON.parse(existingUjian));
+
+      const newData = [];
+
+      tokenData.map(v=>{
+        newData.push(v);
+      })
+
+      JSON.parse(existingUjian).map(v=>{
+
+        const listToken = [];
+        
+        v.ujian.map(v=>{
+          listToken.push(Math.floor(100000000 + Math.random() * 900000000));
+        })
+
+        newData.push(listToken);
+      })
+
+      setTokenData(newData)
+
     }else{
       Cookies.set('dataUjian',JSON.stringify(db_ujian));
 
       const data = [];
+      const newData = [];
 
-      db_ujian.map(v=>data.push(v));
+      tokenData.map(v=>{
+        newData.push(v);
+      })
+
+      db_ujian.map(v=>{
+        data.push(v);
+
+        const listToken = []
+
+        v.ujian.map(val=>{
+          listToken.push(Math.floor(100000000 + Math.random() * 900000000));
+        })
+
+        newData.push(listToken)
+      });
+
+      setTokenData(newData);
 
       setUjian(data)
     }
@@ -252,42 +381,51 @@ export default function UjianAdmin() {
       generateDatabase()
   },[])
 
-  const renderUjian = (v)=>{
+  const renderUjian = (v,i)=>{
     return(
-      <div style={{
-        paddingTop:10,
-        paddingBottom:10,
-        borderBottom:"1px solid #eee",
-        display:"flex",
-        flexDirection:"row",
-        alignItems:"center"
-      }} >
-        <div style={{
-          minWidth:200,
-        }} >
-          {v.matkul.namaMatkul}
-        </div>
-        <div style={{
-          minWidth:200,
-        }} >
-          {v.matkul.kodeMatKul}
-        </div>
-        <div style={{
-          minWidth:200,
-        }} >
-          {v.id == 2 ? 'Sedang Dikerjakan' : 'Belum Dimulai'}
-        </div> 
-        <div style={{
-          minWidth:200,
-        }} >
-          {token()}
-        </div>
-        <div style={{
-          minWidth:200,
-        }} >
-          {detail(v.id)}
-        </div>
-      </div>
+      v.ujian.map((val,id)=>{
+        return(
+          <div style={{
+            paddingTop:10,
+            paddingBottom:10,
+            borderBottom:"1px solid #eee",
+            display:"flex",
+            flexDirection:"row",
+            alignItems:"center"
+          }} >
+            <div style={{
+              minWidth:200,
+            }} >
+              {v.matkul.namaMatkul} - {val.namaUjian}
+            </div>
+            <div style={{
+              minWidth:100/6+"%",
+            }} >
+              {v.matkul.kodeMatKul}
+            </div>
+            <div style={{
+              minWidth:100/6+"%",
+            }} >
+              {v.matkul.kodeSeksi}
+            </div>
+            <div style={{
+              minWidth:100/6+"%",
+            }} >
+              {val.status}
+            </div> 
+            <div style={{
+              minWidth:100/6+"%",
+            }} >
+              {token(i,id,val)}
+            </div>
+            <div style={{
+              minWidth:100/6+"%",
+            }} >
+              {detail(val.status,val.banksoal.id)}
+            </div>
+          </div>
+        )
+      })
     )
   }
 
@@ -316,28 +454,33 @@ export default function UjianAdmin() {
                   Nama Mata Kuliah
                 </div>
                 <div style={{
-                  minWidth:200,
+                  minWidth:100/6+"%",
                 }} >
                   Kode Matkul
                 </div>
                 <div style={{
-                  minWidth:200,
+                  minWidth:100/6+"%",
+                }} >
+                  Kode Seksi
+                </div>
+                <div style={{
+                  minWidth:100/6+"%",
                 }} >
                   Status
                 </div>
                 <div style={{
-                  minWidth:200,
+                  minWidth:100/6+"%",
                 }} >
                   Token
                 </div>
                 <div style={{
-                  minWidth:200,
+                  minWidth:100/6+"%",
                 }} >
                   Detail
                 </div>
             </div>
             {
-              ujian.map(v=>renderUjian(v))
+              ujian.map((v,i)=>renderUjian(v,i))
             }
           </CardBody>
         </Card>

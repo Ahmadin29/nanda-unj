@@ -74,6 +74,20 @@ export default function DetailUjianDosen() {
     },[])
 
     const renderUjian = (v) =>{
+
+        let link = '/dosen/ujian/detail/';
+        const status = v.status;
+        
+        if (status == 'Selesai') {
+            link = link+'finished/'+ujian.id+'/'+v.id;
+        }else if (status == 'Soal Siap') {
+            link = link+'ready/'+v.banksoal.id;
+        }else if (status == 'Sedang Dikerjakan'){
+            link = link+'running'
+        }else{
+            link = link+'hold'
+        }
+
         return(
             <Card>
                 <CardHeader color="success" stats icon style={{
@@ -85,7 +99,7 @@ export default function DetailUjianDosen() {
                     <h3 className={classes.cardTitle} style={{color:"black",marginBottom:0,}}>{v.namaUjian}</h3>
                     <p className={classes.cardCategory} style={{color:"black",marginTop:0,marginBottom:0}}>{v.tanggal}</p>
                     <p className={classes.cardCategory} style={{color:"black",marginTop:0,}}>{v.lamaUjian}</p>
-                    <Button onClick={()=>location.href=v.id == 2 ? '/dosen/ujian/'+getId()+'/detail/'+v.id : '/dosen/ujian/'+getId()+'/detail/'+v.id+'/onprocess/'}>Detail</Button>
+                    <Button onClick={()=>location.href=link}>Detail</Button>
                 </CardHeader>
             </Card>
         )

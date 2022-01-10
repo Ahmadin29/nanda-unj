@@ -106,14 +106,20 @@ export default function ResultUjianDosenMahasiswa() {
             return v.id == getId()
         })
 
-        const selectedMahasiswa = selected[0].mahasiswa.filter(v=>{
-            return v.id == getIdMahasiswa()
-        })
-
         // console.log(getId());
         setPaketUjian(selected[0]);
         setUjian(selectedUjian[0]);
-        setMahasiswa(selectedMahasiswa[0]);
+        getMahasiswa();
+    }
+
+    const getMahasiswa = ()=>{
+        const setedMahasiswa = Cookies.get('mahasiswa');
+
+        const selected = JSON.parse(setedMahasiswa).filter(v=>{
+            return v.id == getIdMahasiswa();
+        })
+
+        setMahasiswa(selected[0])
     }
 
     useEffect(()=>{

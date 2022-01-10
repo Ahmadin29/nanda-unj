@@ -18,6 +18,7 @@ import Button from "components/CustomButtons/Button.js";
 import Swal from 'sweetalert2'
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import background from './assets/img/logo.png';
 
 var styles = {
   ...dashboardStyle,
@@ -34,7 +35,9 @@ var styles = {
     minHeight:"720px",
     display:"flex",
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    backgroundImage:"url("+background+")",
+    backgroundSize:"200px 200px",
   }
 };
 
@@ -73,10 +76,10 @@ export default function Login(params) {
 
     const dosen = {
       username:'dosen',
-      name:'Nanda Lutfiana',
-      email:'dosen@dosen.com',
+      name:'Murien',
+      email:'dosen',
       password:'dosen',
-      ttl:'Jakarta, 12 agustus 2013',
+      ttl:'Jakarta, 12 agustus 1996',
       nip:'123456',
       alamat:'jalan jalan',
       phone:'123123',
@@ -89,12 +92,12 @@ export default function Login(params) {
     const mahasiswa = {
       username:'mahasiswa1',
       name:'Mahasiswa 1',
-      email:'mahasiswa@mahasiswa.com',
+      email:'mahasiswa@gmail.com',
       password:'mahasiswa1',
-      noreg:'Jakarta, 12 agustus 2013',
-      angkatan:'123456',
-      alamat:'jalan jalan',
-      phone:'123123',
+      noreg:'1512619046',
+      angkatan:'2020',
+      alamat:'Jalan jalan',
+      phone:'081298589827',
     };
 
     const userAdmin = Cookies.get('userAdmin');
