@@ -36,6 +36,8 @@ import DetailUjianReadyDosen from "views/Ujian/dosen/ujian/detail/ready";
 import DetailUjianHoldDosen from "views/Ujian/dosen/ujian/detail/hold";
 import DetailUjianRunningDosen from "views/Ujian/dosen/ujian/detail/running";
 import ImportSoalDosen from "views/BankSoal/dosen/soal/import";
+import DetailPaketSoalDosen from "views/PaketSoal/dosen/detail";
+import SoalPaketSoalDosen from "views/PaketSoal/dosen/paket";
 
 let ps;
 
@@ -73,6 +75,8 @@ const switchRoutes = (
     <Route path="/dosen/ujian/:id/detail/:id/result/" component={ResultUjianDosenMahasiswa} />
     <Route path="/dosen/ujian/:id/detail/:id/onprocess/" component={UjianOnProcessDosen} />
     <Route path="/dosen/ujian/:id/detail/:id/" component={DetailUjianDosenMahasiswa} />
+    <Route path="/dosen/paket-soal/:id/detail/:id_paket" component={SoalPaketSoalDosen} />
+    <Route path="/dosen/paket-soal/:id/detail/" component={DetailPaketSoalDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );

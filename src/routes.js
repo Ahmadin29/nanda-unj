@@ -34,6 +34,7 @@ import BankSoalDosen from "views/BankSoal/dosen";
 import UjianDosen from "views/Ujian/dosen";
 import DashboardMahasiswa from "views/Dashboard/mahasiswa";
 import ResultsUjianMahasiswa from "views/Ujian/mahasiswa/results";
+import PaketSoalDosen from "views/PaketSoal/dosen";
 
 const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
 
@@ -119,6 +120,14 @@ const dosenRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: "book_open_variant",
     component: BankSoalDosen,
+    layout: "/dosen",
+  },
+  {
+    path: "/paket-soal-data",
+    name: "Data Paket Soal",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: "book_open_variant",
+    component: PaketSoalDosen,
     layout: "/dosen",
   },
   {
