@@ -10,7 +10,6 @@ import Button from "components/CustomButtons/Button.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
-import Cookies from 'js-cookie'
 import Swal from "sweetalert2";
 import CardIcon from "components/Card/CardIcon";
 import DateRange from "@material-ui/icons/DateRange";
@@ -65,7 +64,7 @@ export default function MataKuliahKosekDosen() {
     },[])
 
     const getMatkul = ()=>{
-        const setedMataKuliah = Cookies.get('mataKuliah');
+        const setedMataKuliah = localStorage.getItem('mataKuliah');
 
         const selected = JSON.parse(setedMataKuliah).filter(v=>{
             return v.id == getId();

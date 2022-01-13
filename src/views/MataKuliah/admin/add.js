@@ -8,7 +8,6 @@ import Button from "components/CustomButtons/Button.js";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CustomInput from "components/CustomInput/CustomInput";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 const styles = {
@@ -53,7 +52,7 @@ export default function AddMataKuliahAdmin(params) {
   const [seksiKuliah,setSeksiKuliah] = useState([]);
 
   const saveMatkul = ()=>{
-    const setedMatkul = JSON.parse(Cookies.get('mataKuliah'));
+    const setedMatkul = JSON.parse(localStorage.getItem('mataKuliah'));
 
     if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul ==  '' && semesterMatkul == ''&& !seksiKuliah) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -71,7 +70,7 @@ export default function AddMataKuliahAdmin(params) {
         },
     )
     
-    Cookies.set('mataKuliah',JSON.stringify(setedMatkul));
+    localStorage.setItem('mataKuliah',JSON.stringify(setedMatkul));
 
     Swal.fire({
       title: 'Berhasil!',
