@@ -51,6 +51,12 @@ const useStyles = makeStyles(styles);
 export default function UjianFinishedScoredMahasiswa() {
     const classes = useStyles();
 
+    const getMatkul = ()=>{
+      return location.pathname.split("/")[
+        location.pathname.split("/").length - 1
+      ].replace('-',' ');
+    }
+
     return (
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
@@ -73,7 +79,7 @@ export default function UjianFinishedScoredMahasiswa() {
                                 <span style={{
                                     fontSize:20,
                                     fontWeight:700,
-                                }} >Pendidikan Pancasila</span>
+                                }} >{getMatkul()}</span>
                                 <span style={{
                                     fontSize:20,
                                 }} >Sudah Selesai</span>

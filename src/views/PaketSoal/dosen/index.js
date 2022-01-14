@@ -226,6 +226,26 @@ export default function PaketSoalDosen() {
 
   return (
     <GridContainer>
+      {/* <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardBody>
+            <div style={{
+              display:"flex",
+              flexDirection:"row",
+              justifyContent:"space-between",
+              alignItems:"center"
+            }} >
+              <span style={{
+                fontSize:20,
+                fontWeight:700,
+              }} >Daftar Paket Soal</span>
+              <div>
+                <Button onClick={()=>location.href='/dosen/paket-soal/add'} color="primary">Tambahkan Paket Soal</Button>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
+      </GridItem> */}
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
@@ -237,7 +257,7 @@ export default function PaketSoalDosen() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Jumlah Soal", "Status","Detail",'Edit']}
+              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Kode Seksi", "Jenis Ujian","Detail",'Status']}
               tableData={bankSoal}
             />
           </CardBody>

@@ -50,6 +50,12 @@ const useStyles = makeStyles(styles);
 
 export default function UjianFinishedReviewMahasiswa() {
     const classes = useStyles();
+    
+    const getMatkul = ()=>{
+      return location.pathname.split("/")[
+        location.pathname.split("/").length - 1
+      ].replace('-',' ');
+    }
 
     return (
         <GridContainer>
@@ -73,7 +79,7 @@ export default function UjianFinishedReviewMahasiswa() {
                                 <span style={{
                                     fontSize:20,
                                     fontWeight:700,
-                                }} >Algoritma & Pemrograman I</span>
+                                }} >{getMatkul()}</span>
                                 <span style={{
                                     fontSize:20,
                                 }} >Sudah Selesai</span>

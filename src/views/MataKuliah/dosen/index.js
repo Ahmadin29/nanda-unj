@@ -83,26 +83,6 @@ export default function MataKuliahDosen() {
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
                 <Card>
-                    <CardBody>
-                        <div style={{
-                            display:"flex",
-                            flexDirection:"row",
-                            justifyContent:"space-between",
-                            alignItems:"center"
-                        }} >
-                        <span style={{
-                            fontSize:20,
-                            fontWeight:700,
-                        }} >Daftar Mata Kuliah</span>
-                        <div>
-                            <Button onClick={()=>location.href='/dosen/matkul/add'} color="primary">Tambahkan Mata Kuliah</Button>
-                        </div>
-                        </div>
-                    </CardBody>
-                </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={12}>
-                <Card>
                     <CardHeader color="info">
                         <h4 className={classes.cardTitleWhite}>Data Mata Kuliah</h4>
                         <p className={classes.cardCategoryWhite}>

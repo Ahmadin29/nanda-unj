@@ -51,6 +51,12 @@ const useStyles = makeStyles(styles);
 export default function UjianScheduledMahasiswa() {
     const classes = useStyles();
 
+    const getMatkul = ()=>{
+      return location.pathname.split("/")[
+        location.pathname.split("/").length - 1
+      ].replace('-',' ');
+    }
+
     return (
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
@@ -73,7 +79,7 @@ export default function UjianScheduledMahasiswa() {
                                 <span style={{
                                     fontSize:20,
                                     fontWeight:700,
-                                }} >Bahasa Inggris</span>
+                                }} >{getMatkul()}</span>
                                 <span style={{
                                     fontSize:20,
                                 }} >Belum Berjalan</span>

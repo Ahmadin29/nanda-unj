@@ -64,9 +64,6 @@ export default function SoalPaketSoalDosen() {
     }
 
     const getData = ()=>{
-        
-        console.log(getId());
-        console.log(getIdPaket());
 
         const data = JSON.parse(localStorage.getItem('paketSoal'));
         
@@ -108,6 +105,7 @@ export default function SoalPaketSoalDosen() {
                             tableHead={["Soal", "Kisi"]}
                             tableData={soal}
                         />
+                        <Button onClick={()=>location.href='/dosen/paket-soal/'+getId()+'/detail/'+getIdPaket()+'/edit'} style={{marginTop:20}} color="primary">Ubah Soal</Button>
                     </CardBody>
                 </Card>
             </GridItem>
