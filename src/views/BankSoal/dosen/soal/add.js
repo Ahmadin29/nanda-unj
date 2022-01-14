@@ -66,7 +66,7 @@ export default function AddSoalDosen(params) {
     };
 
     const saveData = ()=>{
-        const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+        const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
 
         const selected = setedBankSoal.filter(v=>{
             return v.id == getId();
@@ -83,24 +83,8 @@ export default function AddSoalDosen(params) {
             }
         })
         
-        Cookies.set('bankSoal',JSON.stringify(setedBankSoal));
+        localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
         Swal.fire('Berhasil!', 'Data soal berhasil ditambahkan', 'success')
-    }
-
-    const addAnswer = ()=>{
-        const data = {
-            id: answer.length + 1,
-            text:'',
-            value:false,
-        };
-
-        const add = [];
-
-        add.push(data);
-        
-        const newData = [...answer,...add];
-
-        setAnswer(newData);
     }
 
     return (

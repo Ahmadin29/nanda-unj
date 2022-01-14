@@ -64,7 +64,7 @@ export default function EditBankSoalDosen(params) {
     };
 
     const getData = ()=>{
-        const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+        const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
 
         const selected = setedBankSoal.filter((val)=>{
             return val.id == getId();
@@ -79,7 +79,7 @@ export default function EditBankSoalDosen(params) {
     },[])
 
     const saveDosen = ()=>{
-        const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+        const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
 
         if (jumlah == ''&& status == '') {
             Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -95,7 +95,7 @@ export default function EditBankSoalDosen(params) {
 
         console.log(setedBankSoal);
         
-        Cookies.set('bankSoal',JSON.stringify(setedBankSoal));
+        localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
 
         Swal.fire({
             title: 'Berhasil!',
@@ -110,7 +110,7 @@ export default function EditBankSoalDosen(params) {
     }
 
     const renderMataKuliah = ()=>{
-        const mataKuliah = JSON.parse(Cookies.get('mataKuliah'));
+        const mataKuliah = JSON.parse(localStorage.getItem('mataKuliah'));
 
         if (mataKuliah) {
             return (

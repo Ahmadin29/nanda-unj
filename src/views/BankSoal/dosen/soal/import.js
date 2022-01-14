@@ -130,7 +130,7 @@ export default function ImportSoalDosen() {
     };
 
   const upload = ()=>{
-    const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+    const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
     
     const selected = setedBankSoal.filter(v=>{
         return v.id == getId();
@@ -149,7 +149,7 @@ export default function ImportSoalDosen() {
         }
     })
 
-    Cookies.set('bankSoal',JSON.stringify(setedBankSoal));
+    localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
 
     Swal.fire({
       title: 'Berhasil!',

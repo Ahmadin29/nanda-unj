@@ -90,7 +90,7 @@ export default function SoalDosen() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-                const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+                const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
 
                 const selected = setedBankSoal.filter(v=>{
                     return v.id == getId();
@@ -113,7 +113,7 @@ export default function SoalDosen() {
                 })
 
                 setSoal(data);
-                Cookies.set('bankSoal',JSON.stringify(setedBankSoal));
+                localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
 
                 Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')
             } else if (result.isDenied) {
@@ -134,7 +134,7 @@ export default function SoalDosen() {
   };
   
   const getData = ()=>{
-    const setedBankSoal = Cookies.get('bankSoal');
+    const setedBankSoal = localStorage.getItem('bankSoal');
 
     const selected = JSON.parse(setedBankSoal).filter(v=>{
       return v.id == getId();

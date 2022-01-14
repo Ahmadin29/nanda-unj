@@ -11,7 +11,6 @@ import Button from "components/CustomButtons/Button.js";
 import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
 import Swal from 'sweetalert2'
-import Cookies from "js-cookie";
 
 const styles = {
   cardCategoryWhite: {
@@ -87,7 +86,7 @@ export default function BankSoalDosen() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-              const deletedBankSoal = JSON.parse(Cookies.get('bankSoal')).filter((val)=>{
+              const deletedBankSoal = JSON.parse(localStorage.getItem('bankSoal')).filter((val)=>{
                 return val.id != id
               })
 
@@ -97,7 +96,7 @@ export default function BankSoalDosen() {
                 data.push([v.matakuliah,v.kodeMatKul,v.jumlah,v.status,detail(v.id),edit(v.id),remove(v.id)]);
               });
               
-              Cookies.set('bankSoal',JSON.stringify(deletedBankSoal));
+              localStorage.setItem('bankSoal',JSON.stringify(deletedBankSoal));
               setBankSoal(data)
 
               Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')
@@ -187,7 +186,7 @@ export default function BankSoalDosen() {
         },
     ];
 
-    const existingBankSoal = Cookies.get('bankSoal');
+    const existingBankSoal = localStorage.getItem('bankSoal');
     
     if (existingBankSoal) {
 
@@ -200,7 +199,7 @@ export default function BankSoalDosen() {
       setBankSoal(data)
     }else{
 
-      Cookies.set('bankSoal',JSON.stringify(db_banksoal));
+      localStorage.setItem('bankSoal',JSON.stringify(db_banksoal));
       const data = [];
 
       db_banksoal.map((v)=>{
