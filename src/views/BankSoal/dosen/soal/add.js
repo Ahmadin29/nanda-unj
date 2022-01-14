@@ -126,7 +126,7 @@ export default function AddSoalDosen(params) {
                             }}
                         />
                         <CustomInput
-                            labelText="Kisi Soal"
+                            labelText="Kisi Kisi Jawaban"
                             formControlProps={{
                                 fullWidth: true,
                             }}

@@ -7,9 +7,6 @@ import GridItem from "components/Grid/GridItem";
 import React, { useEffect, useState } from "react";
 import Button from "components/CustomButtons/Button.js";
 import { makeStyles } from "@material-ui/core/styles";
-import CustomInput from "components/CustomInput/CustomInput";
-import Cookies from "js-cookie";
-import Swal from "sweetalert2";
 
 const styles = {
   cardCategoryWhite: {
@@ -60,7 +57,7 @@ export default function DetailMatkulAdmin(params) {
   }, []);
 
   const getData = ()=>{
-    const setedMataKuliah = Cookies.get('mataKuliah');
+    const setedMataKuliah = localStorage.getItem('mataKuliah');
 
     const selected = JSON.parse(setedMataKuliah).filter(v=>{
       return v.id == getId();

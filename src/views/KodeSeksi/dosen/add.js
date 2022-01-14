@@ -48,29 +48,17 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function AddSeksiDosen(params) {
+export default function AddSeksiAdmin(params) {
 
   const classes = useStyles();
   const [kodeSeksi,setKodeSeksi] = useState('');
   const [dosen,setDosen] = useState('');
   const [sks,setSks] = useState('');
+  const [semester,setSemester] = useState('');
   const [jenisMatkul,setjenisMatkul] = useState('');
   const [matkul,setMatkul] = useState();
 
-  const getId = () => {
-    return location.pathname.split("/")[
-        location.pathname.split("/").length - 3
-    ];
-  };
-
   const saveMatkul = ()=>{
-
-    const setedMatkul = JSON.parse(Cookies.get('mataKuliah'));
-
-    const selected = setedMatkul.filter(v=>{
-        return v.id == getId();
-    });
-
     const setedKodeSeksi = JSON.parse(Cookies.get('kodeSeksi'));
 
     if (kodeSeksi == '' && dosen == '' && sks == ''&& jenisMatkul == '') {
@@ -78,53 +66,73 @@ export default function AddSeksiDosen(params) {
         return;
     }
 
-    const id = setedKodeSeksi[setedKodeSeksi.length - 1].id + 1;
-
     setedKodeSeksi.push(
       {
-          id:id,
+          id:setedKodeSeksi[setedKodeSeksi.length - 1].id + 1,
           kodeSeksi:kodeSeksi,
           dosen:dosen,
           sks:sks,
           jenisMatkul:jenisMatkul,
           mataKuliah:{
-            name:selected[0].namaMatKul
+            name:matkul.namaMatKul
           }
         },
     )
     
     Cookies.set('kodeSeksi',JSON.stringify(setedKodeSeksi));
 
-    setedMatkul.map(val=>{
-      if (val.id == getId()) {
-
-        const addSeksi = {
-          id:id,
-          kodeSeksi:kodeSeksi,
-          dosen:dosen,
-          sks:sks,
-          jenisMatkul:jenisMatkul
-        };
-
-        val.seksi.push(addSeksi);
-      }
-    })
-    
-    Cookies.set('mataKuliah',JSON.stringify(setedMatkul))
-    
     Swal.fire({
       title: 'Berhasil!',
-      text: 'Berhasil mengubah data mata kuliah',
+      text: 'Berhasil menambahkan data Mahasiswa',
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
+  }
 
-    Swal.fire({
-      title: 'Berhasil!',
-      text: 'Berhasil menambahkan Kode Seksi',
-      icon: 'success',
-      confirmButtonText: 'Tutup'
-    })
+  const renderSeksi = () =>{
+    const mataKuliah = JSON.parse(Cookies.get('mataKuliah'));
+
+    if (mataKuliah) {
+        return (
+            mataKuliah.map(v=>{
+            return(
+              <div style={{
+                paddingTop:10,
+                paddingBottom:10,
+                borderBottom:"1px solid #eee",
+                display:"flex",
+                flexDirection:"row",
+                alignItems:"center"
+              }} >
+                <div style={{
+                  minWidth:200,
+                }} >
+                  <Radio
+                    checked={matkul?.id === v.id}
+                    onChange={() => setMatkul(v)}
+                    value={v.id}
+                    icon={<FiberManualRecord className={classes.radioUnchecked} />}
+                    checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
+                    classes={{
+                    checked: classes.radio
+                    }}
+                />
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  {v.namaMatKul}
+                </div>
+                <div style={{
+                  minWidth:200,
+                }} >
+                  {v.kodematkul}
+                </div>
+              </div>
+            )
+          })
+        )
+    }
   }
 
   return (
@@ -132,11 +140,11 @@ export default function AddSeksiDosen(params) {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Tambahkan Kode Seksi Mata Kuliah</h4>
+            <h4 className={classes.cardTitleWhite}>Tambahkan Data Seksi Kuliah</h4>
           </CardHeader>
           <CardBody>
             <CustomInput
-              labelText="Kode Seksi Mata Kuliah"
+              labelText="Kode Seksi Kuliah"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -174,6 +182,20 @@ export default function AddSeksiDosen(params) {
               inputProps={{
                 onChange:(event)=>{
                   setSks(event.target.value)
+                },
+              }}
+            />
+            <CustomInput
+              labelText="Semester"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setSemester(event.target.value)
                 },
               }}
             />

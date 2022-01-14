@@ -7,16 +7,10 @@ import React, { useEffect, useState } from "react";
 import Button from "components/CustomButtons/Button.js";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Checkbox from "@material-ui/core/Checkbox";
-import Check from "@material-ui/icons/Check";
-import CheckboxStyles from "assets/jss/material-dashboard-react/checkboxAdnRadioStyle.js";
-
 import CustomInput from "components/CustomInput/CustomInput";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 const styles = {
-  ...CheckboxStyles,
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -48,18 +42,19 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function AddMataKuliahDosen(params) {
+export default function AddMataKuliahAdmin(params) {
 
   const classes = useStyles();
   const [namaMatKul,setNamaMatKul] = useState('');
   const [kodeMatKul,setKodeMatKul] = useState('');
   const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
+  const [sks,setSks] = useState('');
   const [seksiKuliah,setSeksiKuliah] = useState([]);
 
   const saveMatkul = ()=>{
-    const setedMatkul = JSON.parse(Cookies.get('mataKuliah'));
+    const setedMatkul = JSON.parse(localStorage.getItem('mataKuliah'));
 
-    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul == ''&& !seksiKuliah) {
+    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul ==  '' && semesterMatkul == ''&& !seksiKuliah) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
         return;
     }
@@ -70,11 +65,12 @@ export default function AddMataKuliahDosen(params) {
           kodematkul:kodeMatKul,
           namaMatKul:namaMatKul,
           deskripsi:deskripsiMatkul,
+          sks:sks, 
           seksi:seksiKuliah
         },
     )
     
-    Cookies.set('mataKuliah',JSON.stringify(setedMatkul));
+    localStorage.setItem('mataKuliah',JSON.stringify(setedMatkul));
 
     Swal.fire({
       title: 'Berhasil!',
@@ -82,82 +78,6 @@ export default function AddMataKuliahDosen(params) {
       icon: 'success',
       confirmButtonText: 'Tutup'
     })
-  }
-
-  const renderSeksi = () =>{
-    const seksi = JSON.parse(Cookies.get('kodeSeksi'));
-
-    return (
-      seksi.map(v=>{
-        return(
-          <div style={{
-            paddingTop:10,
-            paddingBottom:10,
-            borderBottom:"1px solid #eee",
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center"
-          }} >
-            <div style={{
-              minWidth:200,
-            }} >
-              <Checkbox
-                onClick={() => CheckSeksi(v)}
-                checkedIcon={<Check className={classes.checkedIcon} />}
-                icon={<Check className={classes.uncheckedIcon} />}
-                classes={{
-                  checked: classes.checked
-                }}
-              />
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.kodeSeksi}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.dosen}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.sks}
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              {v.jenisMatkul}
-            </div>
-          </div>
-        )
-      })
-    )
-  }
-
-  const CheckSeksi = (v)=>{
-    const check = seksiKuliah.filter((val)=>{
-      return val.id == v.id
-    })
-
-    if (check.length > 0) {
-      const newData = seksiKuliah.filter((val)=>{
-        return val.id != v.id
-      })
-
-      setSeksiKuliah(newData)
-    }else{
-      const newData = []
-
-      seksiKuliah.map(val=>{
-        newData.push(val)
-      })
-
-      newData.push(v);
-
-      setSeksiKuliah(newData)
-    }
   }
 
   return (
@@ -210,42 +130,20 @@ export default function AddMataKuliahDosen(params) {
                 },
               }}
             />
-            <h4>Pilih Seksi Kuliah</h4>
-            <div style={{
-            paddingTop:10,
-            paddingBottom:10,
-            borderBottom:"1px solid #eee",
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center"
-          }} >
-            <div style={{
-              minWidth:200,
-            }} >
-              Pilih
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Kode Seksi
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Dosen
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Jumlah SKS
-            </div>
-            <div style={{
-              minWidth:200,
-            }} >
-              Jenis Mata Kuliah
-            </div>
-          </div>
-            {renderSeksi()}
+            <CustomInput
+              labelText="SKS"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setSks(event.target.value)
+                },
+              }}
+            />
             <Button block onClick={()=>{saveMatkul()}} color="primary">Simpan Perubahan</Button>
           </CardBody>
         </Card>

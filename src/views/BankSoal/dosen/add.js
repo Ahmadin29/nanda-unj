@@ -58,7 +58,7 @@ export default function AddBankSoalDosen(params) {
   const [status,setStatus] = useState('');
 
   const saveDosen = ()=>{
-    const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+    const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
 
     if (!selectedMatkul && jumlah == ''&& status == '') {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -76,7 +76,7 @@ export default function AddBankSoalDosen(params) {
 
     console.log(setedBankSoal);
     
-    Cookies.set('bankSoal',JSON.stringify(setedBankSoal));
+    localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
 
     Swal.fire({
       title: 'Berhasil!',
@@ -91,7 +91,7 @@ export default function AddBankSoalDosen(params) {
   }
 
   const renderMataKuliah = ()=>{
-    const mataKuliah = JSON.parse(Cookies.get('mataKuliah'));
+    const mataKuliah = JSON.parse(localStorage.getItem('mataKuliah'));
 
     if (mataKuliah) {
         return (

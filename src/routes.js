@@ -108,7 +108,7 @@ const dosenRoutes = [
   },
   {
     path: "/matkul-data",
-    name: "Data Mata Kuliah",
+    name: "Mata Kuliah",
     rtlName: "ملف تعريفي للمستخدم",
     icon: "book_open_variant",
     component: MataKuliahDosen,
@@ -116,7 +116,7 @@ const dosenRoutes = [
   },
   {
     path: "/banksoal-data",
-    name: "Data Bank Soal",
+    name: "Bank Soal",
     rtlName: "ملف تعريفي للمستخدم",
     icon: "book_open_variant",
     component: BankSoalDosen,
@@ -124,7 +124,7 @@ const dosenRoutes = [
   },
   {
     path: "/paket-soal-data",
-    name: "Data Paket Soal",
+    name: "Paket Soal",
     rtlName: "ملف تعريفي للمستخدم",
     icon: "book_open_variant",
     component: PaketSoalDosen,
@@ -132,7 +132,7 @@ const dosenRoutes = [
   },
   {
     path: "/ujian-data",
-    name: "Data Ujian",
+    name: "Ujian",
     rtlName: "ملف تعريفي للمستخدم",
     icon: AssignmentIcon,
     component: UjianDosen,

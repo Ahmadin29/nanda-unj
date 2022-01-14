@@ -148,7 +148,7 @@ export default function EditSoalDosen(params) {
                             }}
                         />
                         <CustomInput
-                            labelText="Kisi Soal"
+                            labelText="Kisi Kisi Jawaban"
                             formControlProps={{
                                 fullWidth: true,
                             }}
