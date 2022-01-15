@@ -158,6 +158,18 @@ export default function UjianAdmin() {
             ujian:[
                 {
                     id:1,
+                    namaUjian:"Quiz",
+                    tanggal:"12 Oktober 2021",
+                    waktu:"08:00 - 09:50",
+                    lamaUjian:"60 Menit",
+                    is_active:true,
+                    status:'Selesai',
+                    banksoal:{
+                        id:1,
+                    }
+                }, 
+                {
+                    id:2,
                     namaUjian:"UTS",
                     tanggal:"12 Oktober 2021",
                     waktu:"08:00 - 09:50",
@@ -169,7 +181,7 @@ export default function UjianAdmin() {
                     }
                 },
                 {
-                    id:2,
+                    id:3,
                     namaUjian:"UAS",
                     tanggal:"23 Desember 2021",
                     waktu:"08:00 - 09:50",

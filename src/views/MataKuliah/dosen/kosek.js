@@ -112,9 +112,6 @@ export default function MataKuliahKosekDosen() {
                             fontSize:20,
                             fontWeight:700,
                         }} >Daftar Kode Seksi Mata Kuliah {matkul && matkul.namaMatKul}</span>
-                        <div>
-                            <Button onClick={()=>location.href='/dosen/matkul/'+matkul.id+'/add/'} color="primary">Tambahkan Kode Seksi</Button>
-                        </div>
                         </div>
                     </CardBody>
                 </Card>
