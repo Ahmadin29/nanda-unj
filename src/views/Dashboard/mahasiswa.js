@@ -36,7 +36,7 @@ export default function DashboardMahasiswa() {
     }
 
     if (is_held == 'running') {
-        route = route+'/running/'+matkul;
+        route = route+'/token/'+matkul;
     }
 
     if (is_held == 'hold') {
