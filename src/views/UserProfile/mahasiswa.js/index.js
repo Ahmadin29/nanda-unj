@@ -48,13 +48,14 @@ export default function MahasiswaProfile() {
   const [address,setAddress] = useState('');
   const [ttl,setTtl] = useState('');
   const [phone,setPhone] = useState('');
+  const [photo,setPhoto] = useState('');
 
   const [oldPassword,setOldPassword] = useState('');
   const [password,setPassword] = useState('');
   const [confrimPassword,setConfirmPassword] = useState('');
 
   const getData = ()=>{
-    const admin = JSON.parse(Cookies.get('userMahasiswa'));
+    const admin = JSON.parse(localStorage.getItem('userMahasiswa'));
 
     // username:'Janabelia',
     // name:'Janabelia',
@@ -69,6 +70,7 @@ export default function MahasiswaProfile() {
     setEmail(admin.email);
     setPhone(admin.phone);
     setAddress(admin.alamat);
+    setPhoto(admin.photo);
   }
 
   useEffect(()=>{
@@ -77,14 +79,15 @@ export default function MahasiswaProfile() {
 
   const updateProfile = ()=>{
 
-    const admin = JSON.parse(Cookies.get('userMahasiswa'));
+    const admin = JSON.parse(localStorage.getItem('userMahasiswa'));
 
     const data ={
       username:username,
       name:name,
       email:email,
-      phone:email,
-      alamat:email,
+      phone:phone,
+      photo:photo,
+      alamat:address,
     }
 
     if (oldPassword != '') {
@@ -111,7 +114,7 @@ export default function MahasiswaProfile() {
       data.password = admin.password
     }
 
-    Cookies.set('userMahasiswa',JSON.stringify(data))
+    localStorage.setItem('userMahasiswa',JSON.stringify(data))
 
     Swal.fire({
       title: 'Berhasil!',
@@ -124,7 +127,17 @@ export default function MahasiswaProfile() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={4}>
+          <Card>
+            <CardBody>
+              <div style={{alignItems:"center",justifyContent:"center"}}>
+                <img src={photo} style={{width:"100%"}} />
+                <Button color="primary" onClick={()=>location.href='/mahasiswa/update-photo'}>Update Foto</Button>
+              </div>
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>

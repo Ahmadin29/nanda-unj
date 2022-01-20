@@ -27,15 +27,23 @@ export default function ResultsUjianMahasiswa() {
   const now = new Date();
 
   const [scheduled,setScheduled] = useState([
-      ['11 Oktober 2021','10:40 - 12:40','Struktur Data','A'],
-      ['11 Oktober 2021','13:00 - 15:50','Metode Numerik','A'],
-      ['12 Oktober 2021','08:00 - 09:50','Filsafat Ilmu','A'],
-      ['12 Oktober 2021','10:00 - 11:50','Bahasa Inggris','A'],
-      ['12 Oktober 2021','13:00 - 15:50','Jaringan Komputer','A'],
-      ['13 Oktober 2021','08:00 - 09:50','Profesi Pendidik & Tenaga Kependidikan','A'],
-      ['14 Oktober 2021','09:00 - 11:50','Desain Web','A'],
-      ['14 Oktober 2021','13:00 - 14:50','Perencanaan Pengajaran','A'],
-      ['22 Desember 2021','10:40 - 12:40','Struktur Data','A'],
+      ['4 Oktober 2021','QUIZ','Struktur Data','A'],
+      ['4 Oktober 2021','QUIZ','Metode Numerik','A'],
+      ['5 Oktober 2021','QUIZ','Filsafat Ilmu','A'],
+      ['5 Oktober 2021','QUIZ','Bahasa Inggris','A'],
+      ['5 Oktober 2021','QUIZ','Jaringan Komputer','A'],
+      ['6 Oktober 2021','QUIZ','Interaksi Manusia & Komputer','A'],
+      ['7 Oktober 2021','QUIZ','Desain Web','A'],
+      ['7 Oktober 2021','QUIZ','Perencanaan Pengajaran','A'],
+      ['11 Oktober 2021','UTS','Struktur Data','A'],
+      ['11 Oktober 2021','UTS','Metode Numerik','A'],
+      ['12 Oktober 2021','UTS','Filsafat Ilmu','A'],
+      ['12 Oktober 2021','UTS','Bahasa Inggris','A'],
+      ['12 Oktober 2021','UTS','Jaringan Komputer','A'],
+      ['13 Oktober 2021','UTS','Interaksi Manusia & Komputer','A'],
+      ['14 Oktober 2021','UTS','Desain Web','A'],
+      ['14 Oktober 2021','UTS','Perencanaan Pengajaran','A'],
+      ['22 Desember 2021','UAS','Struktur Data','A'],
   ]);
 
   const classes = useStyles();
@@ -65,7 +73,7 @@ export default function ResultsUjianMahasiswa() {
               
               <Table
                 tableHeaderColor="success"
-                tableHead={["Tanggal", "Jam", "Mata Kuliah", "Status"]}
+                tableHead={["Tanggal", "Jenis Ujian", "Mata Kuliah", "Hasil"]}
                 tableData={scheduled}
               />
 

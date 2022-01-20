@@ -12,6 +12,7 @@ import CardBody from "components/Card/CardBody.js";
 import { Icon, IconButton } from "@material-ui/core";
 import Swal from 'sweetalert2'
 import Cookies from "js-cookie";
+import CardIcon from "components/Card/CardIcon";
 
 const styles = {
   cardCategoryWhite: {
@@ -45,80 +46,93 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function DetailUjianReadyDosen() {
-  const classes = useStyles();
+export default function DetailPaketSoalDosen() {
 
-  const [bankSoal,setBankSoal] = useState();
-  const [soal,setSoal] = useState([]);
+    const classes = useStyles();
+    const [paketSoal,setPaketSoal] = useState();
 
-  const getId = () => {
-    return location.pathname.split("/")[
-      location.pathname.split("/").length - 1
-    ];
-  };
-  
-  const getData = ()=>{
-    const setedBankSoal = Cookies.get('bankSoal');
+    const getId = () => {
+        return location.pathname.split("/")[
+            location.pathname.split("/").length - 1
+        ];
+    };
 
-    const selected = JSON.parse(setedBankSoal).filter(v=>{
-      return v.id == getId();
-    });
+    const getData = ()=>{
+        const data = JSON.parse(localStorage.getItem('paketSoal'));
+        
+        const selected = data.filter(v=>{
+            return v.id == getId();
+        })
 
-    const dataSoal = [];
+        setPaketSoal(selected[0])
+    }
 
-    selected[0].soal.map(v=>{
-      const data = [v.question,v.status,v.kisi];
+    useEffect(()=>{
+        getData();
+    },[]);
 
-      dataSoal.push(data);
-    })
+    const renderPaket = (v) =>{
+        return(
+            <Card>
+                <CardHeader color="success" stats icon style={{
+                    marginBottom:15,
+                }}>
+                    <CardIcon color="success">
+                        <Icon>book</Icon>
+                    </CardIcon>
+                    <h3 className={classes.cardTitle} style={{color:"black",marginBottom:0,}}>{v.name}</h3>
+                    <p className={classes.cardCategory} style={{color:"black",marginTop:0,}}>{v.soal.length} Soal</p>
+                    <Button onClick={()=>location.href='/dosen/paket-soal/'+paketSoal.id+'/detail/'+v.id}>Detail</Button>
+                </CardHeader>
+            </Card>
+        )
+    }
 
-    setBankSoal(selected[0]);
-    setSoal(dataSoal);
-  }
-
-  useEffect(()=>{
-    getData();
-  },[])
-
-  return (
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardBody>
-            <div style={{
-              display:"flex",
-              flexDirection:"row",
-              justifyContent:"space-between",
-              alignItems:"center"
-            }} >
-              <span style={{
-                fontSize:20,
-                fontWeight:700,
-              }} >Daftar Bank Soal</span>
-              <div>
-                <Button onClick={()=>location.href='/dosen/bank-soal/'+getId()+'/add'} color="primary">Tambahkan Soal</Button>
-              </div>
-            </div>
-          </CardBody>
-        </Card>
-      </GridItem>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardHeader color="success">
-            <h4 className={classes.cardTitleWhite}>Data Soal {bankSoal?.matakuliah}</h4>
-            <p className={classes.cardCategoryWhite}>
-              Data Soal {bankSoal?.matakuliah}
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["Soal", "Status", "Kisi-Kisi Jawaban"]}
-              tableData={soal}
-            />
-          </CardBody>
-        </Card>
-      </GridItem>
-    </GridContainer>
-  );
+    return (
+        <GridContainer>
+              <GridItem xs={12} sm={12} md={12}>
+                <Card>
+                    <CardBody>
+                        <div style={{
+                            display:"flex",
+                            flexDirection:"row",
+                            justifyContent:"space-between",
+                            alignItems:"center"
+                        }} >
+                            <span style={{
+                                fontSize:20,
+                                fontWeight:700,
+                            }} >Daftar Paket Soal</span>
+                            <div>
+                                <Button onClick={()=>location.href='/dosen/paket-soal/'+paketSoal.id+'/add'} color="primary">Tambahkan Paket Soal</Button>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={12}>
+                <Card>
+                    <CardHeader color="success">
+                        <h4 className={classes.cardTitleWhite}>Data Paket Soal</h4>
+                        <p className={classes.cardCategoryWhite}>
+                            Data Paket Soal
+                        </p>
+                    </CardHeader>
+                    <CardBody>
+                        <GridContainer>
+                            {
+                                paketSoal?.paket.map(v=>{
+                                    return(
+                                        <GridItem xs={12} sm={12} md={4}>
+                                            {renderPaket(v)}
+                                        </GridItem>
+                                    )
+                                })
+                            }
+                        </GridContainer>
+                    </CardBody>
+                </Card>
+            </GridItem>
+        </GridContainer>
+    );
 }

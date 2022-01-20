@@ -47,12 +47,12 @@ export default function DetailUjianHoldAdmin() {
 
   const [dosen,setDosen] = useState(
     [
-      ["Nanda Lutfiana Nadine","1512617029","Hadir","-"],
-      ["Imelsara Wijatmoko","1512617028","Hadir","-"],
-      ["Nisrina Firyal Amani","1512617030","Tidak Hadir","-"],
-      ["M Azhar Hermawan","1512617058","Hadir","-"],
-      ["M Hadiyatullah","1512617014","Terlambat","-"],
-      ["Neng Ayu Herawati","1512617003","Hadir","-"],
+      ["Nanda Lutfiana Nadine","1512617029","-","-"],
+      ["Imelsara Wijatmoko","1512617028","-","-"],
+      ["Nisrina Firyal Amani","1512617030","-","-"],
+      ["M Azhar Hermawan","1512617058","-","-"],
+      ["M Hadiyatullah","1512617014","-","-"],
+      ["Neng Ayu Herawati","1512617003","-","-"],
     ]
   )
 

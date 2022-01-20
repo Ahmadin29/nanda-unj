@@ -48,13 +48,14 @@ export default function DosenProfile() {
   const [address,setAddress] = useState('');
   const [ttl,setTtl] = useState('');
   const [phone,setPhone] = useState('');
+  const [photo,setPhoto] = useState('');
 
   const [oldPassword,setOldPassword] = useState('');
   const [password,setPassword] = useState('');
   const [confrimPassword,setConfirmPassword] = useState('');
 
   const getData = ()=>{
-    const admin = JSON.parse(Cookies.get('userDosen'));
+    const admin = JSON.parse(localStorage.getItem('userDosen'));
 
     setUsername(admin.username);
     setName(admin.name);
@@ -63,6 +64,7 @@ export default function DosenProfile() {
     setPhone(admin.phone);
     setAddress(admin.alamat);
     setTtl(admin.ttl);
+    setPhoto(admin.photo);
   }
 
   useEffect(()=>{
@@ -71,7 +73,7 @@ export default function DosenProfile() {
 
   const updateProfile = ()=>{
 
-    const admin = JSON.parse(Cookies.get('userDosen'));
+    const admin = JSON.parse(localStorage.getItem('userDosen'));
 
     const data ={
       username:username,
@@ -81,6 +83,7 @@ export default function DosenProfile() {
       alamat:email,
       ttl:ttl,
       nip:nip,
+      photo:photo,
     }
 
     if (oldPassword != '') {
@@ -107,7 +110,7 @@ export default function DosenProfile() {
       data.password = admin.password
     }
 
-    Cookies.set('userDosen',JSON.stringify(data))
+    localStorage.setItem('userDosen',JSON.stringify(data))
 
     Swal.fire({
       title: 'Berhasil!',
@@ -120,7 +123,17 @@ export default function DosenProfile() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={4}>
+          <Card>
+            <CardBody>
+              <div style={{alignItems:"center",justifyContent:"center"}}>
+                <img src={photo} style={{width:"100%"}} />
+                <Button color="primary" onClick={()=>location.href='/dosen/update-photo'}>Update Foto</Button>
+              </div>
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
@@ -302,7 +315,6 @@ export default function DosenProfile() {
                 alignItems:"center"
               }} >
                 <Button color="primary" onClick={()=>updateProfile()}>Update Profile</Button>
-                <Button color="danger">Reset Password</Button>
               </div>
             </CardFooter>
           </Card>

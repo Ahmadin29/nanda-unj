@@ -36,7 +36,7 @@ import DashboardMahasiswa from "views/Dashboard/mahasiswa";
 import ResultsUjianMahasiswa from "views/Ujian/mahasiswa/results";
 import PaketSoalDosen from "views/PaketSoal/dosen";
 
-const role = Cookies.get('session') && JSON.parse(Cookies.get('session')).role
+const role = localStorage.getItem('session') && JSON.parse(localStorage.getItem('session')).role
 
 const adminRoutes = [
   {

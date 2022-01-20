@@ -50,10 +50,11 @@ const useStyles = makeStyles(styles);
 export default function EditMataKuliahAdmin(params) {
 
   const classes = useStyles();
-  const [namaMatKul,setNamaMatKul] = useState('');
   const [kodeMatKul,setKodeMatKul] = useState('');
-  const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
+  const [jenisMatKul,setJenisMatKul] = useState('');
+  const [namaMatKul,setNamaMatKul] = useState('');
   const [sks,setSks] = useState('');
+  const [deskripsiMatkul,setDeskripsiMatkul] = useState('');
   const [seksiKuliah,setSeksiKuliah] = useState([]);
 
   const getId = () => {
@@ -81,16 +82,17 @@ export default function EditMataKuliahAdmin(params) {
 
     console.log(selected[0]);
 
-    setNamaMatKul(selected[0].namaMatKul);
     setKodeMatKul(selected[0].kodematkul);
-    setDeskripsiMatkul(selected[0].deskripsi);
+    setJenisMatKul(selected[0].jenisMatKul);
+    setNamaMatKul(selected[0].namaMatKul);
     setSks(selected[0].sks);
+    setDeskripsiMatkul(selected[0].deskripsi);
   }
 
   const saveMatkul = ()=>{
     const setedMatkul = JSON.parse(localStorage.getItem('mataKuliah'));
 
-    if (namaMatKul == '' && kodeMatKul == '' && deskripsiMatkul == '' && sks == ''&& !seksiKuliah) {
+    if (kodeMatKul == '' && jenisMatKul == '' && namaMatKul == '' && sks == ''&& deskripsiMatkul == '' && !seksiKuliah) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
         return;
     }
@@ -98,6 +100,7 @@ export default function EditMataKuliahAdmin(params) {
     setedMatkul.map(val=>{
       if (val.id == getId()) {
         val.kodematkul  = kodeMatKul;
+        val.jenisMatkul  = jenisMatKul;
         val.namaMatKul  = namaMatKul;
         val.deskripsi   = deskripsiMatkul;
         val.semester   = sks;
@@ -123,21 +126,6 @@ export default function EditMataKuliahAdmin(params) {
           </CardHeader>
           <CardBody>
             <CustomInput
-              labelText="Nama Mata Kuliah"
-              formControlProps={{
-                fullWidth: true,
-              }}
-              style={{
-                marginBottom:"0px",
-              }}
-              inputProps={{
-                onChange:(event)=>{
-                  setNamaMatKul(event.target.value)
-                },
-                value:namaMatKul,
-              }}
-            />
-            <CustomInput
               labelText="Kode Mata Kuliah"
               formControlProps={{
                 fullWidth: true,
@@ -153,7 +141,7 @@ export default function EditMataKuliahAdmin(params) {
               }}
             />
             <CustomInput
-              labelText="Deskripsi Mata Kuliah"
+              labelText="Jenis Mata Kuliah"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -162,9 +150,24 @@ export default function EditMataKuliahAdmin(params) {
               }}
               inputProps={{
                 onChange:(event)=>{
-                  setDeskripsiMatkul(event.target.value)
+                  setJenisMatKul(event.target.value)
                 },
-                value:deskripsiMatkul,
+                value:jenisMatKul,
+              }}
+            />
+            <CustomInput
+              labelText="Nama Mata Kuliah"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setNamaMatKul(event.target.value)
+                },
+                value:namaMatKul,
               }}
             />
             <CustomInput
@@ -180,6 +183,21 @@ export default function EditMataKuliahAdmin(params) {
                   setSks(event.target.value)
                 },
                 value:sks,
+              }}
+            />
+            <CustomInput
+              labelText="Deskripsi Mata Kuliah"
+              formControlProps={{
+                fullWidth: true,
+              }}
+              style={{
+                marginBottom:"0px",
+              }}
+              inputProps={{
+                onChange:(event)=>{
+                  setDeskripsiMatkul(event.target.value)
+                },
+                value:deskripsiMatkul,
               }}
             />
             <Button block onClick={()=>{saveMatkul()}} color="primary">Simpan Perubahan</Button>

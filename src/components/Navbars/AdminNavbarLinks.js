@@ -157,7 +157,7 @@ export default function AdminNavbarLinks() {
                     <MenuItem
                       onClick={()=>{
 
-                        const session = JSON.parse(Cookies.get('session'))
+                        const session = JSON.parse(localStorage.getItem('session'))
 
                         window.location.href = '/'+session.role+'/profile'
                       }}
@@ -168,7 +168,7 @@ export default function AdminNavbarLinks() {
                     <Divider light />
                     <MenuItem
                       onClick={()=>{
-                        Cookies.remove('session');
+                        localStorage.removeItem('session');
                         window.location.href = '/login'
                       }}
                       className={classes.dropdownItem}

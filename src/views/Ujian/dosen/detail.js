@@ -60,7 +60,7 @@ export default function DetailUjianDosen() {
     };
 
     const getData = ()=>{
-        const existingUjian = JSON.parse(Cookies.get('dataUjian'));
+        const existingUjian = JSON.parse(localStorage.getItem('dataUjian'));
 
         const selected = existingUjian.filter(v=>{
             return v.id == getId()
@@ -107,24 +107,6 @@ export default function DetailUjianDosen() {
 
     return (
         <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-                <Card>
-                    <CardBody>
-                        <div style={{
-                            display:"flex",
-                            flexDirection:"row",
-                            justifyContent:"space-between",
-                            alignItems:"center"
-                        }} >
-                        <span style={{
-                            fontSize:20,
-                            fontWeight:700,
-                        }} >Daftar Ujian Mata Kuliah {ujian?.matkul?.namaMatkul}</span>
-                        <Button onClick={()=>location.href='/dosen/ujian/'+ujian.id+'/add'} color="success">Tambahkan Data Ujian</Button>
-                        </div>
-                    </CardBody>
-                </Card>
-            </GridItem>
             <GridItem xs={12} sm={12} md={12}>
                 <Card>
                     <CardHeader color="info">

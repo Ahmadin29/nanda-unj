@@ -47,12 +47,12 @@ export default function DetailUjianFinishedAdmin() {
 
   const [dosen,setDosen] = useState(
     [
-      ["Nanda Lutfiana Nadine","1512617029","Hadir","85"],
-      ["Imelsara Wijatmoko","1512617028","Hadir","90"],
-      ["Nisrina Firyal Amani","1512617030","Tidak Hadir","0"],
-      ["M Azhar Hermawan","1512617058","Hadir","95"],
-      ["M Hadiyatullah","1512617014","Terlambat","75"],
-      ["Neng Ayu Herawati","1512617003","Hadir","90"],
+      ["Nanda Lutfiana Nadine","1512617029","Hadir","85","21763126"],
+      ["Imelsara Wijatmoko","1512617028","Hadir","90","16384137"],
+      ["Nisrina Firyal Amani","1512617030","Tidak Hadir","0","4614348"],
+      ["M Azhar Hermawan","1512617058","Hadir","95","93847425"],
+      ["M Hadiyatullah","1512617014","Terlambat","75","21763126"],
+      ["Neng Ayu Herawati","1512617003","Hadir","90","16384137"],
     ]
   )
 
@@ -69,7 +69,7 @@ export default function DetailUjianFinishedAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Mahasiswa","NIM","Status","Hasil Ujian"]}
+              tableHead={["Nama Mahasiswa","NIM","Status","Hasil Ujian","Token"]}
               tableData={dosen}
             />
           </CardBody>

@@ -13,6 +13,7 @@ import { Icon, IconButton } from "@material-ui/core";
 import Swal from 'sweetalert2'
 import Cookies from "js-cookie";
 import CardIcon from "components/Card/CardIcon";
+import CustomInput from "components/CustomInput/CustomInput";
 
 const styles = {
   cardCategoryWhite: {
@@ -46,14 +47,15 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function DetailPaketSoalDosen() {
+export default function EditStatusPaketSoalDosen() {
 
     const classes = useStyles();
     const [paketSoal,setPaketSoal] = useState();
+    const [status,setStatus] = useState();
 
     const getId = () => {
         return location.pathname.split("/")[
-            location.pathname.split("/").length - 1
+            location.pathname.split("/").length - 2
         ];
     };
 
@@ -64,28 +66,26 @@ export default function DetailPaketSoalDosen() {
             return v.id == getId();
         })
 
-        setPaketSoal(selected[0])
+        setPaketSoal(selected[0]);
+        setStatus(selected[0].status)
     }
 
     useEffect(()=>{
         getData();
     },[]);
 
-    const renderPaket = (v) =>{
-        return(
-            <Card>
-                <CardHeader color="success" stats icon style={{
-                    marginBottom:15,
-                }}>
-                    <CardIcon color="success">
-                        <Icon>book</Icon>
-                    </CardIcon>
-                    <h3 className={classes.cardTitle} style={{color:"black",marginBottom:0,}}>{v.name}</h3>
-                    <p className={classes.cardCategory} style={{color:"black",marginTop:0,}}>{v.soal.length} Soal</p>
-                    <Button onClick={()=>location.href='/admin/paket-soal/'+paketSoal.id+'/detail/'+v.id}>Detail</Button>
-                </CardHeader>
-            </Card>
-        )
+    const saveData = () =>{
+        const data = JSON.parse(localStorage.getItem('paketSoal'));
+        
+        data.map(v=>{
+            if (v.id == getId()) {
+                v.status = status
+            }
+        })
+
+        localStorage.setItem('paketSoal',JSON.stringify(data));
+
+        Swal.fire('Berhasil','Berhasil mengubah data status paket soal','success')
     }
 
     return (
@@ -93,23 +93,25 @@ export default function DetailPaketSoalDosen() {
             <GridItem xs={12} sm={12} md={12}>
                 <Card>
                     <CardHeader color="success">
-                        <h4 className={classes.cardTitleWhite}>Data Paket Soal</h4>
-                        <p className={classes.cardCategoryWhite}>
-                            Data Paket Soal
-                        </p>
+                        <h4 className={classes.cardTitleWhite}>Data Paket Soal - {paketSoal?.matakuliah}</h4>
                     </CardHeader>
-                    <CardBody>
-                        <GridContainer>
-                            {
-                                paketSoal?.paket.map(v=>{
-                                    return(
-                                        <GridItem xs={12} sm={12} md={4}>
-                                            {renderPaket(v)}
-                                        </GridItem>
-                                    )
-                                })
-                            }
-                        </GridContainer>
+                    <CardBody >
+                        <CustomInput
+                            labelText="Status Soal"
+                            formControlProps={{
+                                fullWidth: true,
+                            }}
+                            style={{
+                                marginBottom:"0px",
+                            }}
+                            inputProps={{
+                                onChange:(event)=>{
+                                    setStatus(event.target.value)
+                                },
+                                value:status
+                            }}
+                        />
+                        <Button color="primary" onClick={()=>saveData()} >Simpan</Button>
                     </CardBody>
                 </Card>
             </GridItem>

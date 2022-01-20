@@ -61,162 +61,196 @@ export default function MataKuliahDosen() {
                     id:1,
                     namaMatkul:'Filsafat Ilmu',
                     kodeMatKul:'00052002',
+                    kodeSeksi : '1512600059',
                 },
                 ujian:[
                     {
                         id:1,
+                        namaUjian:"Quiz",
+                        tanggal:"5 Oktober 2021",
+                        waktu:"08:00 - 09:50",
+                        lamaUjian:"60 Menit",
+                        is_active:true,
+                        status:'Selesai',
+                        banksoal:{
+                            id:1,
+                        }
+                    }, 
+                    {
+                        id:2,
                         namaUjian:"UTS",
                         tanggal:"12 Oktober 2021",
                         waktu:"08:00 - 09:50",
                         lamaUjian:"60 Menit",
+                        is_active:true,
+                        status:'Selesai',
                         banksoal:{
                             id:1,
                         }
                     },
                     {
-                        id:2,
+                        id:3,
                         namaUjian:"UAS",
                         tanggal:"23 Desember 2021",
                         waktu:"08:00 - 09:50",
+                        status:'Selesai',
+                        is_active:true,
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
                         }
                     }
                 ],
-                mahasiswa:[
-                    {
-                        id:1,
-                        nim:"1512619003",
-                        namaLengkap:"Taufik Ihsan",
-                        email:"Taufik@gmail.com",
-                        nomorTelepon:"081532198478",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:2,
-                        nim:"1512619011",
-                        namaLengkap:"Fatih Abhipraya",
-                        email:"Fatihabhi@gmail.com",
-                        nomorTelepon:"082117247250",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:3,
-                        nim:"1512619015",
-                        namaLengkap:"Amelia Arifah",
-                        email:"Ameliar@gmail.com",
-                        nomorTelepon:"085254244522",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:4,
-                        nim:"1512619042",
-                        namaLengkap:"Rizka Rahmawati Dewi",
-                        email:"rizkarah@gmail.com",
-                        nomorTelepon:"08219671465",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:5,
-                        nim:"1512619046",
-                        namaLengkap:"Janabelia Ayu Tafarannisa",
-                        email:"Mahasiswa@gmail.com",
-                        nomorTelepon:"081298589827",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                ]
             },
             {
                 id:2,
                 matkul:{
                     id:1,
-                    namaMatkul:'Jaringan Komputer',
-                    kodeMatKul:'1152350213',
+                    namaMatkul:'Komunikasi Data',
+                    kodeMatKul:'00051132',
+                    kodeSeksi : '1512600068',
                 },
                 ujian:[
                     {
                         id:1,
-                        namaUjian:"UTS",
-                        tanggal:"13 Oktober 2021",
-                        waktu:"13:00 - 15:50",
+                        namaUjian:"Quiz",
+                        tanggal:"12 Oktober 2021",
+                        is_active:true,
+                        waktu:"10:00 - 11:50",
                         lamaUjian:"60 Menit",
+                        status:'Selesai',
+                        banksoal:{
+                            id:1,
+                        }
+                    }, 
+                    {
+                        id:2,
+                        namaUjian:"UTS",
+                        tanggal:"5 Oktober 2021",
+                        is_active:true,
+                        waktu:"10:00 - 11:50",
+                        lamaUjian:"60 Menit",
+                        status:'Selesai',
                         banksoal:{
                             id:1,
                         }
                     },
                     {
-                        id:2,
+                        id:3,
                         namaUjian:"UAS",
-                        tanggal:"24 Desember 2021",
-                        waktu:"13:00 - 15:50",
+                        tanggal:"23 Desember 2021",
+                        waktu:"10:00 - 11:50",
+                        status:'Akan Dimulai',
+                        is_active:false,
                         lamaUjian:"60 Menit",
                         banksoal:{
                             id:1,
                         }
                     }
                 ],
-                mahasiswa:[
+            },
+            {
+              id:3,
+              matkul:{
+                  id:1,
+                  namaMatkul:'Jaringan Komputer', 
+                  kodeMatKul:'152350213',
+                  kodeSeksi : '1512600077',
+              },
+              ujian:[
                     {
-                        id:1,
-                        nim:"1512619003",
-                        namaLengkap:"Taufik Ihsan",
-                        email:"Taufik@gmail.com",
-                        nomorTelepon:"081532198478",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
+                      id:1,
+                      namaUjian:"Quiz",
+                      tanggal:"5 Oktober 2021",
+                      is_active:true,
+                      waktu:"13:00 - 15:50",
+                      lamaUjian:"60 Menit",
+                      status:'Selesai',
+                      banksoal:{
+                          id:1,
+                      }
+                  },
+                  {
+                      id:2,
+                      namaUjian:"UTS",
+                      tanggal:"12 Oktober 2021",
+                      is_active:true,
+                      waktu:"13:00 - 15:50",
+                      lamaUjian:"60 Menit",
+                      status:'Selesai',
+                      banksoal:{
+                          id:1,
+                      }
+                  },
+                  {
+                      id:3,
+                      namaUjian:"UAS",
+                      tanggal:"23 Desember 2021",
+                      waktu:"13:00 - 15:50",
+                      is_active:false,
+                      status:'Soal Siap',
+                      lamaUjian:"60 Menit",
+                      banksoal:{
+                          id:1,
+                      }
+                  }
+              ],
+            },
+            {
+              id:4,
+              matkul:{
+                  id:1,
+                  namaMatkul:'Interaksi Manusia dan Komputer', 
+                  kodeMatKul:'00052122',
+                  kodeSeksi : '1000000147',
+              },
+              ujian:[
                     {
-                        id:2,
-                        nim:"1512619011",
-                        namaLengkap:"Fatih Abhipraya",
-                        email:"Fatihabhi@gmail.com",
-                        nomorTelepon:"082117247250",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:3,
-                        nim:"1512619015",
-                        namaLengkap:"Amelia Arifah",
-                        email:"Ameliar@gmail.com",
-                        nomorTelepon:"085254244522",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:4,
-                        nim:"1512619042",
-                        namaLengkap:"Rizka Rahmawati Dewi",
-                        email:"rizkarah@gmail.com",
-                        nomorTelepon:"08219671465",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                    {
-                        id:5,
-                        nim:"1512619046",
-                        namaLengkap:"Janabelia Ayu Tafarannisa",
-                        email:"Mahasiswa@gmail.com",
-                        nomorTelepon:"081298589827",
-                        password:'12345',
-                        angkatan:'2020'
-                    },
-                ]
+                      id:1,
+                      namaUjian:"Quiz",
+                      tanggal:"6 Oktober 2021",
+                      waktu:"13:00 - 15:50",
+                      lamaUjian:"60 Menit",
+                      is_active:true, 
+                      status:'Selesai',
+                      banksoal:{
+                          id:1,
+                      }
+                  },
+                {
+                      id:2,
+                      namaUjian:"UTS",
+                      tanggal:"13 Oktober 2021",
+                      waktu:"13:00 - 15:50",
+                      lamaUjian:"60 Menit",
+                      is_active:true, 
+                      status:'Selesai',
+                      banksoal:{
+                          id:1,
+                      }
+                  },
+                  {
+                      id:3,
+                      namaUjian:"UAS",
+                      tanggal:"24 Desember 2021",
+                      waktu:"13:00 - 15:50",
+                      is_active:false, 
+                      status:'Sedang Dikerjakan',
+                      lamaUjian:"60 Menit",
+                      banksoal:{
+                          id:1,
+                      }
+                  }
+              ],
             },
         ];
 
-        const existingUjian = Cookies.get('dataUjian');
+        const existingUjian = localStorage.getItem('dataUjian');
         
         if (existingUjian) {
             setDataUjian(JSON.parse(existingUjian))
         }else{
-            Cookies.set('dataUjian',JSON.stringify(db_ujian));
+            localStorage.setItem('dataUjian',JSON.stringify(db_ujian));
 
             const data = [];
 
@@ -226,8 +260,660 @@ export default function MataKuliahDosen() {
         }
     }
 
+    const generateDatabasePaket = ()=>{
+        const db_banksoal = [
+            {
+                id:1,
+                matakuliah:"Jaringan Komputer",
+                kodeMatKul:52350113,
+                kodeSeksi:12313123,
+                jenisUjian:'UTS',
+                status:'Sedang Dikerjakan',
+                paket:[
+                    {
+                        id:1,
+                        name:'Paket A',
+                        soal:[
+                            {
+                                id:1,
+                                question:"Sebutkan 5 perangkat keras jaringan!",
+                                status:'Valid',
+                                kisi:'Hub, Switch, Bridge, Router, Modem',
+                            },
+                            {
+                                id:2,
+                                question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                                status:'Valid',
+                                kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                            },
+                            {
+                                id:3,
+                                question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                                status:'Valid',
+                                kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                            },
+                            {
+                                id:4,
+                                question:"Sebutkan perbedaan antara Software dan Hardware!",
+                                status:'Valid',
+                                kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                            },
+                            {
+                                id:5,
+                                question:"Jelaskan yang dimaksud dengan firewall!",
+                                status:'Valid',
+                                kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                            },
+                            {
+                                id:6,
+                                question:"Apa pengertian topologi jaringan?",
+                                status:'Valid',
+                                kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                            },
+                            {
+                                id:7,
+                                question:"Sebutkan macam-macam distro Linux!",
+                                status:'Valid',
+                                kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                            },
+                            {
+                                id:8,
+                                question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
+                                status:'Valid',
+                                kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                            },
+                            {
+                                id:9,
+                                question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
+                                status:'Valid',
+                                kisi:'RAM',
+                            },
+                            {
+                                id:10,
+                                question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
+                                status:'Valid',
+                                kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                            },
+                            {
+                                id:11,
+                                question:"Sebutkan macam macam standar WLAN IEEE!",
+                                status:'Valid',
+                                kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                            },
+                            {
+                                id:12,
+                                question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
+                                status:'Valid',
+                                kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                            },
+                            {
+                                id:13,
+                                question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
+                                status:'Valid',
+                                kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                            },
+                            {
+                                id:14,
+                                question:"Apa yang perlu disiapkan sebelum merakit komputer?",
+                                status:'Valid',
+                                kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                            },
+                            {
+                                id:15,
+                                question:"Apakah yang dimaksud komputer terapan jaringan ",
+                                status:'Valid',
+                                kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                            },
+                            {
+                                id:16,
+                                question:"Apa pengertian dari Mikrokontroler?",
+                                status:'Valid',
+                                kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                            },
+                            {
+                                id:17,
+                                question:"Sebutkan macam-macam mikrokontroler populer!",
+                                status:'Valid',
+                                kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                            },
+                            {
+                                id:18,
+                                question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
+                                status:'Valid',
+                                kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                            },
+                            {
+                                id:19,
+                                question:"Sebutkan jenis-jenis konsentrator!",
+                                status:'Valid',
+                                kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                            },
+                            {
+                                id:20,
+                                question:"Apakah fungsi dari Router?",
+                                status:'Valid',
+                                kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                            },
+                        ]
+                    },
+                    {
+                        id:2,
+                        name:'Paket B',
+                        soal:[
+                            {
+                                id:1,
+                                question:"Sebutkan 5 perangkat keras jaringan!",
+                                status:'Valid',
+                                kisi:'Hub, Switch, Bridge, Router, Modem',
+                            },
+                            {
+                                id:2,
+                                question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                                status:'Valid',
+                                kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                            },
+                            {
+                                id:3,
+                                question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                                status:'Valid',
+                                kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                            },
+                            {
+                                id:4,
+                                question:"Sebutkan perbedaan antara Software dan Hardware!",
+                                status:'Valid',
+                                kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                            },
+                            {
+                                id:5,
+                                question:"Jelaskan yang dimaksud dengan firewall!",
+                                status:'Valid',
+                                kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                            },
+                            {
+                                id:6,
+                                question:"Apa pengertian topologi jaringan?",
+                                status:'Valid',
+                                kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                            },
+                            {
+                                id:7,
+                                question:"Sebutkan macam-macam distro Linux!",
+                                status:'Valid',
+                                kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                            },
+                            {
+                                id:8,
+                                question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
+                                status:'Valid',
+                                kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                            },
+                            {
+                                id:9,
+                                question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
+                                status:'Valid',
+                                kisi:'RAM',
+                            },
+                            {
+                                id:10,
+                                question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
+                                status:'Valid',
+                                kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                            },
+                            {
+                                id:11,
+                                question:"Sebutkan macam macam standar WLAN IEEE!",
+                                status:'Valid',
+                                kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                            },
+                            {
+                                id:12,
+                                question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
+                                status:'Valid',
+                                kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                            },
+                            {
+                                id:13,
+                                question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
+                                status:'Valid',
+                                kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                            },
+                            {
+                                id:14,
+                                question:"Apa yang perlu disiapkan sebelum merakit komputer?",
+                                status:'Valid',
+                                kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                            },
+                            {
+                                id:15,
+                                question:"Apakah yang dimaksud komputer terapan jaringan ",
+                                status:'Valid',
+                                kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                            },
+                            {
+                                id:16,
+                                question:"Apa pengertian dari Mikrokontroler?",
+                                status:'Valid',
+                                kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                            },
+                            {
+                                id:17,
+                                question:"Sebutkan macam-macam mikrokontroler populer!",
+                                status:'Valid',
+                                kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                            },
+                            {
+                                id:18,
+                                question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
+                                status:'Valid',
+                                kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                            },
+                            {
+                                id:19,
+                                question:"Sebutkan jenis-jenis konsentrator!",
+                                status:'Valid',
+                                kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                            },
+                            {
+                                id:20,
+                                question:"Apakah fungsi dari Router?",
+                                status:'Valid',
+                                kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                            },
+                        ]
+                    },
+                    {
+                        id:3,
+                        name:'Paket C',
+                        soal:[
+                            {
+                                id:1,
+                                question:"Sebutkan 5 perangkat keras jaringan!",
+                                status:'Valid',
+                                kisi:'Hub, Switch, Bridge, Router, Modem',
+                            },
+                            {
+                                id:2,
+                                question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                                status:'Valid',
+                                kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                            },
+                            {
+                                id:3,
+                                question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                                status:'Valid',
+                                kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                            },
+                            {
+                                id:4,
+                                question:"Sebutkan perbedaan antara Software dan Hardware!",
+                                status:'Valid',
+                                kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                            },
+                            {
+                                id:5,
+                                question:"Jelaskan yang dimaksud dengan firewall!",
+                                status:'Valid',
+                                kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                            },
+                            {
+                                id:6,
+                                question:"Apa pengertian topologi jaringan?",
+                                status:'Valid',
+                                kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                            },
+                            {
+                                id:7,
+                                question:"Sebutkan macam-macam distro Linux!",
+                                status:'Valid',
+                                kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                            },
+                            {
+                                id:8,
+                                question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
+                                status:'Valid',
+                                kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                            },
+                            {
+                                id:9,
+                                question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
+                                status:'Valid',
+                                kisi:'RAM',
+                            },
+                            {
+                                id:10,
+                                question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
+                                status:'Valid',
+                                kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                            },
+                            {
+                                id:11,
+                                question:"Sebutkan macam macam standar WLAN IEEE!",
+                                status:'Valid',
+                                kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                            },
+                            {
+                                id:12,
+                                question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
+                                status:'Valid',
+                                kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                            },
+                            {
+                                id:13,
+                                question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
+                                status:'Valid',
+                                kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                            },
+                            {
+                                id:14,
+                                question:"Apa yang perlu disiapkan sebelum merakit komputer?",
+                                status:'Valid',
+                                kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                            },
+                            {
+                                id:15,
+                                question:"Apakah yang dimaksud komputer terapan jaringan ",
+                                status:'Valid',
+                                kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                            },
+                            {
+                                id:16,
+                                question:"Apa pengertian dari Mikrokontroler?",
+                                status:'Valid',
+                                kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                            },
+                            {
+                                id:17,
+                                question:"Sebutkan macam-macam mikrokontroler populer!",
+                                status:'Valid',
+                                kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                            },
+                            {
+                                id:18,
+                                question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
+                                status:'Valid',
+                                kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                            },
+                            {
+                                id:19,
+                                question:"Sebutkan jenis-jenis konsentrator!",
+                                status:'Valid',
+                                kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                            },
+                            {
+                                id:20,
+                                question:"Apakah fungsi dari Router?",
+                                status:'Valid',
+                                kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                            },
+                        ]
+                    },
+                    {
+                        id:4,
+                        name:'Paket D',
+                        soal:[
+                            {
+                                id:1,
+                                question:"Sebutkan 5 perangkat keras jaringan!",
+                                status:'Valid',
+                                kisi:'Hub, Switch, Bridge, Router, Modem',
+                            },
+                            {
+                                id:2,
+                                question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                                status:'Valid',
+                                kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                            },
+                            {
+                                id:3,
+                                question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                                status:'Valid',
+                                kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                            },
+                            {
+                                id:4,
+                                question:"Sebutkan perbedaan antara Software dan Hardware!",
+                                status:'Valid',
+                                kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                            },
+                            {
+                                id:5,
+                                question:"Jelaskan yang dimaksud dengan firewall!",
+                                status:'Valid',
+                                kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                            },
+                            {
+                                id:6,
+                                question:"Apa pengertian topologi jaringan?",
+                                status:'Valid',
+                                kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                            },
+                            {
+                                id:7,
+                                question:"Sebutkan macam-macam distro Linux!",
+                                status:'Valid',
+                                kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                            },
+                            {
+                                id:8,
+                                question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
+                                status:'Valid',
+                                kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                            },
+                            {
+                                id:9,
+                                question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
+                                status:'Valid',
+                                kisi:'RAM',
+                            },
+                            {
+                                id:10,
+                                question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
+                                status:'Valid',
+                                kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                            },
+                            {
+                                id:11,
+                                question:"Sebutkan macam macam standar WLAN IEEE!",
+                                status:'Valid',
+                                kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                            },
+                            {
+                                id:12,
+                                question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
+                                status:'Valid',
+                                kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                            },
+                            {
+                                id:13,
+                                question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
+                                status:'Valid',
+                                kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                            },
+                            {
+                                id:14,
+                                question:"Apa yang perlu disiapkan sebelum merakit komputer?",
+                                status:'Valid',
+                                kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                            },
+                            {
+                                id:15,
+                                question:"Apakah yang dimaksud komputer terapan jaringan ",
+                                status:'Valid',
+                                kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                            },
+                            {
+                                id:16,
+                                question:"Apa pengertian dari Mikrokontroler?",
+                                status:'Valid',
+                                kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                            },
+                            {
+                                id:17,
+                                question:"Sebutkan macam-macam mikrokontroler populer!",
+                                status:'Valid',
+                                kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                            },
+                            {
+                                id:18,
+                                question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
+                                status:'Valid',
+                                kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                            },
+                            {
+                                id:19,
+                                question:"Sebutkan jenis-jenis konsentrator!",
+                                status:'Valid',
+                                kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                            },
+                            {
+                                id:20,
+                                question:"Apakah fungsi dari Router?",
+                                status:'Valid',
+                                kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                            },
+                        ]
+                    },
+                    {
+                        id:5,
+                        name:'Paket E',
+                        soal:[
+                            {
+                                id:1,
+                                question:"Sebutkan 5 perangkat keras jaringan!",
+                                status:'Valid',
+                                kisi:'Hub, Switch, Bridge, Router, Modem',
+                            },
+                            {
+                                id:2,
+                                question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
+                                status:'Valid',
+                                kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                            },
+                            {
+                                id:3,
+                                question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
+                                status:'Valid',
+                                kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                            },
+                            {
+                                id:4,
+                                question:"Sebutkan perbedaan antara Software dan Hardware!",
+                                status:'Valid',
+                                kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                            },
+                            {
+                                id:5,
+                                question:"Jelaskan yang dimaksud dengan firewall!",
+                                status:'Valid',
+                                kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                            },
+                            {
+                                id:6,
+                                question:"Apa pengertian topologi jaringan?",
+                                status:'Valid',
+                                kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                            },
+                            {
+                                id:7,
+                                question:"Sebutkan macam-macam distro Linux!",
+                                status:'Valid',
+                                kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                            },
+                            {
+                                id:8,
+                                question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
+                                status:'Valid',
+                                kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                            },
+                            {
+                                id:9,
+                                question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
+                                status:'Valid',
+                                kisi:'RAM',
+                            },
+                            {
+                                id:10,
+                                question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
+                                status:'Valid',
+                                kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                            },
+                            {
+                                id:11,
+                                question:"Sebutkan macam macam standar WLAN IEEE!",
+                                status:'Valid',
+                                kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                            },
+                            {
+                                id:12,
+                                question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
+                                status:'Valid',
+                                kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                            },
+                            {
+                                id:13,
+                                question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
+                                status:'Valid',
+                                kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                            },
+                            {
+                                id:14,
+                                question:"Apa yang perlu disiapkan sebelum merakit komputer?",
+                                status:'Valid',
+                                kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                            },
+                            {
+                                id:15,
+                                question:"Apakah yang dimaksud komputer terapan jaringan ",
+                                status:'Valid',
+                                kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                            },
+                            {
+                                id:16,
+                                question:"Apa pengertian dari Mikrokontroler?",
+                                status:'Valid',
+                                kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                            },
+                            {
+                                id:17,
+                                question:"Sebutkan macam-macam mikrokontroler populer!",
+                                status:'Valid',
+                                kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                            },
+                            {
+                                id:18,
+                                question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
+                                status:'Valid',
+                                kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                            },
+                            {
+                                id:19,
+                                question:"Sebutkan jenis-jenis konsentrator!",
+                                status:'Valid',
+                                kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                            },
+                            {
+                                id:20,
+                                question:"Apakah fungsi dari Router?",
+                                status:'Valid',
+                                kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                            },
+                        ]
+                    }
+                ]
+            },
+        ];
+    
+        const existingBankSoal = localStorage.getItem('paketSoal');
+        
+        if (!existingBankSoal) {
+            localStorage.setItem('paketSoal',JSON.stringify(db_banksoal));
+        }
+    }
+
     useEffect(()=>{
         generateDatabase()
+        generateDatabasePaket();
     },[])
 
     const renderUjian = (v) =>{

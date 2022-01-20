@@ -44,17 +44,19 @@ export default function AdminProfile() {
   const [username,setUsername] = useState('');
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
+  const [photo,setPhoto] = useState('');
 
   const [oldPassword,setOldPassword] = useState('');
   const [password,setPassword] = useState('');
   const [confrimPassword,setConfirmPassword] = useState('');
 
   const getData = ()=>{
-    const admin = JSON.parse(Cookies.get('userAdmin'));
+    const admin = JSON.parse(localStorage.getItem('userAdmin'));
 
     setUsername(admin.username);
     setName(admin.name);
     setEmail(admin.email);
+    setPhoto(admin.photo)
   }
 
   useEffect(()=>{
@@ -63,12 +65,13 @@ export default function AdminProfile() {
 
   const updateProfile = ()=>{
 
-    const admin = JSON.parse(Cookies.get('userAdmin'));
+    const admin = JSON.parse(localStorage.getItem('userAdmin'));
 
     const data ={
       username:username,
       name:name,
       email:email,
+      photo:photo,
     }
 
     if (oldPassword != '') {
@@ -95,7 +98,7 @@ export default function AdminProfile() {
       data.password = admin.password
     }
 
-    Cookies.set('userAdmin',JSON.stringify(data))
+    localStorage.setItem('userAdmin',JSON.stringify(data))
 
     Swal.fire({
       title: 'Berhasil!',
@@ -108,7 +111,17 @@ export default function AdminProfile() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={4}>
+          <Card>
+            <CardBody>
+              <div style={{alignItems:"center",justifyContent:"center"}}>
+                <img src={photo} style={{width:"100%"}} />
+                <Button color="primary" onClick={()=>location.href='/admin/update-photo'}>Update Foto</Button>
+              </div>
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>

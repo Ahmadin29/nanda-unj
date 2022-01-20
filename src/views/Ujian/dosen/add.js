@@ -72,7 +72,7 @@ export default function AddUjianDosen(params) {
   },[])
 
   const saveDosen = ()=>{
-    const setedUjian = JSON.parse(Cookies.get('dataUjian'));
+    const setedUjian = JSON.parse(localStorage.getItem('dataUjian'));
 
     if (namaUjian == '' && tanggal == ''&& waktu == ''&& lamaUjian == ''&& !selectedBankSoal) {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -92,7 +92,7 @@ export default function AddUjianDosen(params) {
       }
     })
     
-    Cookies.set('dataUjian',JSON.stringify(setedUjian))
+    localStorage.setItem('dataUjian',JSON.stringify(setedUjian))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil Ujian',
@@ -106,7 +106,7 @@ export default function AddUjianDosen(params) {
   }
 
   const getData = ()=>{
-    const setedBankSoal = JSON.parse(Cookies.get('bankSoal'));
+    const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
     setBankSoal(setedBankSoal)
   }
 

@@ -713,7 +713,7 @@ export default function PaketSoalDosen() {
       const data = [];
 
       JSON.parse(existingBankSoal).map((v)=>{
-        data.push([v.matakuliah,v.kodeMatKul,v.kodeSeksi,v.jenisUjian,detail(v.id),v.status]);
+        data.push([v.matakuliah,v.kodeMatKul,v.kodeSeksi,v.jenisUjian,detail(v.id),v.status,edit(v.id)]);
       });
   
       setBankSoal(data)
@@ -723,11 +723,23 @@ export default function PaketSoalDosen() {
       const data = [];
 
       db_banksoal.map((v)=>{
-        data.push([v.matakuliah,v.kodeMatKul,v.kodeSeksi,v.jenisUjian,detail(v.id),v.status]);
+        data.push([v.matakuliah,v.kodeMatKul,v.kodeSeksi,v.jenisUjian,detail(v.id),v.status,edit(v.id)]);
       });
   
       setBankSoal(data)
     }
+  }
+
+  const edit = (id)=>{
+    return (
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={()=>location.href='/dosen/paket-soal/'+id+'/edit'}
+      >
+        <Icon color="green">edit</Icon>
+      </IconButton>
+    )
   }
 
   useEffect(()=>{
@@ -767,7 +779,7 @@ export default function PaketSoalDosen() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Kode Seksi", "Jenis Ujian","Detail",'Status']}
+              tableHead={["Mata Kuliah", "Kode Mata Kuliah", "Kode Seksi", "Jenis Ujian","Detail",'Status','Edit status']}
               tableData={bankSoal}
             />
           </CardBody>

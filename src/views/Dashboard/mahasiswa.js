@@ -36,7 +36,7 @@ export default function DashboardMahasiswa() {
     }
 
     if (is_held == 'running') {
-        route = route+'/token/'+matkul;
+        route = route+'/running/'+matkul;
     }
 
     if (is_held == 'hold') {
@@ -60,7 +60,7 @@ export default function DashboardMahasiswa() {
       ['23 Desember 2021','08:00 - 09:50','Filsafat Ilmu','Sedang Berjalan',detail(false,'running','Filsafat-Ilmu')],
       ['23 Desember 2021','10:00 - 11:50','Bahasa Inggris','Belum Dimulai',detail(false,'hold','Bahasa-Inggris')],
       ['23 Desember 2021','13:00 - 15:50','Jaringan Komputer','Belum Dimulai',detail(false,'hold','Jaringan-Komputer')],
-      ['24 Desember 2021','08:00 - 09:50','Profesi Pendidik & Tenaga Kependidikan','Belum Dimulai',detail(false,'hold','Profesi-Pendidik-&-Tenaga-Kependidikan')],
+      ['24 Desember 2021','08:00 - 09:50','Interaksi Manusia & Komputer','Belum Dimulai',detail(false,'hold','Interaksi-Manusia-&-Komputer')],
       ['25 Desember 2021','09:00 - 11:50','Desain Web','Belum Dimulai',detail(false,'hold','Desain-Web')],
       ['25 Desember 2021','13:00 - 14:50','Perencanaan Pengajaran','Belum Dimulai',detail(false,'hold','Perencanaan-Pengajaran')],
   ]);

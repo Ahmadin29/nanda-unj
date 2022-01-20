@@ -64,7 +64,7 @@ export default function DetailSeksiDosen(params) {
     const data = [];
     
     JSON.parse(existingMahasiswa).map((v,i)=>{
-        data.push([i + 1,v.nim,v.namaLengkap]);
+        data.push([i + 1,v.namaLengkap,v.nim]);
     });
 
     setMahasiswa(data)

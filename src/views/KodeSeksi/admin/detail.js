@@ -82,7 +82,7 @@ export default function DetailSeksiAdmin(params) {
             <CardBody>
               <Table
                 tableHeaderColor="primary"
-                tableHead={["No","Nama Mahasiswa","NIM"]}
+                tableHead={["No","NIM","Nama Mahasiswa"]}
                 tableData={mahasiswa}
               />
             </CardBody>

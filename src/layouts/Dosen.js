@@ -40,6 +40,8 @@ import DetailPaketSoalDosen from "views/PaketSoal/dosen/detail";
 import SoalPaketSoalDosen from "views/PaketSoal/dosen/paket";
 import AddPaketSoalDosen from "views/PaketSoal/dosen/paket/add";
 import EditPaketSoalDosen from "views/PaketSoal/dosen/paket/soal";
+import EditStatusPaketSoalDosen from "views/PaketSoal/dosen/edit";
+import DosenProfileUpdate from "views/UserProfile/dosen/photo";
 
 let ps;
 
@@ -58,6 +60,7 @@ const switchRoutes = (
       return null;
     })}
     <Route path="/dosen/profile" component={DosenProfile} />
+    <Route path="/dosen/update-photo" component={DosenProfileUpdate} />
     <Route path="/dosen/matkul/add" component={AddMataKuliahDosen} />
     <Route path="/dosen/matkul/:id/kosek/" component={MataKuliahKosekDosen} />
     <Route path="/dosen/matkul/:id/add/" component={AddSeksiDosen} />
@@ -80,6 +83,7 @@ const switchRoutes = (
     <Route path="/dosen/paket-soal/:id/detail/:id_paket/edit" component={EditPaketSoalDosen} />
     <Route path="/dosen/paket-soal/:id/detail/:id_paket/" component={SoalPaketSoalDosen} />
     <Route path="/dosen/paket-soal/:id/detail/" component={DetailPaketSoalDosen} />
+    <Route path="/dosen/paket-soal/:id/edit/" component={EditStatusPaketSoalDosen} />
     <Route path="/dosen/paket-soal/:id/add/" component={AddPaketSoalDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>

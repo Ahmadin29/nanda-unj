@@ -50,26 +50,31 @@ export default function UjianRunningMahasiswa() {
                 no:1,
                 question:'Sebutkan 3 cici-ciri filsafat ilmu!',
                 answer:'Berpikir secara sitematik, Kritik atau analitik, Deskriptif',
+                image:false
             },
             {
                 no:2,
                 question:'Sebutkan cabang-cabang Filsafat Ilmu!',
                 answer:'Metafisika, Epistemologi, Aksiologi',
+                image:true
             },
             {
                 no:3,
                 question:'Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:',
                 answer:'Hubungan manusia dengan keberadaan Tuhan, Hubungan manusia dengan alam semesta, Hubungan manusia dengan baik secara individu maupun kelompok',
+                image:false
             },
             {
                 no:4,
                 question:'Sebutkan nama tokoh-tokoh logika modern beserta tahunnya!',
                 answer:'Petrus Hispanus 1210-1278, Roger Bacon 1214-1292, Raymundus Lullus 1232-1315, William Ocham 1295-1349',
+                image:false
             },
             {
                 no:5,
                 question:'Sebutkan teori kebenaran yang berkaitan dengan pengembangan ilmu!',
                 answer:'Empiris, Rasional, Ilmiah, Intuitif',
+                image:false
             },
         ];
 
@@ -285,6 +290,7 @@ export default function UjianRunningMahasiswa() {
                                         background:'#efefef',
                                         border:"0px",
                                         padding:10,
+                                        marginBottom:20,
                                     }}
                                     rows={10}
                                     onChange={(e)=>{
@@ -292,6 +298,10 @@ export default function UjianRunningMahasiswa() {
                                     }}
                                     value={answer}
                                 ></textarea>
+                                <p>Masukan jawaban bergambar</p>
+                                {
+                                    selectedSoal?.image && <input type="file"/>
+                                }
                             </div>
                             <div style={{
                                 display:"flex",

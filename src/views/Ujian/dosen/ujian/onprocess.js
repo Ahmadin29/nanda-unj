@@ -80,7 +80,7 @@ export default function UjianOnProcessDosen() {
     };
 
     const getData = ()=>{
-        const existingUjian = JSON.parse(Cookies.get('dataUjian'));
+        const existingUjian = JSON.parse(localStorage.getItem('dataUjian'));
 
         const selected = existingUjian.filter(v=>{
             return v.id == getIdPaket()

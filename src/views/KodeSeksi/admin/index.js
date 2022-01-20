@@ -93,7 +93,7 @@ export default function SeksiAdmin() {
               const data = [];
 
               deletedSeksi.map((v)=>{
-                data.push([v.mataKuliah.name,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
+                data.push([v.kodeSeksi,v.mataKuliah.name,v.semester,v.dosen,detail(v.id),edit(v.id)]);
               });
               
               localStorage.setItem('kodeSeksi',JSON.stringify(deletedSeksi));
@@ -179,7 +179,7 @@ export default function SeksiAdmin() {
       const data = [];
 
       JSON.parse(existingKodeSeksi).map((v)=>{
-        data.push([v.mataKuliah.name,v.dosen,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
+        data.push([v.kodeSeksi,v.mataKuliah.name,v.semester,v.dosen,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
@@ -189,7 +189,7 @@ export default function SeksiAdmin() {
       const data = [];
 
       db_kodeSeksi.map((v)=>{
-        data.push([v.mataKuliah.name,v.dosen,v.kodeSeksi,v.semester,detail(v.id),edit(v.id)]);
+        data.push([v.kodeSeksi,v.mataKuliah.name,v.semester,v.dosen,detail(v.id),edit(v.id)]);
       });
   
       setKodeSeksi(data)
@@ -234,7 +234,7 @@ export default function SeksiAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Matkul","Dosen","Kode Seksi","Semester","Kelas","Edit"]}
+              tableHead={["Kode Seksi","Nama Matkul","Semester","Dosen","Kelas","Edit"]}
               tableData={kodeSeksi}
             />
           </CardBody>

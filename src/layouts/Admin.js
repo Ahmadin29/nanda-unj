@@ -38,6 +38,8 @@ import DetailUjianFinishedAdmin from "views/Ujian/admin/detail/finished";
 import DetailUjianHoldAdmin from "views/Ujian/admin/detail/hold";
 import DetailUjianRunningAdmin from "views/Ujian/admin/detail/running";
 import DetailUjianReadyAdmin from "views/Ujian/admin/detail/ready";
+import SoalPaketSoalAdmin from "views/Ujian/admin/detail/soal";
+import AdminProfileUpdate from "views/UserProfile/admin/photo";
 
 let ps;
 
@@ -56,6 +58,7 @@ const switchRoutes = (
       return null;
     })}
     <Route path="/admin/profile" component={AdminProfile} />
+    <Route path="/admin/update-photo" component={AdminProfileUpdate} />
     <Route path="/admin/calendar/edit" component={EditCalendarAdmin} />
     <Route path="/admin/dosen/add" component={AddDosenAdmin} />
     <Route path="/admin/dosen/edit" component={EditDosenAdmin} />
@@ -73,6 +76,7 @@ const switchRoutes = (
     <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
     <Route path="/admin/ujian-detail/finished" component={DetailUjianFinishedAdmin} />
     <Route path="/admin/ujian-detail/hold" component={DetailUjianHoldAdmin} />
+    <Route path="/admin/paket-soal/:id/detail/:id_paket/" component={SoalPaketSoalAdmin} />
     <Route path="/admin/ujian-detail/ready/:id" component={DetailUjianReadyAdmin} />
     <Route path="/admin/ujian-detail/running" component={DetailUjianRunningAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
@@ -84,7 +88,7 @@ const useStyles = makeStyles(styles);
 export default function Admin({ ...rest }) {
 
   const checkSession = ()=>{
-    const session = Cookies.get('session');
+    const session = localStorage.getItem('session');
   
     if (session) {
       const role = JSON.parse(session).role

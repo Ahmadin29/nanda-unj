@@ -142,20 +142,6 @@ export default function AddMahasiswaAdmin(params) {
               }}
             />
             <CustomInput
-              labelText="Password"
-              formControlProps={{
-                fullWidth: true,
-              }}
-              style={{
-                marginBottom:"0px",
-              }}
-              inputProps={{
-                onChange:(event)=>{
-                  setPassword(event.target.value)
-                },
-              }}
-            />
-            <CustomInput
               labelText="Nomor Handphone"
               formControlProps={{
                 fullWidth: true,

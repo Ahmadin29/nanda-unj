@@ -29,7 +29,7 @@ export default function Sidebar(props) {
     return location.pathname === routeName;
   }
 
-  const { color, logo, image, logoText, routes } = props;
+  const { color, image, logoText, routes } = props;
 
   var links = (
     <List className={classes.list}>
@@ -86,6 +86,15 @@ export default function Sidebar(props) {
     </List>
   );
 
+  const logo = ()=>{
+    const session = JSON.parse(localStorage.getItem('session')).role;
+    const admin = JSON.parse(localStorage.getItem('userAdmin'));
+    const mahasiswa = JSON.parse(localStorage.getItem('userMahasiswa'));
+    const dosen = JSON.parse(localStorage.getItem('userDosen'));
+    
+    return session == 'admin' ? admin.photo : session == 'dosen' ? dosen.photo : mahasiswa.photo;
+  }
+
   var brand = (
     <div className={classes.logo}>
       <a
@@ -95,7 +104,7 @@ export default function Sidebar(props) {
         target="_blank"
       >
         <div>
-          <img src={logo} alt="logo" className={classes.img} />
+          <img src={logo()} alt="logo" className={classes.img} />
         </div>
         {logoText}
       </a>

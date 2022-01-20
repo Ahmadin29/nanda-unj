@@ -21,7 +21,7 @@ import UjianScheduledMahasiswa from "views/Ujian/mahasiswa/result/scheduled";
 import UjianFinishedScoredMahasiswa from "views/Ujian/mahasiswa/result/finished_scored";
 import UjianFinishedReviewMahasiswa from "views/Ujian/mahasiswa/result/finished_review";
 import UjianRunningMahasiswa from "views/Ujian/mahasiswa/running";
-import UjianRunningTokenMahasiswa from "views/Ujian/mahasiswa/token";
+import MahasiswaProfileUpdate from "views/UserProfile/mahasiswa.js/photo";
 
 let ps;
 
@@ -40,7 +40,7 @@ const switchRoutes = (
       return null;
     })}
     <Route path="/mahasiswa/profile" component={MahasiswaProfile} />
-    <Route path="/mahasiswa/ujian/token" component={UjianRunningTokenMahasiswa} />
+    <Route path="/mahasiswa/update-photo" component={MahasiswaProfileUpdate} />
     <Route path="/mahasiswa/ujian/running" component={UjianRunningMahasiswa} />
     <Route path="/mahasiswa/ujian/scheduled" component={UjianScheduledMahasiswa} />
     <Route path="/mahasiswa/ujian/finished/scored" component={UjianFinishedScoredMahasiswa} />

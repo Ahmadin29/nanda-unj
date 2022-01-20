@@ -195,13 +195,24 @@ export default function DashboardAdmin() {
 
   useEffect(()=>{
     generateDatabase2();
+    localStorageSpace();
   },[])
+
+  const localStorageSpace = ()=>{
+    var allStrings = '';
+    for(var key in window.localStorage){
+        if(window.localStorage.hasOwnProperty(key)){
+            allStrings += window.localStorage[key];
+        }
+    }
+    return console.log(allStrings ? 3 + ((allStrings.length*16)/(8*1024)) + ' KB' : 'Empty (0 KB)');
+  };
 
   const classes = useStyles();
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="warning" stats icon>
               <CardIcon color="warning">
@@ -220,7 +231,7 @@ export default function DashboardAdmin() {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
@@ -237,7 +248,7 @@ export default function DashboardAdmin() {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
@@ -254,7 +265,7 @@ export default function DashboardAdmin() {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
               <CardIcon color="info">
@@ -273,7 +284,7 @@ export default function DashboardAdmin() {
         </GridItem>
       </GridContainer>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={126}>
+        <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
               <div style={{

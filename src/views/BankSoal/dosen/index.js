@@ -127,120 +127,140 @@ export default function BankSoalDosen() {
                     question:"Sebutkan 5 perangkat keras jaringan!",
                     status:'Valid',
                     kisi:'Hub, Switch, Bridge, Router, Modem',
+                    has_image:false,
                 },
                 {
                     id:2,
                     question:"Sebutkan macam-macam topologi jaringan komputer yang anda ketahui!",
                     status:'Valid',
                     kisi:'Topologi Bus, Topologi Ring, Topologi Star. topologi Pohon',
+                    has_image:false,
                 },
                 {
                     id:3,
                     question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
                     status:'Valid',
                     kisi:'Lorem Ipsum dolor sit amet consectetur adipsicing',
+                    has_image:false,
                 },
                 {
                     id:4,
                     question:"Sebutkan perbedaan antara Software dan Hardware!",
                     status:'Valid',
                     kisi:'Software merupakan kumpulan beberapa perintah yang dieksekusi oleh mesin komputer dalam menjalankan pekerjaannya. Sedangkan hardware adalah perangkat keras komputer atau komponen fisik pada komputer yang digunakan untuk oleh sistem untuk menjalankan suatu perintah yang telah diprogramkan.',
+                    has_image:false,
                 },
                 {
                     id:5,
                     question:"Jelaskan yang dimaksud dengan firewall!",
                     status:'Valid',
                     kisi:'Firewall adalah perangkat yang digunakan untuk mengontrol akses terhadap siapapun yang memiliki akses terhadap jaringan privat dari pihak luar.',
+                    has_image:false,
                 },
                 {
                     id:6,
                     question:"Apa pengertian topologi jaringan?",
                     status:'Valid',
                     kisi:'Topologi jaringan adalah suatu metode yang memiliki fungsi untuk menghubungkan satu komputer dengan komputer yang lain, yang dilakukannya dapat melalui kabel maupun nirkabel.',
+                    has_image:false,
                 },
                 {
                     id:7,
                     question:"Sebutkan macam-macam distro Linux!",
                     status:'Valid',
                     kisi:'Debian, Ubuntu, MX Linux, Fedora, Zorin, Steam, Mint, Linux Console, Elementary',
+                    has_image:false,
                 },
                 {
                     id:8,
                     question:"Sebutkan alat yang dibutuhkan sebelum merakit PC atau Komputer!",
                     status:'Valid',
                     kisi:'obeng (+), obeng (-), tang lancip, multimeter (untuk mengukur tegangan), pinset (untuk mencabut jumper) dan gelang anti statik',
+                    has_image:false,
                 },
                 {
                     id:9,
                     question:"Apa yang dimaksud hardware komputer yang berfungsi untuk penyimpanan sementara?",
                     status:'Valid',
                     kisi:'RAM',
+                    has_image:false,
                 },
                 {
                     id:10,
                     question:"Sebutkan bahan yang perlu disiapkan saat merakit pc atau komputer",
                     status:'Valid',
                     kisi:'Bahan yang perlu disiapkan saat merakit pc yaitu : Motherboard, processor, hardisk, CD/DVD drive, floppy disk, kabel data, kartu memory (RAM), kartu VGA, kartu USB, modem, Casing dan Power Suplay',
+                    has_image:false,
                 },
                 {
                     id:11,
                     question:"Sebutkan macam macam standar WLAN IEEE!",
                     status:'Valid',
                     kisi:'802.11, 802.11b, 802.11a, 802.11a, 802.11n, 802.11ac, 802.11ax',
+                    has_image:false,
                 },
                 {
                     id:12,
                     question:"Sebutkan Pengertian dari Sistem Operasi pada Komputer!",
                     status:'Valid',
                     kisi:'Perangkat lunak sistem yang mengatur sumber daya dari perangkat keras (Hardware) dan perangkat lunak(Software).',
+                    has_image:false,
                 },
                 {
                     id:13,
                     question:"Apa kepanjangan dari RJ? Sebutkan pengertiannya!",
                     status:'Valid',
                     kisi:'RJ singkatan dari Register Jack adalah standard peralatan pada jaringan yang mengatur tentang pemasangan kepala konektor dan urutan kabel, yang digunakan untuk menghubungkan 2 atau lebih peralatan telekomunikasi (Telephone Jack) ataupun peralatan jaringan (Computer Networking).',
+                    has_image:false,
                 },
                 {
                     id:14,
                     question:"Apa yang perlu disiapkan sebelum merakit komputer?",
                     status:'Valid',
                     kisi:'Central Processing Unit (CPU) dan Motherboard, Random Access Memory (RAM), CPU Cooler, Kartu Grafis (VGA card), Power Supply, Kotak Casing, serta Sistem Operasi dan Obeng',
+                    has_image:false,
                 },
                 {
                     id:15,
                     question:"Apakah yang dimaksud komputer terapan jaringan ",
                     status:'Valid',
                     kisi:'Sekelompok komputer rekayasa(terapan) yang saling berhubungan  antara satu dengan lainnya menggunakan protokol komunikasi melalui media komunikasi sehingga dapat saling berbagi informasi, program-program, penggunaan bersama perangkat keras dengan tujuan membawa informasi secara cepat dan tepat dari sisi pengirim (Transmitter) menuju ke sisi penerima (Receiver)',
+                    has_image:false,
                 },
                 {
                     id:16,
                     question:"Apa pengertian dari Mikrokontroler?",
                     status:'Valid',
                     kisi:'Suatu komponen elektronika yang di dalamnya terdapat rangkaian mikroprosesor, memori (RAM/ROM) dan I/O, rangkaian tersebut terdapat dalam level chip atau biasa disebut single chip microcomputer.',
+                    has_image:false,
                 },
                 {
                     id:17,
                     question:"Sebutkan macam-macam mikrokontroler populer!",
                     status:'Valid',
                     kisi:'Mikrokontroler AVR, Mikrokontroler MCS-51, Mikrokontroler PCI, Mikrokontroler ARM',
+                    has_image:false,
                 },
                 {
                     id:18,
                     question:"Apakah yang dimaksud UART ( Universal Asynchronous Receiver Transmisi ) ?",
                     status:'Valid',
                     kisi:'Bagian perangkat keras komputer yang menerjemahkan antara bit-bit paralel data dan bit-bit serial',
+                    has_image:false,
                 },
                 {
                     id:19,
                     question:"Sebutkan jenis-jenis konsentrator!",
                     status:'Valid',
                     kisi:'Hub atau Repeater, Switch, Bridge, Router',
+                    has_image:false,
                 },
                 {
                     id:20,
                     question:"Apakah fungsi dari Router?",
                     status:'Valid',
                     kisi:'Router Berfungsi sebagai penghubung antara dua jaringan ataupun lebih dan meneruskan paket data dari jaringan satu ke jaringan yang lain',
+                    has_image:false,
                 },
             ]
         },
@@ -256,12 +276,14 @@ export default function BankSoalDosen() {
                     question:"Sebutkan cabang filsafat ilmu!",
                     kisi:'Mtafisika, Epistemologi, Aksiologi',
                     status:'Valid',
+                    has_image:false,
                 },
                 {
                     id:2,
                     question:"Dalam filsafat ilmu mempelajari masalah kemanusiaan dalam hidup ini yang meliputi tiga hubungan penting manusia diantaranya:",
                     kisi:'Hibungan manusia dengan keberadaan Tuhan, Hubungan manusia dengan alam semesta dan Hubungan manusia baik secara individu maupun kelompok',
                     status:'Valid',
+                    has_image:false,
                 },
             ]
         },
@@ -277,12 +299,14 @@ export default function BankSoalDosen() {
                     question:"Sebutkan 10 komponen proses yang terdapat dalam menyusun perencanaan pembelajaran!!",
                     kisi:'Pengembangan bahan ajar, Analisis Karakteristik Siswa, Analisis pekerjaan, Perumusan tujuan pembelajaran, pengembangan butir tes, pengorganisasian satuan pembelajaran, pengembangan strategi pembelajaran, penilaian pembelajaran, pengembangan strategi pembelajaran ranah motorik, pengembangan sumber belajar ',
                     status:'Valid',
+                    has_image:false,
                 },
                 {
                     id:2,
                     question:"Sebutkan 6 komponen silabus!",
                     kisi:'Kompetensi Dasar, Materi pokok, Pembelajaran, Penilaian, Alokasi waktu, Sumber belajar',
                     status:'Valid',
+                    has_image:false,
                 },
             ]
         },
@@ -318,26 +342,6 @@ export default function BankSoalDosen() {
 
   return (
     <GridContainer>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardBody>
-            <div style={{
-              display:"flex",
-              flexDirection:"row",
-              justifyContent:"space-between",
-              alignItems:"center"
-            }} >
-              <span style={{
-                fontSize:20,
-                fontWeight:700,
-              }} >Daftar Bank Soal</span>
-              <div>
-                <Button onClick={()=>location.href='/dosen/bank-soal/add'} color="primary">Tambahkan Bank Soal</Button>
-              </div>
-            </div>
-          </CardBody>
-        </Card>
-      </GridItem>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="success">

@@ -118,26 +118,26 @@ export default function MataKuliahAdmin() {
     const db_matkul = [
       {
         id:1,
-        kodematkul:"00051132",
-        namaMatKul:"Bahasa Inggris",
-        deskripsi:"Mata kuliah ini memberikan bekal kecakapan membaca dengan cara mengasah keterampilan membaca dan menarik intisari dari bacaan. Dalam perkuliahan ini, bacaan yang dibahas adalah berbagai karya sastra Indonesia. Dengan mengapresiasi sastra, mahasiswa menggunakan Bahasa Indonesia dengan baik agar dapat mengartikulasikan gagasan secara efektif. Selain itu, mahasiswa juga berlatih mengekspresikan diri dan menyusun argumentasi terkait isi bacaan sampai mengomposisi pikiran dalam tulisan singkat tentang karya sastra sampai drama yang mereka apresiasi dan kreasikan. ",
+        kodematkul:"152350200",
+        namaMatKul:"Komunikasi Data",
+        deskripsi:"Memiliki kemampuan dalam memanfaatkan teknologi sistem mikroprosesor dan personal komputer untuk pertukaran data dengan peralatan pengerak bidang elektro dan elektronika baik secara teoritis maupun praktis, sehingga dapat digunakan dalam menganalisa, serta memanfaatkannya untuk menyalurkan data pada sistem penggerak utama pada peralatan elektronika dan elektro.",
         sks: "2",
         seksi:[
           {
             id:1,
-            kodeSeksi:1512600075,
-            dosen:"Prof. Dr. Ir. Ivan Hanafi, M.Pd",
+            kodeSeksi:1000000147,
+            dosen:"Muhammad Ficky Duskarnaen, M.Sc.",
             sks:2,
             semester: 115,
-            jenisMatkul:'Umum'
+            jenisMatkul:'Bidang Keahlian'
           },
           {
             id:2,
-            kodeSeksi:1512600076,
-            dosen:"Prof. Dr. Ir. Ivan Hanafi, M.Pd",
+            kodeSeksi:1000000148,
+            dosen:"Muhammad Ficky Duskarnaen, M.Sc.",
             sks:2,
             semester: 115,
-            jenisMatkul:'Umum'
+            jenisMatkul:'Bidang Keahlian'
           },
         ]
       },
@@ -168,26 +168,26 @@ export default function MataKuliahAdmin() {
       },
       {
         id:3,
-        kodematkul:"00052122",
-        namaMatKul:"Profesi Pendidik & Tenaga Kependidikan",
-        deskripsi:"richard@gmail.com",
+        kodematkul:"152350212",
+        namaMatKul:"Interaksi Manusia & Komputer",
+        deskripsi:"Memberikan pengetahuan tentang aspek-aspek perancangan desain antar muka sistem komputer. Memahami kategori pengguna berdasarkan kemampuan berinteraksi dengan komputer, memahami konsep sistem komputer interaktif, memahami jenis-jenis ragam dialog, aspek ergonomik dan perancangan antar muka dari sudut pengguna.",
         sks: "2",
         seksi:[
           {
             id:5,
             kodeSeksi:1000000147,
-            dosen:"Rosinar",
+            dosen:"Murien Nugraheni, S.T., m.Cs.",
             sks:2,
             semester: 115,
-            jenisMatkul:'Dasar Kependidikan'
+            jenisMatkul:'Bidang Keahlian'
           },
           {
             id:6,
             kodeSeksi:1000000148,
-            dosen:"Rosinar",
+            dosen:"Murien Nugraheni, S.T., m.Cs.",
             sks:2,
             semester: 115,
-            jenisMatkul:'Dasar Kependidikan'
+            jenisMatkul:'Bidang Keahlian'
           },
         ]
       },
@@ -226,7 +226,7 @@ export default function MataKuliahAdmin() {
       const data = [];
 
       JSON.parse(existingMatkul).map((v)=>{
-        data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.kodematkul,v.namaMatKul,detail(v.id),edit(v.id),remove(v.id)]);
       });
   
       setMatkul(data)
@@ -236,7 +236,7 @@ export default function MataKuliahAdmin() {
       const data = [];
 
       db_matkul.map((v)=>{
-        data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
+        data.push([v.kodematkul,v.namaMatKul,,detail(v.id),edit(v.id),remove(v.id)]);
       });
   
       setMatkul(data)
@@ -281,7 +281,7 @@ export default function MataKuliahAdmin() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nama Matkul","Kode Matkul","Detail","Edit","Remove"]}
+              tableHead={["Kode Matkul","Nama Matkul","Detail","Edit","Remove"]}
               tableData={matkul}
             />
           </CardBody>

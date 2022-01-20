@@ -106,7 +106,7 @@ export default function DashboardDosen() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="warning" stats icon>
               <CardIcon color="warning">
@@ -125,14 +125,54 @@ export default function DashboardDosen() {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={6}>
           <Card>
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
                 <Icon>person</Icon>
               </CardIcon>
-              <p className={classes.cardCategory}>Jumlah Mahasiswa</p>
-              <h3 className={classes.cardTitle}>50</h3>
+              <p className={classes.cardCategory}>Jumlah Kelas</p>
+              <h3 className={classes.cardTitle}>
+                8 <small>Kelas</small>
+              </h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <DateRange />
+                Terakhir di update {now.getHours() < 10 ? "0"+now.getHours() : now.getHours()}:{now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes()}
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={6}>
+          <Card>
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
+                <Icon>school</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Jumlah Paket Soal</p>
+              <h3 className={classes.cardTitle}>
+                16 <small>Paket Soal</small>
+              </h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <DateRange />
+                Terakhir di update {now.getHours() < 10 ? "0"+now.getHours() : now.getHours()}:{now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes()}
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={6}>
+          <Card>
+            <CardHeader color="info" stats icon>
+              <CardIcon color="info">
+                <Icon>book</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Jumlah Soal</p>
+              <h3 className={classes.cardTitle}>
+                80 <small>Soal</small>
+              </h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -144,7 +184,7 @@ export default function DashboardDosen() {
         </GridItem>
       </GridContainer>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={126}>
+        <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
               <div style={{

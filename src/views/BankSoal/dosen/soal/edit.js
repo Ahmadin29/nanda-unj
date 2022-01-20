@@ -57,7 +57,7 @@ export default function EditSoalDosen(params) {
     const [status,setStatus] = useState('');
     const [question,setQuestion] = useState();
     const [answer,setAnswer] = useState([]);
-    const [selectedAnswer,setSelectedAnswer] = useState([]);
+    const [hasImage,setHasImage] = useState();
 
     const getId = () => {
         return location.pathname.split("/")[
@@ -83,6 +83,7 @@ export default function EditSoalDosen(params) {
         setKisiSoal(soal.kisi)
         setStatus(soal.status)
         setQuestion(soal.question)
+        setHasImage(soal.has_image)
     }
 
     useEffect(()=>{
@@ -205,6 +206,52 @@ export default function EditSoalDosen(params) {
                                     }}
                                 />
                                 <span>Draft</span>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            display:"flex",
+                            flexDirection:"row",
+                            alignItems:"center"
+                        }} >
+                            <p>Soal Bergambar</p>
+                            <div style={{
+                                display:"flex",
+                                flexDirection:"row",
+                                alignItems:"center"
+                            }} >
+                                <Radio
+                                    checked={hasImage === true}
+                                    onChange={() => setHasImage(true)}
+                                    value={true}
+                                    name="Ya"
+                                    aria-label="Valid"
+                                    icon={<FiberManualRecord className={classes.radioUnchecked} />}
+                                    checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
+                                    classes={{
+                                        checked: classes.radio
+                                    }}
+                                />
+                                <span>Ya</span>
+                            </div>
+                            <div style={{
+                                display:"flex",
+                                flexDirection:"row",
+                                alignItems:"center"
+                            }} >
+                                <Radio
+                                    checked={!hasImage}
+                                    onChange={() => setHasImage(false)}
+                                    value={false}
+                                    name="Tidak"
+                                    aria-label="Draft"
+                                    icon={<FiberManualRecord className={classes.radioUnchecked} />}
+                                    checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
+                                    classes={{
+                                        checked: classes.radio
+                                    }}
+                                />
+                                <span>Tidak</span>
                             </div>
                         </div>
                         <Button block onClick={()=>{saveData()}} color="primary">Simpan Perubahan</Button>
