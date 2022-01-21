@@ -44,7 +44,22 @@ export default function UjianRunningMahasiswa() {
         setUjian(data);
     }
 
-    const generateSoal = ()=>{
+    const getMatkul = ()=>{
+        return location.pathname.split("/")[
+          location.pathname.split("/").length - 1
+        ].replace('-',' ');
+    }
+
+    const getData = ()=>{
+
+        const currentSoal = JSON.parse(localStorage.getItem('bankSoal'));
+
+        const selected = currentSoal.filter(v=>{
+            return v.matakuliah == getMatkul();
+        })
+
+        console.log(selected);
+
         const data = [
             {
                 no:1,
@@ -78,12 +93,16 @@ export default function UjianRunningMahasiswa() {
             },
         ];
 
-        setSoal(data);
-        setSelectedSoal(data[0]);
+        selected[0]?.soal.map((v,i)=>{
+            v.no = i + 1
+        })
+
+        setSoal(selected[0]?.soal);
+        setSelectedSoal(selected[0]?.soal[0]);
     }
 
     useEffect(()=>{
-        generateSoal();
+        getData();
         generateUjian();
         timer();
     },[])
@@ -170,7 +189,7 @@ export default function UjianRunningMahasiswa() {
     const renderSoal = ()=>{
 
         return(
-            soal?.map(v=>{
+            soal?.map((v,i)=>{
 
                 const isAnswered = answered.filter(val=>{
                     return val.no == v.no
@@ -180,6 +199,7 @@ export default function UjianRunningMahasiswa() {
                     <div style={{
                         width:"10%",
                         marginRight:10,
+                        marginBottom:10,
                         height:50,
                         background:selectedSoal?.no == v.no ? "#eee" : isAnswered.length > 0 ? "#53AF50" : "#fff",
                         display:"flex",
@@ -279,6 +299,10 @@ export default function UjianRunningMahasiswa() {
                                 marginBottom:20,
                                 borderBottom:"1px solid #ddd",
                             }} >
+                                {
+                                    selectedSoal?.photo &&
+                                    <img src={selectedSoal?.photo} style={{width:"100%",maxHeight:300,objectFit:"contain"}} />
+                                }
                                 <span style={{
                                     fontSize:20,
                                     marginBottom:20,
@@ -298,9 +322,11 @@ export default function UjianRunningMahasiswa() {
                                     }}
                                     value={answer}
                                 ></textarea>
-                                <p>Masukan jawaban bergambar</p>
                                 {
-                                    selectedSoal?.image && <input type="file"/>
+                                    selectedSoal?.has_image && <>
+                                        <p>Masukan jawaban bergambar</p>
+                                        <input type="file"/>
+                                    </>
                                 }
                             </div>
                             <div style={{

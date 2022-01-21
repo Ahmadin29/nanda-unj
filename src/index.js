@@ -42,8 +42,6 @@ const checkSession = ()=>{
   }
 }
 
-const routerBaseName = process.env.PUBLIC_URL;
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

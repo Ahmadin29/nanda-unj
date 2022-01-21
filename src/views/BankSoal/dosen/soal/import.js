@@ -116,7 +116,7 @@ export default function ImportSoalDosen() {
 
     // prepare columns list from headers
     const columns = headers.map(c => (c));
-    const data = list.map(v=>([v.question,v.kisiSoal]));
+    const data = list.map(v=>([v.question,v.kisiSoal,v.has_image]));
     
     setColumn(columns);
     setData(data);
@@ -140,8 +140,9 @@ export default function ImportSoalDosen() {
         if (val.id == getId()) {
             listData.map((v,i)=>{
                 val.soal.push({
-                    id:selected[0].soal.id + 1,
+                    id:val.soal.length + 1,
                     kisi:v.kisiSoal,
+                    has_image:v.has_image == 'TRUE' ? true:false,
                     question:v.question,
                     status:'Valid',
                 })

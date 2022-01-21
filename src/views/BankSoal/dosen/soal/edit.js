@@ -58,6 +58,7 @@ export default function EditSoalDosen(params) {
     const [question,setQuestion] = useState();
     const [answer,setAnswer] = useState([]);
     const [hasImage,setHasImage] = useState();
+    const [photo,setPhoto] = useState();
 
     const getId = () => {
         return location.pathname.split("/")[
@@ -84,6 +85,7 @@ export default function EditSoalDosen(params) {
         setStatus(soal.status)
         setQuestion(soal.question)
         setHasImage(soal.has_image)
+        setPhoto(soal.photo)
     }
 
     useEffect(()=>{
@@ -92,16 +94,13 @@ export default function EditSoalDosen(params) {
 
     const saveData = ()=>{
         const setedBankSoal = JSON.parse(localStorage.getItem('bankSoal'));
-
-        const selected = setedBankSoal.filter(v=>{
-            return v.id == getId();
-        });
         
         setedBankSoal.map(val=>{
             if (val.id == getId()) {
                 val.soal[getIdSoal() - 1].kisi = kisiSoal;
                 val.soal[getIdSoal() - 1].question = question;
                 val.soal[getIdSoal() - 1].status = status;
+                val.soal[getIdSoal() - 1].photo = photo;
             }
         })
         
@@ -109,20 +108,19 @@ export default function EditSoalDosen(params) {
         Swal.fire('Berhasil!', 'Data soal berhasil diubah', 'success')
     }
 
-    const addAnswer = ()=>{
-        const data = {
-            id: answer.length + 1,
-            text:'',
-            value:false,
-        };
+    const handleImage = (e)=>{
 
-        const add = [];
-
-        add.push(data);
-        
-        const newData = [...answer,...add];
-
-        setAnswer(newData);
+        const file = e.target.files[0];
+    
+        const reader = new FileReader();
+    
+        reader.onload = function () {
+            const base64String = reader.result;
+            setPhoto(base64String);
+        }
+    
+        reader.readAsDataURL(file);
+    
     }
 
     return (
@@ -148,6 +146,24 @@ export default function EditSoalDosen(params) {
                                 value:question,
                             }}
                         />
+                        <div style={{
+                            flexDirection:"column",
+                        }} >
+                            <img src={photo} style={{width:"100%",maxWidth:300}} />
+                            <CustomInput
+                                labelText="Pertanyaan Gambar"
+                                formControlProps={{
+                                    fullWidth: true,
+                                }}
+                                style={{
+                                    marginBottom:"0px",
+                                }}
+                                inputProps={{
+                                    onChange:handleImage,
+                                    type:'file'
+                                }}
+                            />
+                        </div>
                         <CustomInput
                             labelText="Kisi Kisi Jawaban"
                             formControlProps={{

@@ -57,6 +57,7 @@ export default function AddSoalDosen(params) {
     const [status,setStatus] = useState('');
     const [question,setQuestion] = useState();
     const [hasImage,setHasImage] = useState(false);
+    const [photo,setPhoto] = useState("");
     const [selectedAnswer,setSelectedAnswer] = useState([]);
 
     const getId = () => {
@@ -78,13 +79,29 @@ export default function AddSoalDosen(params) {
                 id:selected[0].soal.length + 1,
                 kisi:kisiSoal,
                 question:question,
+                photo:photo,
                 status:status,
               })
             }
         })
-        
+
         localStorage.setItem('bankSoal',JSON.stringify(setedBankSoal));
         Swal.fire('Berhasil!', 'Data soal berhasil ditambahkan', 'success')
+    }
+
+    const handleImage = (e)=>{
+
+        const file = e.target.files[0];
+    
+        const reader = new FileReader();
+    
+        reader.onload = function () {
+            const base64String = reader.result;
+            setPhoto(base64String);
+        }
+    
+        reader.readAsDataURL(file);
+    
     }
 
     return (
@@ -104,9 +121,20 @@ export default function AddSoalDosen(params) {
                                 marginBottom:"0px",
                             }}
                             inputProps={{
-                                onChange:(event)=>{
-                                    setQuestion(event.target.value)
-                                },
+                                onChange:(event)=>{setQuestion(event.target.value)},
+                            }}
+                        />
+                        <CustomInput
+                            labelText="Pertanyaan Bergambar"
+                            formControlProps={{
+                                fullWidth: true,
+                            }}
+                            style={{
+                                marginBottom:"0px",
+                            }}
+                            inputProps={{
+                                onChange:handleImage,
+                                type:'file'
                             }}
                         />
                         <CustomInput
