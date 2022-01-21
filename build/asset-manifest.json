@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nanda-unj/static/css/main.a299c46a.chunk.css",
-    "main.js": "/nanda-unj/static/js/main.2f863ba4.chunk.js",
-    "main.js.map": "/nanda-unj/static/js/main.2f863ba4.chunk.js.map",
+    "main.js": "/nanda-unj/static/js/main.e9b4f8fb.chunk.js",
+    "main.js.map": "/nanda-unj/static/js/main.e9b4f8fb.chunk.js.map",
     "runtime-main.js": "/nanda-unj/static/js/runtime-main.d52a214c.js",
     "runtime-main.js.map": "/nanda-unj/static/js/runtime-main.d52a214c.js.map",
     "static/css/2.1881a404.chunk.css": "/nanda-unj/static/css/2.1881a404.chunk.css",
@@ -12,7 +12,7 @@
     "static/css/2.1881a404.chunk.css.map": "/nanda-unj/static/css/2.1881a404.chunk.css.map",
     "static/css/main.a299c46a.chunk.css.map": "/nanda-unj/static/css/main.a299c46a.chunk.css.map",
     "static/js/2.44fe706a.chunk.js.LICENSE.txt": "/nanda-unj/static/js/2.44fe706a.chunk.js.LICENSE.txt",
-    "static/js/main.2f863ba4.chunk.js.LICENSE.txt": "/nanda-unj/static/js/main.2f863ba4.chunk.js.LICENSE.txt",
+    "static/js/main.e9b4f8fb.chunk.js.LICENSE.txt": "/nanda-unj/static/js/main.e9b4f8fb.chunk.js.LICENSE.txt",
     "static/media/avatar.5fedd648.png": "/nanda-unj/static/media/avatar.5fedd648.png",
     "static/media/dosen-template.c6fc127a.csv": "/nanda-unj/static/media/dosen-template.c6fc127a.csv",
     "static/media/logo.6cd1ea43.png": "/nanda-unj/static/media/logo.6cd1ea43.png",
@@ -31,6 +31,6 @@
     "static/css/2.1881a404.chunk.css",
     "static/js/2.44fe706a.chunk.js",
     "static/css/main.a299c46a.chunk.css",
-    "static/js/main.2f863ba4.chunk.js"
+    "static/js/main.e9b4f8fb.chunk.js"
   ]
 }
