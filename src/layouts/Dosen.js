@@ -53,7 +53,7 @@ const switchRoutes = (
       if (prop.layout === "/dosen") {
         return (
           <Route
-            path={routerBaseName + prop.layout + prop.path}
+            path={prop.layout + prop.path}
             component={prop.component}
             key={key}
           />
@@ -61,32 +61,32 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Route path={routerBaseName+"/dosen/profile"} component={DosenProfile} />
-    <Route path={routerBaseName+"/dosen/update-photo"} component={DosenProfileUpdate} />
-    <Route path={routerBaseName+"/dosen/matkul/add"} component={AddMataKuliahDosen} />
-    <Route path={routerBaseName+"/dosen/matkul/:id/kosek/"} component={MataKuliahKosekDosen} />
-    <Route path={routerBaseName+"/dosen/matkul/:id/add/"} component={AddSeksiDosen} />
-    <Route path={routerBaseName+"/dosen/matkul/kosek-detail"} component={DetailSeksiDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/add"} component={AddBankSoalDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/:id/import"} component={ImportSoalDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/:id/detail/"} component={SoalDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/edit/"} component={EditBankSoalDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/:id/add/"} component={AddSoalDosen} />
-    <Route path={routerBaseName+"/dosen/bank-soal/:id/edit/"} component={EditSoalDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/detail/finished/"} component={DetailUjianFinishedDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/detail/ready/"} component={DetailUjianReadyDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/detail/hold/"} component={DetailUjianHoldDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/detail/running/"} component={DetailUjianRunningDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/detail/:id/"} component={DetailUjianDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/:id/add/"} component={AddUjianDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/:id/detail/:id/result/"} component={ResultUjianDosenMahasiswa} />
-    <Route path={routerBaseName+"/dosen/ujian/:id/detail/:id/onprocess/"} component={UjianOnProcessDosen} />
-    <Route path={routerBaseName+"/dosen/ujian/:id/detail/:id/"} component={DetailUjianDosenMahasiswa} />
-    <Route path={routerBaseName+"/dosen/paket-soal/:id/detail/:id_paket/edit"} component={EditPaketSoalDosen} />
-    <Route path={routerBaseName+"/dosen/paket-soal/:id/detail/:id_paket/"} component={SoalPaketSoalDosen} />
-    <Route path={routerBaseName+"/dosen/paket-soal/:id/detail/"} component={DetailPaketSoalDosen} />
-    <Route path={routerBaseName+"/dosen/paket-soal/:id/edit/"} component={EditStatusPaketSoalDosen} />
-    <Route path={routerBaseName+"/dosen/paket-soal/:id/add/"} component={AddPaketSoalDosen} />
+    <Route path={"/dosen/profile"} component={DosenProfile} />
+    <Route path={"/dosen/update-photo"} component={DosenProfileUpdate} />
+    <Route path={"/dosen/matkul/add"} component={AddMataKuliahDosen} />
+    <Route path={"/dosen/matkul/:id/kosek/"} component={MataKuliahKosekDosen} />
+    <Route path={"/dosen/matkul/:id/add/"} component={AddSeksiDosen} />
+    <Route path={"/dosen/matkul/kosek-detail"} component={DetailSeksiDosen} />
+    <Route path={"/dosen/bank-soal/add"} component={AddBankSoalDosen} />
+    <Route path={"/dosen/bank-soal/:id/import"} component={ImportSoalDosen} />
+    <Route path={"/dosen/bank-soal/:id/detail/"} component={SoalDosen} />
+    <Route path={"/dosen/bank-soal/edit/"} component={EditBankSoalDosen} />
+    <Route path={"/dosen/bank-soal/:id/add/"} component={AddSoalDosen} />
+    <Route path={"/dosen/bank-soal/:id/edit/"} component={EditSoalDosen} />
+    <Route path={"/dosen/ujian/detail/finished/"} component={DetailUjianFinishedDosen} />
+    <Route path={"/dosen/ujian/detail/ready/"} component={DetailUjianReadyDosen} />
+    <Route path={"/dosen/ujian/detail/hold/"} component={DetailUjianHoldDosen} />
+    <Route path={"/dosen/ujian/detail/running/"} component={DetailUjianRunningDosen} />
+    <Route path={"/dosen/ujian/detail/:id/"} component={DetailUjianDosen} />
+    <Route path={"/dosen/ujian/:id/add/"} component={AddUjianDosen} />
+    <Route path={"/dosen/ujian/:id/detail/:id/result/"} component={ResultUjianDosenMahasiswa} />
+    <Route path={"/dosen/ujian/:id/detail/:id/onprocess/"} component={UjianOnProcessDosen} />
+    <Route path={"/dosen/ujian/:id/detail/:id/"} component={DetailUjianDosenMahasiswa} />
+    <Route path={"/dosen/paket-soal/:id/detail/:id_paket/edit"} component={EditPaketSoalDosen} />
+    <Route path={"/dosen/paket-soal/:id/detail/:id_paket/"} component={SoalPaketSoalDosen} />
+    <Route path={"/dosen/paket-soal/:id/detail/"} component={DetailPaketSoalDosen} />
+    <Route path={"/dosen/paket-soal/:id/edit/"} component={EditStatusPaketSoalDosen} />
+    <Route path={"/dosen/paket-soal/:id/add/"} component={AddPaketSoalDosen} />
     <Redirect from="/dosen" to="/dosen/beranda" />
   </Switch>
 );
