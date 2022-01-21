@@ -42,8 +42,10 @@ const checkSession = ()=>{
   }
 }
 
+const routerBaseName = process.env.PUBLIC_URL;
+
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={routerBaseName}>
     <Switch>
       <Route path="/admin" component={Admin} />
       <Route path="/login" component={Login} />
