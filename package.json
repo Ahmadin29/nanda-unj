@@ -51,7 +51,7 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
   },
-  "homepage": "https://ahmadin29.github.io/nanda-unj/",
+  "homepage": "https://nanda-unj-ahmadin29.vercel.app/",
   "optionalDependencies": {
     "@babel/core": "7.14.0",
     "typescript": "4.2.4"
