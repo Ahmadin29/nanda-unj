@@ -43,6 +43,8 @@ import AdminProfileUpdate from "views/UserProfile/admin/photo";
 
 let ps;
 
+const routerBaseName = process.env.PUBLIC_URL;
+
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
@@ -57,28 +59,28 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Route path="/admin/profile" component={AdminProfile} />
-    <Route path="/admin/update-photo" component={AdminProfileUpdate} />
-    <Route path="/admin/calendar/edit" component={EditCalendarAdmin} />
-    <Route path="/admin/dosen/add" component={AddDosenAdmin} />
-    <Route path="/admin/dosen/edit" component={EditDosenAdmin} />
-    <Route path="/admin/dosen/import" component={ImportDosenAdmin} />
-    <Route path="/admin/mahasiswa/add" component={AddMahasiswaAdmin} />
-    <Route path="/admin/mahasiswa/edit" component={EditMahasiswaAdmin} />
-    <Route path="/admin/mahasiswa/import" component={ImportMahasiswaAdmin} />
-    <Route path="/admin/matkul/add" component={AddMataKuliahAdmin} />
-    <Route path="/admin/matkul/detail" component={DetailMatkulAdmin} />
-    <Route path="/admin/matkul/edit" component={EditMataKuliahAdmin} />
-    <Route path="/admin/matkul/import" component={ImportMatkulAdmin} />
-    <Route path="/admin/seksi/detail" component={DetailSeksiAdmin} />
-    <Route path="/admin/seksi/add" component={AddSeksiAdmin} />
-    <Route path="/admin/seksi/import" component={ImportSeksiAdmin} />
-    <Route path="/admin/seksi/edit" component={EditSeksiAdmin} />
-    <Route path="/admin/ujian-detail/finished" component={DetailUjianFinishedAdmin} />
-    <Route path="/admin/ujian-detail/hold" component={DetailUjianHoldAdmin} />
-    <Route path="/admin/paket-soal/:id/detail/:id_paket/" component={SoalPaketSoalAdmin} />
-    <Route path="/admin/ujian-detail/ready/:id" component={DetailUjianReadyAdmin} />
-    <Route path="/admin/ujian-detail/running" component={DetailUjianRunningAdmin} />
+    <Route path={routerBaseName+"/admin/profile"} component={AdminProfile} />
+    <Route path={routerBaseName+"/admin/update-photo"} component={AdminProfileUpdate} />
+    <Route path={routerBaseName+"/admin/calendar/edit"} component={EditCalendarAdmin} />
+    <Route path={routerBaseName+"/admin/dosen/add"} component={AddDosenAdmin} />
+    <Route path={routerBaseName+"/admin/dosen/edit"} component={EditDosenAdmin} />
+    <Route path={routerBaseName+"/admin/dosen/import"} component={ImportDosenAdmin} />
+    <Route path={routerBaseName+"/admin/mahasiswa/add"} component={AddMahasiswaAdmin} />
+    <Route path={routerBaseName+"/admin/mahasiswa/edit"} component={EditMahasiswaAdmin} />
+    <Route path={routerBaseName+"/admin/mahasiswa/import"} component={ImportMahasiswaAdmin} />
+    <Route path={routerBaseName+"/admin/matkul/add"} component={AddMataKuliahAdmin} />
+    <Route path={routerBaseName+"/admin/matkul/detail"} component={DetailMatkulAdmin} />
+    <Route path={routerBaseName+"/admin/matkul/edit"} component={EditMataKuliahAdmin} />
+    <Route path={routerBaseName+"/admin/matkul/import"} component={ImportMatkulAdmin} />
+    <Route path={routerBaseName+"/admin/seksi/detail"} component={DetailSeksiAdmin} />
+    <Route path={routerBaseName+"/admin/seksi/add"} component={AddSeksiAdmin} />
+    <Route path={routerBaseName+"/admin/seksi/import"} component={ImportSeksiAdmin} />
+    <Route path={routerBaseName+"/admin/seksi/edit"} component={EditSeksiAdmin} />
+    <Route path={routerBaseName+"/admin/ujian-detail/finished"} component={DetailUjianFinishedAdmin} />
+    <Route path={routerBaseName+"/admin/ujian-detail/hold"} component={DetailUjianHoldAdmin} />
+    <Route path={routerBaseName+"/admin/paket-soal/:id/detail/:id_paket/"} component={SoalPaketSoalAdmin} />
+    <Route path={routerBaseName+"/admin/ujian-detail/ready/:id"} component={DetailUjianReadyAdmin} />
+    <Route path={routerBaseName+"/admin/ujian-detail/running"} component={DetailUjianRunningAdmin} />
     <Redirect from="/admin" to={'/admin/beranda'} />
   </Switch>
 );

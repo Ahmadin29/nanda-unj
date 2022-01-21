@@ -23,6 +23,8 @@ import UjianFinishedReviewMahasiswa from "views/Ujian/mahasiswa/result/finished_
 import UjianRunningMahasiswa from "views/Ujian/mahasiswa/running";
 import MahasiswaProfileUpdate from "views/UserProfile/mahasiswa.js/photo";
 
+const routerBaseName = process.env.PUBLIC_URL;
+
 let ps;
 
 const switchRoutes = (
@@ -39,12 +41,12 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Route path="/mahasiswa/profile" component={MahasiswaProfile} />
-    <Route path="/mahasiswa/update-photo" component={MahasiswaProfileUpdate} />
-    <Route path="/mahasiswa/ujian/running" component={UjianRunningMahasiswa} />
-    <Route path="/mahasiswa/ujian/scheduled" component={UjianScheduledMahasiswa} />
-    <Route path="/mahasiswa/ujian/finished/scored" component={UjianFinishedScoredMahasiswa} />
-    <Route path="/mahasiswa/ujian/finished/review" component={UjianFinishedReviewMahasiswa} />
+    <Route path={routerBaseName+"/mahasiswa/profile"} component={MahasiswaProfile} />
+    <Route path={routerBaseName+"/mahasiswa/update-photo"} component={MahasiswaProfileUpdate} />
+    <Route path={routerBaseName+"/mahasiswa/ujian/running"} component={UjianRunningMahasiswa} />
+    <Route path={routerBaseName+"/mahasiswa/ujian/scheduled"} component={UjianScheduledMahasiswa} />
+    <Route path={routerBaseName+"/mahasiswa/ujian/finished/scored"} component={UjianFinishedScoredMahasiswa} />
+    <Route path={routerBaseName+"/mahasiswa/ujian/finished/review"} component={UjianFinishedReviewMahasiswa} />
     <Redirect from="/mahasiswa" to="/mahasiswa/beranda" />
   </Switch>
 );
