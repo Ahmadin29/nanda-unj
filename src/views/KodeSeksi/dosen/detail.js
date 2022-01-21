@@ -60,7 +60,7 @@ export default function DetailSeksiDosen(params) {
   }, []);
 
   const getData = ()=>{
-    const existingMahasiswa = Cookies.get('mahasiswa');
+    const existingMahasiswa = localStorage.getItem('mahasiswa');
     const data = [];
     
     JSON.parse(existingMahasiswa).map((v,i)=>{

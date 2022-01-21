@@ -72,7 +72,7 @@ export default function DetailUjianRunningDosen() {
                                 }} color="green">book</Icon>
                                 <span style={{
                                     fontSize:20,
-                                }} >Sedang Berjalan</span>
+                                }} >Soal Sedang Dikerjakan</span>
                             </div>
                             </GridContainer>
                     </CardBody>

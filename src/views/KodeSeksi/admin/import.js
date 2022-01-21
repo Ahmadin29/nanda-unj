@@ -124,7 +124,7 @@ export default function ImportSeksiAdmin() {
   }
 
   const upload = ()=>{
-    const recentSeksi = JSON.parse(Cookies.get('kodeSeksi'));
+    const recentSeksi = JSON.parse(localStorage.getItem('kodeSeksi'));
     const lastId = recentSeksi[recentSeksi.length - 1].id;
 
     const uploaded = listData.map((v,i)=>({
@@ -140,7 +140,7 @@ export default function ImportSeksiAdmin() {
     
     const newData = [...recentSeksi,...uploaded];
 
-    Cookies.set('kodeSeksi',JSON.stringify(newData));
+    localStorage.setItem('kodeSeksi',JSON.stringify(newData));
 
     Swal.fire({
       title: 'Berhasil!',

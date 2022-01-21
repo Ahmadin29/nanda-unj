@@ -59,7 +59,7 @@ export default function AddSeksiAdmin(params) {
   const [matkul,setMatkul] = useState();
 
   const saveMatkul = ()=>{
-    const setedKodeSeksi = JSON.parse(Cookies.get('kodeSeksi'));
+    const setedKodeSeksi = JSON.parse(localStorage.getItem('kodeSeksi'));
 
     if (kodeSeksi == '' && dosen == '' && sks == ''&& jenisMatkul == '') {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -79,7 +79,7 @@ export default function AddSeksiAdmin(params) {
         },
     )
     
-    Cookies.set('kodeSeksi',JSON.stringify(setedKodeSeksi));
+    localStorage.setItem('kodeSeksi',JSON.stringify(setedKodeSeksi));
 
     Swal.fire({
       title: 'Berhasil!',
@@ -90,7 +90,7 @@ export default function AddSeksiAdmin(params) {
   }
 
   const renderSeksi = () =>{
-    const mataKuliah = JSON.parse(Cookies.get('mataKuliah'));
+    const mataKuliah = JSON.parse(localStorage.getItem('mataKuliah'));
 
     if (mataKuliah) {
         return (

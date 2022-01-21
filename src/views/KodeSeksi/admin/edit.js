@@ -58,7 +58,7 @@ export default function EditSeksiAdmin(params) {
   const [matkul,setMatkul] = useState();
 
   const saveMatkul = ()=>{
-    const setedKodeSeksi = JSON.parse(Cookies.get('kodeSeksi'));
+    const setedKodeSeksi = JSON.parse(localStorage.getItem('kodeSeksi'));
 
     if (kodeSeksi == '' && dosen == '' && sks == ''&& jenisMatkul == '') {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -74,7 +74,7 @@ export default function EditSeksiAdmin(params) {
         }
     })
     
-    Cookies.set('kodeSeksi',JSON.stringify(setedKodeSeksi));
+    localStorage.setItem('kodeSeksi',JSON.stringify(setedKodeSeksi));
 
     Swal.fire({
       title: 'Berhasil!',
@@ -95,7 +95,7 @@ export default function EditSeksiAdmin(params) {
   }, []);
 
   const getData = ()=>{
-    const setedKodeSeksi = Cookies.get('kodeSeksi');
+    const setedKodeSeksi = localStorage.getItem('kodeSeksi');
 
     const selected = JSON.parse(setedKodeSeksi).filter(v=>{
       return v.id == getId();
