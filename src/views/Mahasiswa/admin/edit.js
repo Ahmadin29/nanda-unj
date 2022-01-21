@@ -61,7 +61,7 @@ export default function EditMahasiswaAdmin(params) {
   }, []);
 
   const getData = ()=>{
-    const setedMahasiswa = Cookies.get('mahasiswa');
+    const setedMahasiswa = localStorage.getItem('mahasiswa');
 
     const selected = JSON.parse(setedMahasiswa).filter(v=>{
       return v.id == getId();
@@ -74,7 +74,7 @@ export default function EditMahasiswaAdmin(params) {
   }
 
   const saveDosen = ()=>{
-    const setedMahasiswa = JSON.parse(Cookies.get('mahasiswa'));
+    const setedMahasiswa = JSON.parse(localStorage.getItem('mahasiswa'));
 
     setedMahasiswa.map(val=>{
       if (val.id == getId()) {
@@ -85,7 +85,7 @@ export default function EditMahasiswaAdmin(params) {
       }
     })
     
-    Cookies.set('mahasiswa',JSON.stringify(setedMahasiswa))
+    localStorage.setItem('mahasiswa',JSON.stringify(setedMahasiswa))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil mengubah data Mahasiswa',

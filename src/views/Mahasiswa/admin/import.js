@@ -124,7 +124,7 @@ export default function ImportMahasiswaAdmin() {
   }
 
   const upload = ()=>{
-    const recentMahasiswa = JSON.parse(Cookies.get('mahasiswa'));
+    const recentMahasiswa = JSON.parse(localStorage.getItem('mahasiswa'));
     const lastId = recentMahasiswa[recentMahasiswa.length - 1].id;
 
     const uploaded = listData.map((v,i)=>({
@@ -139,7 +139,7 @@ export default function ImportMahasiswaAdmin() {
     
     const newData = [...recentMahasiswa,...uploaded];
 
-    Cookies.set('mahasiswa',JSON.stringify(newData));
+    localStorage.setItem('mahasiswa',JSON.stringify(newData));
 
     Swal.fire({
       title: 'Berhasil!',

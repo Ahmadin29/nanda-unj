@@ -27,7 +27,7 @@ export default function EditCalendarAdmin(params) {
   const classes = useStyles();
 
   const getSchedule = ()=>{
-    const currentSchedule = JSON.parse(Cookies.get('schedule'));
+    const currentSchedule = JSON.parse(localStorage.getItem('schedule'));
 
     setSchedule(currentSchedule);
   }
@@ -142,7 +142,7 @@ export default function EditCalendarAdmin(params) {
   }
 
   const saveSchedule = ()=>{
-    Cookies.set('schedule',JSON.stringify(schedule));
+    localStorage.setItem('schedule',JSON.stringify(schedule));
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil mengubah kalender akademik',

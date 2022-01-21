@@ -77,10 +77,10 @@ export default function DashboardAdmin() {
       },
     ];
 
-    const existSchedule = Cookies.get('schedule');
+    const existSchedule = localStorage.getItem('schedule');
     
     if (!existSchedule) {
-      Cookies.set('schedule',JSON.stringify(schedule));
+      localStorage.setItem('schedule',JSON.stringify(schedule));
 
       const data = [];
 
@@ -177,7 +177,7 @@ export default function DashboardAdmin() {
         },
     ];
 
-    const existingBankSoal = Cookies.get('bankSoal');
+    const existingBankSoal = localStorage.getItem('bankSoal');
     
     if (existingBankSoal) {
 
@@ -189,7 +189,7 @@ export default function DashboardAdmin() {
   
       setBankSoal(data)
     }else{
-      Cookies.set('bankSoal',JSON.stringify(db_banksoal));
+      localStorage.setItem('bankSoal',JSON.stringify(db_banksoal));
     }
   }
 

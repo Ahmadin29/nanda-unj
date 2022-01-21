@@ -53,7 +53,7 @@ export default function AddMahasiswaAdmin(params) {
   const [password,setPassword] = useState('');
 
   const saveDosen = ()=>{
-    const setedMahasiswa = JSON.parse(Cookies.get('mahasiswa'));
+    const setedMahasiswa = JSON.parse(localStorage.getItem('mahasiswa'));
 
     if (nim == '' && angkatan == '' && name == ''&& email == ''&& phone == ''&& password == '') {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -64,7 +64,7 @@ export default function AddMahasiswaAdmin(params) {
         id:setedMahasiswa[setedMahasiswa.length - 1].id + 1,nim,angkatan,namaLengkap:name,email,nomorTelepon:phone
     })
     
-    Cookies.set('mahasiswa',JSON.stringify(setedMahasiswa))
+    localStorage.setItem('mahasiswa',JSON.stringify(setedMahasiswa))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil menambahkan data Mahasiswa',

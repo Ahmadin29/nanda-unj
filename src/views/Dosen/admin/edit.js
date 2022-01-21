@@ -61,7 +61,7 @@ export default function EditDosenAdmin(params) {
   }, []);
 
   const getData = ()=>{
-    const setedDosen = Cookies.get('dosen');
+    const setedDosen = localStorage.getItem('dosen');
 
     const selected = JSON.parse(setedDosen).filter(v=>{
       return v.id == getId();
@@ -74,7 +74,7 @@ export default function EditDosenAdmin(params) {
   }
 
   const saveDosen = ()=>{
-    const setedDosen = JSON.parse(Cookies.get('dosen'));
+    const setedDosen = JSON.parse(localStorage.getItem('dosen'));
 
     setedDosen.map(val=>{
       if (val.id == getId()) {
@@ -85,7 +85,7 @@ export default function EditDosenAdmin(params) {
       }
     })
     
-    Cookies.set('dosen',JSON.stringify(setedDosen))
+    localStorage.setItem('dosen',JSON.stringify(setedDosen))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil mengubah data dosen',

@@ -30,7 +30,7 @@ import Cookies from "js-cookie";
 import Mahasiswa from "layouts/Mahasiswa";
 
 const checkSession = ()=>{
-  const session = Cookies.get('session');
+  const session = localStorage.getItem('session');
 
   if (session) {
 

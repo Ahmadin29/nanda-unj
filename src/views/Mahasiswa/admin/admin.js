@@ -75,7 +75,7 @@ export default function MahasiswaAdmin() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-              const deletedMahasiswa = JSON.parse(Cookies.get('mahasiswa')).filter((val)=>{
+              const deletedMahasiswa = JSON.parse(localStorage.getItem('mahasiswa')).filter((val)=>{
                 return val.id != id
               })
 
@@ -85,7 +85,7 @@ export default function MahasiswaAdmin() {
                 data.push([v.nim,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
               });
               
-              Cookies.set('mahasiswa',JSON.stringify(deletedMahasiswa));
+              localStorage.setItem('mahasiswa',JSON.stringify(deletedMahasiswa));
               setMahasiswa(data)
 
               Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')
@@ -151,7 +151,7 @@ export default function MahasiswaAdmin() {
       },
     ];
 
-    const existingMahasiswa = Cookies.get('mahasiswa');
+    const existingMahasiswa = localStorage.getItem('mahasiswa');
     
     if (existingMahasiswa) {
 
@@ -164,7 +164,7 @@ export default function MahasiswaAdmin() {
       setMahasiswa(data)
     }else{
 
-      Cookies.set('mahasiswa',JSON.stringify(db_mahasiswa));
+      localStorage.setItem('mahasiswa',JSON.stringify(db_mahasiswa));
       const data = [];
 
       db_mahasiswa.map((v)=>{

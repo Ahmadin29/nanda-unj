@@ -87,7 +87,7 @@ export default function MataKuliahAdmin() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-              const deletedMatkul = JSON.parse(Cookies.get('mataKuliah')).filter((val)=>{
+              const deletedMatkul = JSON.parse(localStorage.getItem('mataKuliah')).filter((val)=>{
                 return val.id != id
               })
 
@@ -97,7 +97,7 @@ export default function MataKuliahAdmin() {
                 data.push([v.namaMatKul,v.kodematkul,detail(v.id),edit(v.id),remove(v.id)]);
               });
               
-              Cookies.set('mataKuliah',JSON.stringify(deletedMatkul));
+              localStorage.setItem('mataKuliah',JSON.stringify(deletedMatkul));
               setMatkul(data)
 
               Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')

@@ -75,7 +75,7 @@ export default function DosenAdmin() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-              const deletedDosen = JSON.parse(Cookies.get('dosen')).filter((val)=>{
+              const deletedDosen = JSON.parse(localStorage.getItem('dosen')).filter((val)=>{
                 console.log(val.id,id);
                 return val.id != id
               })
@@ -86,7 +86,7 @@ export default function DosenAdmin() {
                 data.push([v.nip,v.nidn,v.nidk,v.namaLengkap,v.email,v.nomorTelepon,edit(v.id)]);
               });
               
-              Cookies.set('dosen',JSON.stringify(deletedDosen));
+              localStorage.setItem('dosen',JSON.stringify(deletedDosen));
               setDosen(data)
 
               Swal.fire('Dihapus!', 'Berhasil dihapus', 'success')
@@ -157,7 +157,7 @@ export default function DosenAdmin() {
       },
     ];
 
-    const existingDosen = Cookies.get('dosen');
+    const existingDosen = localStorage.getItem('dosen');
     
     if (existingDosen) {
 
@@ -170,7 +170,7 @@ export default function DosenAdmin() {
       setDosen(data)
     }else{
 
-      Cookies.set('dosen',JSON.stringify(db_dosen));
+      localStorage.setItem('dosen',JSON.stringify(db_dosen));
       const data = [];
 
       db_dosen.map((v)=>{

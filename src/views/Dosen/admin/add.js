@@ -54,7 +54,7 @@ export default function AddDosenAdmin(params) {
   const [password,setPassword] = useState('');
 
   const saveDosen = ()=>{
-    const setedDosen = JSON.parse(Cookies.get('dosen'));
+    const setedDosen = JSON.parse(localStorage.getItem('dosen'));
 
     if (nip == '' && nidn == ''&& nidk == ''&& name == ''&& email == ''&& phone == ''&& password == '') {
         Swal.fire('Terjadi Kesalahan','Gagal untuk menyimpan data, Semua data Wajib di isi','error')
@@ -65,7 +65,7 @@ export default function AddDosenAdmin(params) {
         id:setedDosen[setedDosen.length - 1].id + 1,nip,nidn,nidk,namaLengkap:name,email,nomorTelepon:phone
     })
     
-    Cookies.set('dosen',JSON.stringify(setedDosen))
+    localStorage.setItem('dosen',JSON.stringify(setedDosen))
     Swal.fire({
       title: 'Berhasil!',
       text: 'Berhasil menambahkan data dosen',

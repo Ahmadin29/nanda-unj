@@ -124,7 +124,7 @@ export default function ImportDosenAdmin() {
   }
 
   const upload = ()=>{
-    const recentDosen = JSON.parse(Cookies.get('dosen'));
+    const recentDosen = JSON.parse(localStorage.getItem('dosen'));
     const lastId = recentDosen[recentDosen.length - 1].id;
 
     const uploaded = listData.map((v,i)=>({
@@ -140,7 +140,7 @@ export default function ImportDosenAdmin() {
     
     const newData = [...recentDosen,...uploaded];
 
-    Cookies.set('dosen',JSON.stringify(newData));
+    localStorage.setItem('dosen',JSON.stringify(newData));
 
     Swal.fire({
       title: 'Berhasil!',

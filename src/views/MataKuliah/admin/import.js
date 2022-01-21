@@ -124,7 +124,7 @@ export default function ImportMatkulAdmin() {
   }
 
   const upload = ()=>{
-    const recentMatkul = JSON.parse(Cookies.get('mataKuliah'));
+    const recentMatkul = JSON.parse(localStorage.getItem('mataKuliah'));
     const lastId = recentMatkul[recentMatkul.length - 1].id;
 
     const uploaded = listData.map((v,i)=>({
@@ -137,7 +137,7 @@ export default function ImportMatkulAdmin() {
     
     const newData = [...recentMatkul,...uploaded];
 
-    Cookies.set('mataKuliah',JSON.stringify(newData));
+    localStorage.setItem('mataKuliah',JSON.stringify(newData));
 
     Swal.fire({
       title: 'Berhasil!',

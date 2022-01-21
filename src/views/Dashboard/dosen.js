@@ -77,10 +77,10 @@ export default function DashboardDosen() {
       },
     ];
 
-    const existSchedule = Cookies.get('schedule');
+    const existSchedule = localStorage.getItem('schedule');
     
     if (!existSchedule) {
-      Cookies.set('schedule',JSON.stringify(schedule));
+      localStorage.setItem('schedule',JSON.stringify(schedule));
 
       const data = [];
 

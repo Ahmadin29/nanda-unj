@@ -113,7 +113,7 @@ export default function ResultUjianDosenMahasiswa() {
     }
 
     const getMahasiswa = ()=>{
-        const setedMahasiswa = Cookies.get('mahasiswa');
+        const setedMahasiswa = localStorage.getItem('mahasiswa');
 
         const selected = JSON.parse(setedMahasiswa).filter(v=>{
             return v.id == getIdMahasiswa();
